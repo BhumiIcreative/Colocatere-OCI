@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherited account move form view to add the Sync to Akawam button -->
+        <record id="account_move_form" model="ir.ui.view">
+            <field name="name">account move form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <button name="button_draft" position="after">
+                    <button name="sync_to_akawam" class="btn-primary" string="Sync to Akawam" type="object"
+                            groups="base.group_no_one"
+                            context="{'force_akawam_sync': True}"/>
+                </button>
+            </field>
+        </record>
+
+        <!-- Server action to trigger sync_to_akawam method -->
+        <record model="ir.actions.server" id="sync_to_akawam_action">
+            <field name="name">Sync to akawam</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="state">code</field>
+            <field name="code">
+                <!--Loop through selected records and sync them to Akawam-->
+                for item in records:
+                item.with_context(force_akawam_sync=True).sync_to_akawam()
+            </field>
+            <field name="binding_model_id" ref="account.model_account_move"/>
+            <field name="binding_type">action</field>
+        </record>
+    </data>
+</odoo>
