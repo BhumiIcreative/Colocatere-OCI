@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_expense_report_import" model="ir.ui.view">
+      <field name="name">Expense report import</field>
+      <field name="model">expense_report_import</field>
+      <field name="arch" type="xml">
+        <form string="Expense report import">
+          <group string="Your company">
+            <field name="company_id" readonly="1"/>
+            <field name="account_move_journal_id"/>
+          </group>
+          <group string="Expense report import">
+            <field name="file" filename="filename" widget="binary"/>
+            <field name="filename" invisible="1"/>
+          </group>
+          <group string="Expense report lines">
+            <field name="line_ids" readonly="0" nolabel="1" colspan="2">
+              <tree editable="bottom" create="false">
+                <field name="date" readonly="0"/>
+                <field name="account_code" readonly="0"/>
+                <field name="move_ref" readonly="0"/>
+                <field name="label" readonly="0"/>
+                <field name="debit" readonly="0"/>
+                <field name="credit" readonly="0"/>
+                <field name="analytic_account_id" readonly="0"/>
+                <field name="currency_id" groups="base.group_no_one"/>
+                <field name="partner_id" readonly="0"/>
+              </tree>
+            </field>
+          </group>
+          <footer>
+              <button name="run" type="object" string="Confirm" class="oe_highlight"/>
+              <button string="Cancel" class="btn-default" special="cancel"/>
+          </footer>
+        </form>
+      </field>
+    </record>
+
+    <record id="expense_report_import_action_window" model="ir.actions.act_window">
+      <field name="name">Expense report import</field>
+      <field name="res_model">expense_report_import</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_expense_report_import"/>
+      <field name="target">new</field>
+    </record>
+
+    <!-- si jamais on est juste dans le module facturation et pas dans le module comptabilité de la version entreprise -->
+    <!-- parent="account.menu_finance" -->
+    <menuitem
+      id="expense_report_import_wizard"
+      name="Expense report import"
+      parent="account_accountant.menu_accounting"
+      sequence="31"
+      action="expense_report_import_action_window"/>
+</odoo>
