@@ -1,0 +1,255 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* col_payment_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-13 11:34+0000\n"
+"PO-Revision-Date: 2024-09-13 11:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import.py:0
+#, python-format
+msgid " Try adding valid CSV file. Failed to upload with Error :  %s"
+msgstr "Essayez d'ajouter un fichier CSV valide. Échec du téléchargement avec l'erreur : %s"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__account_code
+#, python-format
+msgid "Account code"
+msgstr "Code de compte"
+
+#. module: col_payment_import
+#: model_terms:ir.ui.view,arch_db:col_payment_import.view_payment_import
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__company_id
+#, python-format
+msgid "Company"
+msgstr "Société"
+
+#. module: col_payment_import
+#: model_terms:ir.ui.view,arch_db:col_payment_import.view_payment_import
+msgid "Confirm and open accounting entries"
+msgstr "Confirmer et ouvrir les pièces comptables"
+
+#. module: col_payment_import
+#: model_terms:ir.ui.view,arch_db:col_payment_import.view_payment_import
+msgid "Confirm and open payments"
+msgstr "Confirmer et ouvrir les paiements"
+
+#. module: col_payment_import
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__create_uid
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: col_payment_import
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__create_date
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__credit
+#, python-format
+msgid "Credit"
+msgstr "Crédit"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__currency_id
+#, python-format
+msgid "Currency"
+msgstr "Devise"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__date
+#, python-format
+msgid "Date"
+msgstr ""
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__debit
+#, python-format
+msgid "Debit"
+msgstr ""
+
+#. module: col_payment_import
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__display_name
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__display_name
+msgid "Display Name"
+msgstr "Afficher Nom"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__file
+#, python-format
+msgid "File"
+msgstr "Fichier"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__filename
+#, python-format
+msgid "File name"
+msgstr "Nom du fichier"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__group
+#, python-format
+msgid "Group"
+msgstr "Groupe"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#, python-format
+msgid "Have multiple partner with account %s"
+msgstr "Avoir plusieurs partenaires avec le compte %s"
+
+#. module: col_payment_import
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__id
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__id
+msgid "ID"
+msgstr ""
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#, python-format
+msgid "Invalid Data :  %s"
+msgstr "Données invalides : %s"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__account_move_journal_id
+#, python-format
+msgid "Journal"
+msgstr ""
+
+#. module: col_payment_import
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__write_uid
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: col_payment_import
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__write_date
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__libelle
+#, python-format
+msgid "Libelle"
+msgstr ""
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__name
+#, python-format
+msgid "Name"
+msgstr "Nom"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__partner_id
+#, python-format
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: col_payment_import
+#: model:ir.model,name:col_payment_import.model_payment_import
+msgid "Payment Import"
+msgstr "Importation de paiements"
+
+#. module: col_payment_import
+#: model:ir.model,name:col_payment_import.model_payment_import_line
+msgid "Payment Import line"
+msgstr "Ligne d'importation de paiements"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import_line.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import_line__payment_import_id
+#, python-format
+msgid "Payment entry"
+msgstr "Enregistrement de paiement"
+
+#. module: col_payment_import
+#: model:ir.actions.act_window,name:col_payment_import.payment_import_action_window
+#: model:ir.ui.menu,name:col_payment_import.payment_import_wizard
+#: model_terms:ir.ui.view,arch_db:col_payment_import.view_payment_import
+msgid "Payment import"
+msgstr "Importation de paiements"
+
+#. module: col_payment_import
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__line_ids
+msgid "Payment import items"
+msgstr "Éléments d'importation de paiements"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__journal_id
+#, python-format
+msgid "Payment journal"
+msgstr "Journal des paiements"
+
+#. module: col_payment_import
+#: model_terms:ir.ui.view,arch_db:col_payment_import.view_payment_import
+msgid "Payment line"
+msgstr "Ligne de paiement"
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import.py:0
+#, python-format
+msgid "Please fill employee account for %s"
+msgstr "Veuillez remplir le compte employé pour %s
+
+#. module: col_payment_import
+#. odoo-python
+#: code:addons/col_payment_import/wizard/payment_import.py:0
+#: model:ir.model.fields,field_description:col_payment_import.field_payment_import__show_group
+#, python-format
+msgid "Show group"
+msgstr "Afficher le groupe"
+
+#. module: col_payment_import
+#: model_terms:ir.ui.view,arch_db:col_payment_import.view_payment_import
+msgid "Your company"
+msgstr "Votre entreprise"
