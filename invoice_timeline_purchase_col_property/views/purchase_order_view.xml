@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Inherited purchase order and changes to invoice timeline field-->
+    <record model="ir.ui.view" id="view_purchase_order_timeline_form">
+        <field name="name">Purchase order timeline form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="invoice_timeline_purchase.view_purchase_order_form"/>
+        <field name="arch" type="xml">
+            <field name="invoice_timeline_template_id" position="attributes">
+                <attribute name="invisible">company_id != 1</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>

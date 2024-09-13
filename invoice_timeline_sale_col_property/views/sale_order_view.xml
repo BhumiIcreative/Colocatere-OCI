@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit the sale order form view to make change. -->
+    <record model="ir.ui.view" id="view_sale_order_timeline_form">
+        <field name="name">Sale order timeline form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="invoice_timeline_template_id" position="attributes">
+                <attribute name="invisible">company_id != 1</attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
