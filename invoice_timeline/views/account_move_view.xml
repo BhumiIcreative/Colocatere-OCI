@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="account_move_form">
+        <field name="name">Account move form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <!-- Added Timeline field -->
+            <xpath expr="//group[@id='header_right_group']" poistion="inside">
+                <field name="account_timeline_template_id"/>
+            </xpath>
+            <!-- Update attributes of due date -->
+            <field name="invoice_date_due" position="attributes">
+                <attribute name="readonly">account_timeline_template_id</attribute>
+            </field>
+            <!-- Update attributes of Payment term -->
+            <field name="invoice_payment_term_id" position="attributes">
+                <attribute name="readonly">account_timeline_template_id</attribute>
+            </field>
+            <!-- Update invoice date attributes and added update button -->
+            <field name="invoice_date" position="replace">
+                <div class="o_row">
+                    <field name="invoice_date" nolabel="1" options="{'warn_future': true}"
+                           invisible="move_type not in ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt')"
+                           readonly="account_timeline_template_id"/>
+                    <button name="action_update_invoice_date" type="object" string="UPDATE"
+                            class="btn-primary"
+                            invisible="not account_timeline_template_id"/>
+                </div>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,411 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* invoice_timeline
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-20 08:52+0000\n"
+"PO-Revision-Date: 2024-08-20 08:52+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model.fields,help:invoice_timeline.field_account_timeline_template_line__product_categ_id
+#, python-format
+msgid ""
+"\n"
+"           When you choose a product category, it will exclude it from the global invoiceable price\n"
+"           Then it will create specific invoice line for this product category and assiocated percentage\n"
+"       "
+msgstr ""
+"\n"
+"        Quand vous séléctionnez une catégorie d'article, cela va l'exclure du total global à facturer\n"
+"        Puis cela va créer des lignes de factures spécifiques pour cette catégorie avec le pourcentage associé.\n"
+"    "
+
+#. module: invoice_timeline
+#: model:ir.model,name:invoice_timeline.model_account_move_reversal
+msgid "Account Move Reversal"
+msgstr "Renversement de l'écriture comptable"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/wizard/account_move_reversal.py:0
+#: model:ir.model,name:invoice_timeline.model_account_move_date_update
+#, python-format
+msgid "Account move date update wizard"
+msgstr "Wizard mise à jour date de facturation"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/wizard/account_move_date_update_line.py:0
+#: model:ir.model,name:invoice_timeline.model_account_move_date_update_line
+#, python-format
+msgid "Account move date update wizard line"
+msgstr "Ligne du wizard de mise à jour des factures"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#: model:ir.actions.act_window,name:invoice_timeline.action_timeline_template_tree
+#: model:ir.model,name:invoice_timeline.model_account_timeline_template
+#, python-format
+msgid "Account timeline template"
+msgstr "Modèle de facturation échéancé"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model,name:invoice_timeline.model_account_timeline_template_line
+#, python-format
+msgid "Account timeline template line"
+msgstr "Ligne de modèle de facturation échéancé"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__active
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.timeline_template_search
+#, python-format
+msgid "Active"
+msgstr "Actif"
+
+#. module: invoice_timeline
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.timeline_template_form
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.timeline_template_search
+msgid "Archived"
+msgstr "Archivé"
+
+#. module: invoice_timeline
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.account_move_date_update_form
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: invoice_timeline
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.account_move_date_update_form
+msgid "Compute"
+msgstr "Calculer"
+
+#. module: invoice_timeline
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.account_move_date_update_form
+msgid "Confirm"
+msgstr "Confirmer"
+
+#. module: invoice_timeline
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update__create_uid
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__create_uid
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__create_uid
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: invoice_timeline
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update__create_date
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__create_date
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__create_date
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/wizard/account_move_date_update_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__invoice_date_due
+#, python-format
+msgid "Current invoice date due"
+msgstr "Date de facturation actuelle"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model.fields.selection,name:invoice_timeline.selection__account_timeline_template_line__interval_type__day
+#, python-format
+msgid "Day"
+msgstr "Jour"
+
+#. module: invoice_timeline
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update__display_name
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__display_name
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__display_name
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__display_name
+msgid "Display Name"
+msgstr "Afficher Nom"
+
+#. module: invoice_timeline
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.timeline_template_search
+msgid "Group By..."
+msgstr "Regrouper par..."
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/wizard/account_move_reversal.py:0
+#, python-format
+msgid ""
+"I should have %s invoices but I have %s, so I can't compute next date by "
+"myself."
+msgstr ""
+"je devrais avoir %s factures, mais j'en ai %s, donc je ne peux pas calculer "
+"la/les prochaine(s) date(s) par moi-même."
+
+#. module: invoice_timeline
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update__id
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__id
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__id
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__id
+msgid "ID"
+msgstr ""
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__interval
+#, python-format
+msgid "Interval"
+msgstr "Intervalle"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__interval_type
+#, python-format
+msgid "Interval type"
+msgstr "Type d'intervalle"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/wizard/account_move_date_update_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__invoice_id
+#, python-format
+msgid "Invoice"
+msgstr "Facture"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__invoice_count
+#, python-format
+msgid "Invoice count"
+msgstr "Nombre de facture"
+
+#. module: invoice_timeline
+#: model:ir.ui.menu,name:invoice_timeline.timeline_root
+msgid "Invoice timeline"
+msgstr "Facture échéancier"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__invoice_ids
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.timeline_template_form
+#, python-format
+msgid "Invoices"
+msgstr "Factures"
+
+#. module: invoice_timeline
+#: model:ir.model,name:invoice_timeline.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: invoice_timeline
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update__write_uid
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__write_uid
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__write_uid
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: invoice_timeline
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update__write_date
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__write_date
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__write_date
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#, python-format
+msgid "Line's sum for category %s is %s, it should be 100 !"
+msgstr ""
+"La somme des lignes pour la catégorie %s est %s, elel devrait être à 100 !"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#, python-format
+msgid "Line's sum is %s, it should be 100 !"
+msgstr "La somme des lignes est de %s, cela devrait être 100 !"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#: code:addons/invoice_timeline/wizard/account_move_reversal.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update__line_ids
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__line_ids
+#, python-format
+msgid "Lines"
+msgstr "Lignes"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model.fields.selection,name:invoice_timeline.selection__account_timeline_template_line__interval_type__month
+#, python-format
+msgid "Month"
+msgstr "Mois"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__name
+#, python-format
+msgid "Name"
+msgstr "Nom"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/wizard/account_move_date_update_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__new_invoice_date_due
+#, python-format
+msgid "New invoice date due"
+msgstr "Nouvelle date d'échéance"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__percent
+#, python-format
+msgid "Percent"
+msgstr "Pourcent"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#, python-format
+msgid "Percent must be less than or equal to 100! (Currently: %s)"
+msgstr "Le pourcentage doit être inférieur ou égal à 100 ! (Actuellement : %s)"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#, python-format
+msgid "Percent must be positive! (Currently: %s)"
+msgstr "Le pourcentage doit être positif ! (saisi: %s)"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__product_categ_id
+#, python-format
+msgid "Product category"
+msgstr "Catégorie de produit"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__sequence
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__sequence
+#, python-format
+msgid "Sequence"
+msgstr "Séquence"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template_line__template_id
+#, python-format
+msgid "Template"
+msgstr "Modèle"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_move.py:0
+#: code:addons/invoice_timeline/wizard/account_move_reversal.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_bank_statement_line__account_timeline_template_id
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move__account_timeline_template_id
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update__account_timeline_template_id
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_payment__account_timeline_template_id
+#, python-format
+msgid "Timeline"
+msgstr "Ligne du temps"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_move.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_bank_statement_line__timeline_sequence
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move__timeline_sequence
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_payment__timeline_sequence
+#, python-format
+msgid "Timeline sequence"
+msgstr "Séquence d'échéancier"
+
+#. module: invoice_timeline
+#: model:ir.ui.menu,name:invoice_timeline.timeline_template
+msgid "Timeline template"
+msgstr "Modèle d'échéancier"
+
+#. module: invoice_timeline
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.timeline_template_form
+msgid "Timelines"
+msgstr "Échéancement"
+
+#. module: invoice_timeline
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.account_move_form
+msgid "UPDATE"
+msgstr "Mettre à jour"
+
+#. module: invoice_timeline
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.timeline_template_search
+msgid "Usage"
+msgstr "Utilisation"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_timeline_template__used_on
+#, python-format
+msgid "Used on"
+msgstr "Utilisable sur"
+
+#. module: invoice_timeline
+#: model_terms:ir.ui.view,arch_db:invoice_timeline.account_move_date_update_form
+msgid ""
+"When you press one of the \"compute\" button, it will compute every next planned date of the\n"
+"                        pressed line."
+msgstr ""
+"Lorsque vous appuyez sur l'un des boutons \"Calculer\", cela va calculer "
+"toutes les prochaines dates d'échéances prévues"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/wizard/account_move_date_update_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__wizard_id
+#, python-format
+msgid "Wizard"
+msgstr "Assistant"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/wizard/account_move_date_update_line.py:0
+#: model:ir.model.fields,field_description:invoice_timeline.field_account_move_date_update_line__writable
+#, python-format
+msgid "Writable"
+msgstr "Modifiable"
+
+#. module: invoice_timeline
+#. odoo-python
+#: code:addons/invoice_timeline/models/account_timeline_template.py:0
+#, python-format
+msgid "You should probably fill lines."
+msgstr "Vosu devriez probablement saisir des lignes."
