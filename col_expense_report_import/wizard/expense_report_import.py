@@ -35,9 +35,12 @@ class ExpenseReportImport(models.TransientModel):
             try:
                 content = base64.b64decode(self.file).decode("cp1252").replace("\r", "")
             except Exception as e:
-                raise UserError(_(
-                    " Try adding valid CSV file. Failed to upload with Error :  %s" % e
-                ))
+                raise UserError(
+                    _(
+                        " Try adding valid CSV file. Failed to upload with Error :  %s"
+                        % e
+                    )
+                )
             # Séparer les lignes et retirer la première ligne contenant les noms de colonnes
             lines = content.split("\n")[1:]
             # Supprimer les lignes vides
@@ -45,14 +48,16 @@ class ExpenseReportImport(models.TransientModel):
             # Séparer les colonnes
             lines = list(map(lambda line: line.split(";"), lines))
             for line in lines:
+                try:
+                    date = datetime.strptime(line[0], "%d/%m/%Y").strftime("%Y-%m-%d")
+                except Exception as e:
+                    raise UserError(_("Invalid Data: %s" % e))
                 self.line_ids = [
                     (
                         0,
                         0,
                         {
-                            "date": datetime.strptime(line[0], "%d/%m/%Y").strftime(
-                                "%Y-%m-%d"
-                            ),
+                            "date": date,
                             "account_code": line[1],
                             "move_ref": line[2],
                             "label": line[3],
