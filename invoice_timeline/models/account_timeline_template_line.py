@@ -44,7 +44,7 @@ class AccountTimelineTemplateLine(models.Model):
     template_id = fields.Many2one('account.timeline.template', string=_('Template'), required=True, ondelete='cascade')
 
     @api.depends('interval_type', 'interval')
-    def _compute_sequence(self):
+    def _cpt_sequence(self):
         """ Computes the sequence based on the interval and interval_type. If interval_type is 'month', the sequence
         is multiplied by 31 """
         for record in self:
@@ -69,7 +69,7 @@ class AccountTimelineTemplateLine(models.Model):
         Returns: list
         """
         real_date_start = decrement_date(date_start, self.interval, self.interval_type)
-        line_ids = self.template_id.line_ids.filtered(lambda l: l.sequence >= self.sequence and l != self)
+        line_ids = self.template_id.line_ids.filtered(lambda l: l.sequence >= self.sequence )
         line_ids = line_ids.sorted('sequence')
         dates = [date_start]
         for line_id in line_ids:

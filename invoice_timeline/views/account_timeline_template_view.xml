@@ -10,11 +10,13 @@
                     <div class="oe_button_box" name="button_box">
                         <field name="invoice_ids" invisible="1"/>
                         <button class="oe_stat_button" name="action_view_invoices" type="object"
-                                icon="fa-pencil-square-o" invisible="invoice_ids == []">
+                                icon="fa-pencil-square-o" invisible="not invoice_ids">
                             <field name="invoice_count" widget="statinfo" string="Invoices"/>
                         </button>
                     </div>
                     <field name="active" invisible="1"/>
+                    <field name="sequence" invisible="0"/>
+
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
                     <div class="oe_title">
                         <h1>
@@ -25,14 +27,20 @@
                         <field name="used_on"/>
                     </group>
                     <label for="line_ids" string="Timelines"/>
-                        <field name="line_ids" nolabel="1" readonly="invoice_count > 0">
-                            <tree editable="bottom">
-                                <field name="interval"/>
-                                <field name="interval_type"/>
-                                <field name="percent"/>
-                                <field name="product_categ_id"/>
-                            </tree>
-                        </field>
+                    <field name="line_ids" nolabel="1" readonly="invoice_count > 0">
+                        <tree editable="bottom">
+                            <field name="sequence"/>
+
+                            <field name="interval"/>
+                            <field name="interval_type"/>
+                            <field name="percent"/>
+                            <field name="product_categ_id"/>
+                        </tree>
+                    </field>
+                    <br/>
+                    <h3>CGV</h3>
+                    <br/>
+                    <field colspan="4" name="oci_note_cgv" nolabel="1"/>
                 </sheet>
             </form>
         </field>

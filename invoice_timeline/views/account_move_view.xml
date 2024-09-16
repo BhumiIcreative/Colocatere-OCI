@@ -8,6 +8,7 @@
             <!-- Added Timeline field -->
             <xpath expr="//group[@id='header_right_group']" poistion="inside">
                 <field name="account_timeline_template_id"/>
+                <field name="timeline_sequence"/>
             </xpath>
             <!-- Update attributes of due date -->
             <field name="invoice_date_due" position="attributes">

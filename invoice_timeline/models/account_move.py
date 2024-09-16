@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, models, _,fields
-from xlwt.ExcelMagic import ptgEQ
 
 
 class AccountMove(models.Model):
@@ -40,7 +40,6 @@ class AccountMove(models.Model):
             'invoice_id': invoice.id,
             'new_invoice_date_due': invoice.invoice_date_due,
         }) for invoice in self.account_timeline_template_id.invoice_ids]
-
         return self.env['account.move.date.update'].create_and_open({
             'account_timeline_template_id': self.account_timeline_template_id.id,
             'line_ids': lines,

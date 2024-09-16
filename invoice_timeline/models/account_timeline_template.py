@@ -42,6 +42,7 @@ class AccountTimelineTemplate(models.Model):
 
     invoice_ids = fields.One2many('account.move', 'account_timeline_template_id', string=_('Invoices'))
     line_ids = fields.One2many('account.timeline.template.line', 'template_id', string=_('Lines'), copy=True)
+    oci_note_cgv = fields.Html('Terms of sales')
 
     def action_view_invoices(self):
 
@@ -54,8 +55,7 @@ class AccountTimelineTemplate(models.Model):
 
     @api.constrains('line_ids', 'line_ids.percent', 'line_ids.product_categ_id')
     def check_line_sum(self):
-        for template_id in self:
-            self._check_line_sum()
+        self._check_line_sum()
 
     def _check_line_sum(self):
         """
@@ -71,12 +71,12 @@ class AccountTimelineTemplate(models.Model):
             raise UserError(_("You should probably fill lines."))
         line_by_category = Script.groupby(self.line_ids, 'product_categ_id')
         for categ_id, line_ids in line_by_category.items():
-            percent = sum(line_ids.mapped('percent'))
-            if percent != 100:
+            total_percent = sum(line_ids.mapped('percent'))
+            if total_percent != 100:
                 if categ_id:
                     raise UserError(
-                        _("Line's sum for category %s is %s, it should be 100 !") % (categ_id.name, percent))
-                raise UserError(_("Line's sum is %s, it should be 100 !") % (percent))
+                        _("Line's sum for category %s is %s, it should be 100 !") % (categ_id.name, total_percent))
+                raise UserError(_("Line's sum is %s, it should be 100 !") % (total_percent))
         return True
 
     def _group_lines_by_categ_id(self, lines):
@@ -177,6 +177,7 @@ class AccountTimelineTemplate(models.Model):
                     'price_unit': line['price_unit'],
                     'tax_ids': [(6, 0, line['tax_ids'].ids)],
                     'name': line['name'],
+                    'analytic_distribution': False
                 }
                 values = line['line_id'].link_to_account_move_line(values)
                 invoice_line_ids.append((0, 0, values))
