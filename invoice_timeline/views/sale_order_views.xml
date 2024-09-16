@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+      <!-- Define a new or modified view for the sale.order model -->
     <record id="view_sale_order_timeline_cgv_form" model="ir.ui.view">
         <field name="name">view.sale.order.timeline.cgv.form</field>
         <field name="model">sale.order</field>
@@ -9,6 +10,7 @@
                 <br/>
                 <h3>CGV</h3>
                 <br/>
+                 <!-- Add a new field 'oci_cgv' -->
                 <field colspan="4" name="oci_cgv" nolabel="1"/>
             </xpath>
         </field>

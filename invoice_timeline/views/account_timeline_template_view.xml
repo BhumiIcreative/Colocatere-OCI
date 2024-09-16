@@ -29,8 +29,6 @@
                     <label for="line_ids" string="Timelines"/>
                     <field name="line_ids" nolabel="1" readonly="invoice_count > 0">
                         <tree editable="bottom">
-                            <field name="sequence"/>
-
                             <field name="interval"/>
                             <field name="interval_type"/>
                             <field name="percent"/>
