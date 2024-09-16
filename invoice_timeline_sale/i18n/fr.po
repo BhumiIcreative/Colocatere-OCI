@@ -1,0 +1,69 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* invoice_timeline_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-16 11:59+0000\n"
+"PO-Revision-Date: 2024-09-16 11:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: invoice_timeline_sale
+#: model:ir.model,name:invoice_timeline_sale.model_account_timeline_template
+msgid "Account timeline template"
+msgstr "Modèle de facturation échéancé"
+
+#. module: invoice_timeline_sale
+#. odoo-python
+#: code:addons/invoice_timeline_sale/models/sale_order.py:0
+#: code:addons/invoice_timeline_sale/wizard/sale_make_invoice_advance.py:0
+#: model:ir.model.fields,field_description:invoice_timeline_sale.field_sale_advance_payment_inv__invoice_timeline_template_id
+#: model:ir.model.fields,field_description:invoice_timeline_sale.field_sale_order__invoice_timeline_template_id
+#, python-format
+msgid "Invoice timeline"
+msgstr "Facture échéancier"
+
+#. module: invoice_timeline_sale
+#. odoo-python
+#: code:addons/invoice_timeline_sale/models/account_timeline_template.py:0
+#: model:ir.model.fields,field_description:invoice_timeline_sale.field_account_timeline_template__use_on_finvest
+#, python-format
+msgid "Marque FINVEST IMMO"
+msgstr "Marque FINVEST IMMO"
+
+#. module: invoice_timeline_sale
+#. odoo-python
+#: code:addons/invoice_timeline_sale/models/account_timeline_template.py:0
+#, python-format
+msgid "Sale"
+msgstr "paiement"
+
+#. module: invoice_timeline_sale
+#: model:ir.model,name:invoice_timeline_sale.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Facture de paiement d'avance"
+
+#. module: invoice_timeline_sale
+#: model:ir.model,name:invoice_timeline_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: invoice_timeline_sale
+#: model:ir.model,name:invoice_timeline_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Ligne de commande"
+
+#. module: invoice_timeline_sale
+#. odoo-python
+#: code:addons/invoice_timeline_sale/models/account_timeline_template.py:0
+#: model:ir.model.fields,field_description:invoice_timeline_sale.field_account_timeline_template__use_on_sale
+#, python-format
+msgid "Use on sale"
+msgstr "Peut être utilisé sur les commandes de ventes"
