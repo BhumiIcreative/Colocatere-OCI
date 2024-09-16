@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_sale_invoice_summary">
+        <t t-name="custom_sale.report_sale_invoice_summary">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+                        <div class="page">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h1>
+                                        <b>Échéancier</b>
+                                    </h1>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-5 text-right">
+                                    <t t-if="o.purchase_contract_id">
+                                        <t t-set="address_id"
+                                           t-value="o.purchase_contract_id.property_id.partner_address_id"/>
+                                        <strong>Projet:</strong>
+                                        <br/>
+                                        <span t-field="address_id.name"/>
+                                        <br/>
+                                        <span t-field="address_id.street"/>
+                                        <br/>
+                                        <span t-field="address_id.city"/>
+                                        <span t-field="address_id.state_id"/>
+                                        <span t-field="address_id.zip"/>
+                                        <br/>
+                                        <span t-field="address_id.country_id"/>
+                                    </t>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <strong>
+                                        <span t-field="o.partner_id"/>
+                                    </strong>
+                                    <br/>
+                                    <span t-field="o.partner_id.street"/>
+                                    <br/>
+                                    <span t-field="o.partner_id.city"/>
+                                    <span t-field="o.partner_id.state_id"/>
+                                    <span t-field="o.partner_id.zip"/>
+                                    <br/>
+                                    <span t-field="o.partner_id.country_id"/>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-2 text-right">
+                                    <strong>Commande</strong>
+                                    <br/>
+                                    <span t-field="o.name"/>
+                                </div>
+                                <div class="col-2 text-right">
+                                    <strong>Date</strong>
+                                    <br/>
+                                    <span t-field="o.date_order" t-options='{"format": "MM/dd/yyyy"}'/>
+                                </div>
+                                <div t-if="o.partner_id.ref" class="col-3 text-right">
+                                    <strong>Partner code</strong>
+                                    <br/>
+                                    <span t-field="o.partner_id.ref"/>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <table class="table table-sm table-striped o_main_table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 25%">Reference</th>
+                                            <th style="width: 30%">Description</th>
+                                            <th class="text-right" style="width: 15%">Total HT</th>
+                                            <th class="text-right" style="width: 15%">Total TVA</th>
+                                            <th class="text-right" style="width: 15%">Total TTC</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="o.invoice_ids.sorted(lambda x: x.date)" t-as="l">
+                                            <td>
+                                                <span t-field="l.name"/>
+                                                <span t-esc="amount_by_group"/>
+                                            </td>
+                                            <td>
+                                                <t t-if="l.name == '/'">
+                                                    Facture d'acompte prévue le
+                                                </t>
+                                                <t t-if="l.state in ['posted']">
+                                                    Facture d'acompte du
+                                                </t>
+                                                <t t-if="l.state == 'cancel'">
+                                                    Facture d'acompte annulée le
+                                                </t>
+                                                <span t-field="l.invoice_date"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-field="l.amount_untaxed"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-field="l.amount_tax"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-field="l.amount_total"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-4">
+                                    <table class="table table-sm o_main_table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-right">Base HT</th>
+                                                <th class="text-right">Taux TVA</th>
+                                                <th class="text-right">Montant TVA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="amount_by_group" t-value="o.get_invoices_amount_by_group()"/>
+                                            <tr t-foreach="amount_by_group" t-as="group">
+                                                <td class="text-right">
+                                                    <span t-esc="amount_by_group[group]['formatted_base']"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-esc="group.split('TVA ')[-1]"/>
+                                                </td>
+                                                <td class="text-right">
+                                                    <span t-esc="amount_by_group[group]['formatted_vat']"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="col-5 text-right">
+                                    <table>
+                                        <tr>
+                                            <td>Total HT</td>
+                                            <td class="text-end">
+                                                <span t-esc="str(round(sum(o.mapped('invoice_ids').mapped('amount_untaxed')), 2)).replace('.', ',')"/>
+                                                <span t-esc="o.currency_id.symbol"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total TVA</td>
+                                            <td class="text-end">
+                                                <span t-esc="str(round(sum(o.mapped('invoice_ids').mapped('amount_tax')), 2)).replace('.', ',')"/>
+                                                <span t-esc="o.currency_id.symbol"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total TTC</td>
+                                            <td class="text-end">
+                                                <span t-esc="str(round(sum(o.mapped('invoice_ids').mapped('amount_total')), 2)).replace('.', ',')"/>
+                                                <span t-esc="o.currency_id.symbol"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <strong>
+                                                <td>Net à Payer</td>
+                                            </strong>
+                                            <td class="text-end">
+                                                <span t-esc="str(round(sum(o.mapped('invoice_ids').mapped('amount_residual')), 2)).replace('.', ',')"/>
+                                                <span t-esc="o.currency_id.symbol"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </template>
+    <record id="sale_invoice_summary" model="ir.actions.report">
+        <field name="name">Sale invoice summary</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">custom_sale.report_sale_invoice_summary</field>
+        <field name="report_file">custom_sale.report_sale_invoice_summary</field>
+        <field name="binding_model_id" ref="model_sale_order"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

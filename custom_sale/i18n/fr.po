@@ -1,0 +1,162 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custom_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e-20200826\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-22 13:16+0000\n"
+"PO-Revision-Date: 2020-10-22 13:16+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "<strong>Condition de paiment</strong><br/>"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "<strong>Date</strong><br/>"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "<strong>Partner code</strong><br/>"
+msgstr "<strong> Code partenaire </strong> <br/>"
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Base HT"
+msgstr ""
+
+#. module: custom_sale
+#: model:ir.model.fields.selection,name:custom_sale.selection__sale_order__state__cancel
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Description"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Facture d'acompte annulée le"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Facture d'acompte du"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Facture d'acompte prévue le"
+msgstr ""
+
+#. module: custom_sale
+#: model:ir.model.fields.selection,name:custom_sale.selection__sale_order__state__done
+msgid "Locked"
+msgstr "Bloqué"
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.sale_order_form
+msgid "Mark as to send"
+msgstr "À envoyer"
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Montant HT"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Montant TVA"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Net à Payer"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Order #"
+msgstr "Bon de commande #"
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "P.U HT"
+msgstr "U.P HT"
+
+#. module: custom_sale
+#: model:ir.model.fields.selection,name:custom_sale.selection__sale_order__state__draft
+msgid "Quotation"
+msgstr "Devis"
+
+#. module: custom_sale
+#: model:ir.model.fields.selection,name:custom_sale.selection__sale_order__state__sent
+msgid "Quotation Sent"
+msgstr "Devis envoyé"
+
+#. module: custom_sale
+#: model:ir.model.fields.selection,name:custom_sale.selection__sale_order__state__to_send
+msgid "Quotation to send"
+msgstr "Devis à envoyer"
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Reference"
+msgstr "Référence"
+
+#. module: custom_sale
+#: model:ir.actions.report,name:custom_sale.sale_invoice_summary
+msgid "Sale invoice summary"
+msgstr "Récapitulatif des factures"
+
+#. module: custom_sale
+#: model:ir.model,name:custom_sale.model_sale_order
+#: model:ir.model.fields.selection,name:custom_sale.selection__sale_order__state__sale
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: custom_sale
+#: model:ir.model.fields,field_description:custom_sale.field_sale_order__state
+msgid "Status"
+msgstr "État"
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.sale_order_form
+msgid "Submit to manager"
+msgstr "Transmettre au responsable"
+
+#. module: custom_sale
+#: model:ir.model.fields.selection,name:custom_sale.selection__sale_order__state__submitted
+msgid "Submitted to responsible"
+msgstr "Soumis au responsable"
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Taux TVA"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Total HT"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Total TTC"
+msgstr ""
+
+#. module: custom_sale
+#: model_terms:ir.ui.view,arch_db:custom_sale.report_sale_invoice_summary
+msgid "Total TVA"
+msgstr ""
