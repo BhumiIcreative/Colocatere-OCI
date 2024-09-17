@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_timeline_cgv__form" model="ir.ui.view">
+        <field name="name">invoice_timeline_cgv.invoice_cgv.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='note']" position="after">
+                <br/>
+                <br/>
+                <h3>CGV</h3>
+                <br/>
+                <field colspan="2" name="oci_cgv" nolabel="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
