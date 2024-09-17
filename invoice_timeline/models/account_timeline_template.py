@@ -102,7 +102,6 @@ class AccountTimelineTemplate(models.Model):
     def _get_invoiceable_lines_by_date(self, prices, date_start):
         """
         Group invoiceable lines by date based on the given start date.
-
         Returns:  dict
         """
         invoiceable_lines_by_date = dict()

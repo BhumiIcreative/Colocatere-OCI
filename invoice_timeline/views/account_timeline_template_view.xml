@@ -15,7 +15,7 @@
                         </button>
                     </div>
                     <field name="active" invisible="1"/>
-                    <field name="sequence" invisible="0"/>
+                    <field name="sequence" invisible="1"/>
 
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
                     <div class="oe_title">
