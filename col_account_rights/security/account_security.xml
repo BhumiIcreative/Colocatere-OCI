@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- 5 LEVELS OF LAW -->
+        <!-- LVL 1 based on Billing but-->
+        <!-- modification of existing registration RULES for application to LVL 4-->
+        <!-- creation of new RULES -->
+        <!-- conservation menu_access view_access model_access -->
+        <record id="account.group_account_invoice" model="res.groups">
+            <field name="name">1 Facturation sans accès RH (NdF &amp; 42)</field>
+            <field name="menu_access" eval="[
+                (4, ref('account_reports.menu_action_account_report_general_ledger')),
+                (4, ref('account_reports.menu_action_account_report_partner_ledger')),
+                (4, ref('account.menu_finance_entries')),
+                ]"/>
+        </record>
+        <!-- LVL 2 legacy of LVL 1 -->
+        <!-- addition of 2 RULES -->
+        <!-- addition of expense report import menu -->
+        <!-- creation of MODEL_ACCESS based on LVL 1 -->
+        <record id="group_col_account_invoice_expense" model="res.groups">
+            <field name="name">2 Facturation avec NdF (mais pas 42)</field>
+            <field name="category_id" ref="base.module_category_accounting_accounting"/>
+            <field name="implied_ids" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="menu_access" eval="[(4, ref('col_expense_report_import.expense_report_import_wizard'))]"/>
+        </record>
+        <!-- LVL 3 legacy of LVL 2 -->
+        <!-- addition of menu_access and view_access (0) of LVL 4 of account.group_account_user-->
+        <!-- creation of MODEL_ACCESS based on LVL 4 account.group_account_user -->
+        <record id="group_col_account_partner" model="res.groups">
+            <field name="name">3 Compta sans compte 42</field>
+            <field name="category_id" ref="base.module_category_accounting_accounting"/>
+            <field name="implied_ids" eval="[(4, ref('group_col_account_invoice_expense'))]"/>
+            <field name="menu_access" eval="[
+                                                (4, ref('l10n_fr.account_reports_fr_statements_menu')),
+                                                (4, ref('account.account_reports_legal_statements_menu')),
+                                                (4, ref('account.menu_action_move_journal_line_form')),
+                                                (4, ref('account.menu_action_account_form')),
+                                                (4, ref('account.menu_board_journal_1')),
+                                                (4, ref('account.menu_finance_entries')),
+                                                (4, ref('account_reports.menu_action_account_report_partner_ledger')),
+                                                (4, ref('account_reports.menu_action_account_report_general_ledger')),
+                                                (4, ref('account_reports.menu_action_account_report_coa')),
+                                                (4, ref('account_reports.menu_action_account_report_cash_flow')),
+                                                (4, ref('account_batch_payment.menu_batch_payment_sales')),
+                                                (4, ref('account.menu_finance_reports')),
+                                                (4, ref('account_batch_payment.menu_batch_payment_purchases')),
+                                                (4, ref('account.menu_finance_configuration')),
+                                                (4, ref('account.menu_finance')),
+                                                (4, ref('account_accountant.menu_accounting')),
+                                                (4, ref('account_asset.menu_action_account_asset_form')),
+                                            ]"/>
+        </record>
+
+        <!-- LVL 4 based on full function accounting -->
+        <!-- menu_access and view_access inheritance from LVL 3 knowing that it exists by default -->
+        <record id="account.group_account_user" model="res.groups">
+            <field name="name">4 Compta complète</field>
+            <field name="implied_ids" eval="[(4, ref('group_col_account_partner'))]"/>
+            <field name="menu_access" eval="[(4, ref('col_payment_import.payment_import_wizard'))]"/>
+        </record>
+
+        <!-- LVL 5 based on native admin accounting -->
+        <record id="account.group_account_manager" model="res.groups">
+            <field name="name">5 Paramétrage facturation/compta</field>
+            <!--            <field name="implied_ids" eval="[(4, ref('account.group_account_user'))]"/>-->
+        </record>
+
+
+        <!-- ADDING THE MANAGER GROUP TO THE BASELINE ADMIN (1ST USER)-->
+        <record id="base.user_admin" model="res.users">
+            <field name="groups_id" eval="[(4, ref('account.group_account_manager'))]"/>
+        </record>
+
+        <!-- ADDING THE MANAGER GROUP TO THE INHERITANCE OF THE SYSTEM GROUP -->
+        <record id="base.group_system" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('account.group_account_manager'))]"/>
+        </record>
+    </data>
+
+    <data noupdate="0">
+        <!-- LVL 1 edit of existing rules for application to LVL 4-->
+        <!-- TODO All journal items would be missing for Accounting entry-->
+        <record id="account.account_move_see_all" model="ir.rule">
+            <!--        <field name="name">All Journal Entries</field>-->
+            <!--        <field name="model_id" ref="invoice_sdd_mandate.model_account_move"/>-->
+            <!--        <field name="domain_force">[(1, '=', 1)]</field>-->
+            <field name="groups" eval="[(6,0, [ref('account.group_account_invoice')])]"/>
+        </record>
+        <record id="account_followup.ir_rule_sms_template_account_manager" model="ir.rule">
+            <!--        <field name="name">SMS Template: account manager CRUD on partner templates</field>-->
+            <!--        <field name="model_id" ref="sms.model_sms_template"/>-->
+            <!--        <field name="domain_force">[('model_id.model', '=', 'res.partner')]</field>-->
+            <field name="groups" eval="[(6,0, [ref('account.group_account_user')])]"/>
+        </record>
+        <record id="account.account_analytic_line_rule_billing_user" model="ir.rule">
+            <!--        <field name="name">account.analytic.line.billing.user</field>-->
+            <!--        <field name="model_id" ref="analytic_enterprise.model_account_analytic_line"/>-->
+            <!--        <field name="domain_force">[(1, '=', 1)]</field>-->
+            <field name="groups" eval="[(6,0, [ref('account.group_account_user')])]"/>
+        </record>
+        <!-- LVL 1 creation -->
+        <record id="col_account_rights_account_model_account_move_line_col_account_invoice" model="ir.rule">
+            <field name="name">account.move.line - no access RH et NDF</field>
+            <field name="model_id" ref="account.model_account_move_line"/>
+            <field name="domain_force">[
+                ("account_root_id.name","not ilike","42"),
+                ("account_root_id.name","not ilike","64"),
+                ("payment_id.use_employee_account", "=" , False),
+                ('payment_id.ref','not ilike','NDF'),
+                ('name','not ilike','NDF'),
+                ('journal_id','not in',('58,59,60,67,68,69')) ,
+                ]
+            </field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+        <record id="col_account_rights_partner_bank_active_model_res_partner_bank_col_account_invoice" model="ir.rule">
+            <field name="name">partner.bank - no access employee bank</field>
+            <field name="model_id" ref="base.model_res_partner_bank"/>
+            <field name="domain_force">[('partner_id.property_account_employee_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+        <record id="col_account_rights_account_asset_model_account_account_col_account_invoice_rootid" model="ir.rule">
+            <field name="name">account.account - no access account.root 42 et 64</field>
+            <field name="model_id" ref="account_asset.model_account_account"/>
+            <field name="domain_force">[("root_id.name","not ilike","42"),("root_id.name","not ilike","64")]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+        <record id="col_account_rights_account_sepa_model_account_journal_col_account_invoice" model="ir.rule">
+            <field name="name">Vue d'ensemble achat-vente</field>
+            <field name="model_id" ref="account_sepa.model_account_journal"/>
+            <field name="domain_force">
+                [("show_on_dashboard","=",True),"|",("type","=","sale"),("type","=","purchase")]
+            </field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+            <field name="active">False</field>
+        </record>
+        <record id="col_account_rights_account_sepa_direct_debit_model_account_payment_col_account_invoice"
+                model="ir.rule">
+            <field name="name">account.payment - no access all employee items</field>
+            <field name="model_id" ref="account_sepa_direct_debit.model_account_payment"/>
+            <field name="domain_force">[('use_employee_account','=',False),('ref','not like','NDF')]
+            </field>
+            <field name="groups" eval="[(4, ref('account.group_account_invoice'))]"/>
+        </record>
+        <!--        LVL 2 création -->
+        <record id="col_account_rights_partner_bank_active_model_res_partner_bank_col_account_invoice_expense"
+                model="ir.rule">
+            <field name="name">partner.bank - all access</field>
+            <field name="model_id" ref="base.model_res_partner_bank"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('col_account_rights.group_col_account_invoice_expense'))]"/>
+        </record>
+        <record id="col_account_rights_account_sepa_direct_debit_model_account_payment_col_account_invoice_expense"
+                model="ir.rule">
+            <field name="name">account.payment - no access employee items - only NDF</field>
+            <field name="model_id" ref="account_sepa_direct_debit.model_account_payment"/>
+            <field name="domain_force">[('use_employee_account','!=',True),('ref','like','NDF')]</field>
+            <field name="groups" eval="[(4, ref('col_account_rights.group_col_account_invoice_expense'))]"/>
+        </record>
+        <record id="col_account_rights_account_model_account_move_line_col_account_invoice_expense" model="ir.rule">
+            <field name="name">account.move.line - no access RH</field>
+            <field name="model_id" ref="account.model_account_move_line"/>
+            <field name="domain_force">[
+                ("account_root_id.name","not ilike","42"),
+                ("account_root_id.name","not ilike","64"),
+                ("payment_id.use_employee_account", "=" , False),
+                ('journal_id','not in',('67,68,69')) ,
+                ]
+            </field>
+            <field name="groups" eval="[(4, ref('col_account_rights.group_col_account_invoice_expense'))]"/>
+        </record>
+        <!-- LVL 3 creation-->
+        <record id="col_account_rights_account_sepa_model_account_journal_col_account_partner" model="ir.rule">
+            <field name="name">Vue d'ensemble complète</field>
+            <field name="model_id" ref="account_sepa.model_account_journal"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('col_account_rights.group_col_account_partner'))]"/>
+        </record>
+        <!--LVL 4 modification-->
+        <record id="account.account_move_line_see_all" model="ir.rule">
+            <!--            <field name="name">All Journal Items</field>-->
+            <!--            <field ref="model_account_move_line" name="model_id"/>-->
+            <!--            <field name="domain_force">[(1, '=', 1)]</field>-->
+            <field name="groups" eval="[(6,0, [ref('account.group_account_user')])]"/>
+        </record>
+        <!-- LVL 4 creation -->
+        <record id="col_account_rights_account_model_account_move_line_col_account_full" model="ir.rule">
+            <field name="name">account.move.line - all access</field>
+            <field name="model_id" ref="account.model_account_move_line"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_user'))]"/>
+        </record>
+        <record id="col_account_rights_account_asset_model_account_account_col_account_full" model="ir.rule">
+            <field name="name">account.account - all access</field>
+            <field name="model_id" ref="account_asset.model_account_account"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_user'))]"/>
+        </record>
+        <record id="col_account_rights_account_sepa_direct_debit_model_account_payment_col_account_full"
+                model="ir.rule">
+            <field name="name">account.payment - all access</field>
+            <field name="model_id" ref="account_sepa_direct_debit.model_account_payment"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('account.group_account_user'))]"/>
+        </record>
+    </data>
+</odoo>
+        <!--(4, ref('account.menu_action_account_moves_journal_sales')),-->
+        <!--(4, ref('account.menu_action_account_moves_journal_purchase')),-->
+        <!--(4, ref('account.menu_action_account_moves_journal_bank_cash')),-->
+        <!--(4, ref('account.menu_action_account_moves_ledger_general')),-->
+        <!--(4, ref('account.menu_action_account_moves_journal_misc')),-->
+        <!--(4, ref('account_reports.menu_action_account_report_cj')),-->
+        <!--(4, ref('account.menu_action_account_moves_ledger_partner')),-->
