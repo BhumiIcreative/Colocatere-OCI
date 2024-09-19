@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_payment_import,Full access on payment_import,model_payment_import,account.group_account_user,1,1,1,1
-access_payment_import_line,Full access on payment_import_line,model_payment_import_line,account.group_account_user,1,1,1,1

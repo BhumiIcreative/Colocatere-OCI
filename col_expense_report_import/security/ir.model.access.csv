@@ -1,3 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-col_expense_report_import.access_expense_report_import,access_expense_report_import,col_expense_report_import.model_expense_report_import,base.group_user,1,1,1,1
-col_expense_report_import.access_expense_report_import_line,access_expense_report_import_line,col_expense_report_import.model_expense_report_import_line,base.group_user,1,1,1,1
