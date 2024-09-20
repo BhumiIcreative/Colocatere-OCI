@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <!-- Define or modify the view for the 'purchase.order' model -->
+    <record model="ir.ui.view" id="view_purchase_order_form">
+        <field name="name">Purchase order timeline form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Add a button to create invoices from timeline, placed after the 'action_view_invoice' button -->
+            <button name="action_view_invoice" position="after">
+                <button name="create_invoices_from_timeline" string="Create Bill timeline" type="object"
+                        class="btn-primary"
+                        invisible="not invoice_timeline_template_id or state not in ['purchase', 'done'] or invoice_ids"
+                        confirm="Create every bills for this purchase order ?"/>
+            </button>
+
+            <!-- Modify the first 'action_create_invoice' button attributes -->
+            <xpath expr="//button[@name='action_create_invoice'][1]" position="attributes">
+                <attribute name="invisible">state not in ('purchase', 'done') or invoice_status in ('no', 'invoiced') or invoice_timeline_template_id
+                </attribute>
+            </xpath>
+
+            <!-- Modify the second 'action_create_invoice' button attributes -->
+            <xpath expr="//button[@name='action_create_invoice'][2]" position="attributes">
+                <attribute name="invisible">state not in ('purchase', 'done') or invoice_status not in ('no','invoiced') or not order_line or invoice_timeline_template_id
+                </attribute>
+            </xpath>
+
+            <!-- Add the 'invoice_timeline_template_id' field after the 'company_id' field -->
+            <field name="company_id" position="after">
+                <field name="invoice_timeline_template_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>

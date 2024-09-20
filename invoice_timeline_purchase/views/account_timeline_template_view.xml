@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+      <!-- Define a new view for the account.timeline.template model -->
+    <record model="ir.ui.view" id="timeline_template_form">
+        <field name="name">Timeline template form</field>
+        <field name="model">account.timeline.template</field>
+        <field name="inherit_id" ref="invoice_timeline.timeline_template_form"/>
+        <field name="arch" type="xml">
+              <!-- Add a new field 'use_on_purchase' to the form view -->
+            <group name="other" position="inside">
+                <field name="use_on_purchase"/>
+            </group>
+        </field>
+    </record>
+</odoo>
