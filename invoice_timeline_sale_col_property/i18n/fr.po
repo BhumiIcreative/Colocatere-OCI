@@ -1,0 +1,33 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* invoice_timeline_sale_col_property
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-09 13:47+0000\n"
+"PO-Revision-Date: 2024-09-09 13:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: invoice_timeline_sale_col_property
+#. odoo-python
+#: code:addons/invoice_timeline_sale_col_property/models/sale_order.py:0
+#, python-format
+msgid "Aucun ou Plusieurs résultat(s) pour %s chambre(s) et Finvest = %s"
+msgstr "Aucun ou Plusieurs résultat(s) pour %s chambre(s) et Finvest = %s"
+
+#. module: invoice_timeline_sale_col_property
+#: model:ir.model.fields,field_description:invoice_timeline_sale_col_property.field_sale_order__invoice_timeline_template_id
+msgid "Invoice timeline"
+msgstr "Facture échéancier"
+
+#. module: invoice_timeline_sale_col_property
+#: model:ir.model,name:invoice_timeline_sale_col_property.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"

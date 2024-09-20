@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Account move date update wizard view -->
+    <record model="ir.ui.view" id="account_move_date_update_form">
+        <field name="name">Account move date update form</field>
+        <field name="model">account.move.date.update</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <p>
+                        When you press one of the "compute" button, it will compute every next planned date of the
+                        pressed line.
+                    </p>
+                    <field name="line_ids" nolabel="1">
+                        <tree editable="top" create="false">
+                            <field name="invoice_id"/>
+                            <field name="invoice_date_due"/>
+                            <field name="writable" invisible="1"/>
+                            <field name="new_invoice_date_due" readonly="not writable"/>
+                            <button name="compute_date" string="Compute" type="object" class="btn-primary"
+                                    invisible="not writable"/>
+                        </tree>
+                    </field>
+                </sheet>
+                <footer>
+                    <button name="confirm" string="Confirm" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" type="object" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
