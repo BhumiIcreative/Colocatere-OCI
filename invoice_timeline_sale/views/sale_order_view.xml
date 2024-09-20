@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <!-- Define a new or modified view for the model 'sale.order' -->
+    <record model="ir.ui.view" id="view_order_form">
+        <field name="name">Sale order timeline form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+               <!-- Insert a new field 'invoice_timeline_template_id' after the 'payment_term_id' field -->
+            <field name="payment_term_id" position="after">
+                <field name="invoice_timeline_template_id" options="{'no_create': True}"
+                      />
+            </field>
+             <!-- Set the 'invisible' attribute based on the 'invoice_timeline_template_id' field -->
+            <xpath expr="//button[@id='create_invoice']" position="attributes">
+                <attribute name="invisible">invoice_timeline_template_id</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

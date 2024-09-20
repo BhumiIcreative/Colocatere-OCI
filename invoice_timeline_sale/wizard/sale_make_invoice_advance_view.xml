@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <!-- Define a new or modified view for the model 'sale.advance.payment.inv' -->
+    <record model="ir.ui.view" id="view_sale_advance_payment_inv">
+        <field name="name">Invoice Orders</field>
+        <field name="model">sale.advance.payment.inv</field>
+        <field name="inherit_id" ref="sale.view_sale_advance_payment_inv"/>
+        <field name="arch" type="xml">
+            <!-- Insert the 'invoice_timeline_template_id' field before the 'advance_payment_method' field -->
+            <field name="advance_payment_method" position="before">
+                <field name="invoice_timeline_template_id" invisible="0"/>
+            </field>
+            <!-- Modify the attributes of the 'advance_payment_method' field -->
+            <field name="advance_payment_method" position="attributes">
+                <attribute name="invisible">count &gt; 1 or invoice_timeline_template_id != False
+                </attribute>
+            </field>
+        </field>
+    </record>
+</odoo>
