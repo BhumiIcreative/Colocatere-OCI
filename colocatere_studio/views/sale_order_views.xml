@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for sale.order -->
+    <record id="view_order_form_inherit_sale" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_information']//field[@name='invoice_status']" position="after">
+                <field name="sourceur_id"/>
+                <field name="cgp_id"/>
+            </xpath>
+            <xpath expr="//page[@name='other_information']//group[4]" position="after">
+                <group name="group_hPRDb">
+                    <group name="group_hPRDb_left" string="Edition PDF">
+                        <field name="marque_finvest_immo" string="Marque FINVEST IMMO"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing tree view for sale.order -->
+    <record id="sale_order_view_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.view.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="is_projet_active" string="Is Projet active" widget="boolean_toggle" optional="show"/>
+                <field name="is_signature_relle" widget="boolean_toggle" optional="hide"/>
+                <field name="signature_date" optional="hide"/>
+                <field name="cgp_id" optional="hide"/>
+                <field name="sourceur_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+    <!-- Inheriting the existing search view for sale.order -->
+    <record id="sale_order_view_search_inherit" model='ir.ui.view'>
+        <field name='name'>sale.order.search.inherit</field>
+        <field name='model'>sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name='arch' type='xml'>
+            <xpath expr="//group" position="inside">
+                <group expand="0" string="Group By">
+                    <filter string="CGP" name="cgp_id" context="{'group_by':'cgp_id'}"/>
+                    <filter string="Sourceur" name="sourceur_id" context="{'group_by': 'sourceur_id'}"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='campaign_id']" position="after">
+                <field name="cgp_id"/>
+                <field name="sourceur_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

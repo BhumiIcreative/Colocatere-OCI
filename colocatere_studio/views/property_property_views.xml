@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for property.property -->
+    <record id="view_order_form_inherit_property" model="ir.ui.view">
+        <field name="name">property.property.form.inherit</field>
+        <field name="model">property.property</field>
+        <field name="inherit_id" ref="col_property.view_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lease_manager_id']" position="after">
+                <field name="marque_finvest_immo"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

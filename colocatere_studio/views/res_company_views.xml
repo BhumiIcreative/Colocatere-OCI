@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for res.users -->
+    <record id="view_form_inherit_res_company" model="ir.ui.view">
+        <field name="name">res.company.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                <page name="page_lZXHj" string="Informations Colocatère">
+                    <group name="group_lZXHj">
+                        <group name="group_lZXHj_left">
+                            <field name="seal" widget="image" options="{'size':[0,180]}"/>
+                            <field name="marque_finvest_immo" widget="image" options="{'size': [0, 180]}"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
