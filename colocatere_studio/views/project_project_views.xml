@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for project.project -->
+    <record id="view_form_inherit_project_project" model="ir.ui.view">
+        <field name="name">project.project.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='settings']/group[1]" position="after">
+                <group name="group_3VX0W">
+                    <group name="group_3VX0W_left" string="Indemnisation / Geste Commercial">
+                        <field name="gestion_particuliere" widget="boolean_toggle"/>
+                        <field name="gestion_particuliere_description"/>
+                    </group>
+                    <group name="group_3VX0W_right" string=" "/>
+                </group>
+            </xpath>
+            <xpath expr="//group/field[@name='company_id']" position="after">
+                <field name="marque_finvest_immo"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for account.payment -->
+    <record id="view_form_inherit_bank_statement_line" model="ir.ui.view">
+        <field name="name">bank.statement.line.inherit</field>
+        <field name="model">account.bank.statement.line</field>
+        <field name="inherit_id" ref="account_accountant.view_bank_statement_line_tree_bank_rec_widget"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="marque_finvest_immo" help="A l'édition PDF, modifie le logo"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

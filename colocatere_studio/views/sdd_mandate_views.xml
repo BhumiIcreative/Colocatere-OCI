@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for sdd.mandate -->
+    <record id="view_form_inherit_sdd_mandate" model="ir.ui.view">
+        <field name="name">sdd.mandate.form.inherit</field>
+        <field name="model">sdd.mandate</field>
+        <field name="inherit_id" ref="account_sepa_direct_debit.account_sepa_direct_debit_mandate_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_bank_id']" position="after">
+                <field name="bic_1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

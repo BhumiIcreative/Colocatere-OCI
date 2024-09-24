@@ -3,8 +3,8 @@
 {
     "name": "Colocatere Studio",
     "version": "1.0",
-    "summary": "Add cgv to invoice timeline",
-    "description": "Add cgv to invoice timeline",
+    "summary": "studio",
+    "description": "studio",
     "category": "account",
     "author": "Aktiv software",
     "website": "www.aktivsoftware.com",
@@ -13,7 +13,7 @@
         'sale_management',
         'fleet',
         'col_property',
-        'project',
+        'project','mail'
     ],
     "data": [
         'views/sale_order_views.xml',
@@ -27,6 +27,12 @@
         # 'views/account_bank_statement_line.xml',
         # 'views/product_product_views.xml',
         'views/product_template_views.xml',
+        'views/sdd_mandate_views.xml',
+        'views/project_project_views.xml',
+        'views/fleet_vehicle_log_contract_views.xml',
+        'views/fleet_vehicle_views.xml',
+        'views/account_move_views.xml',
+        'views/account_move_line_views.xml',
     ],
     "installable": True,
     "auto_install": False,

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!-- Inheriting the existing form view for res.users -->
+    <!-- Inheriting the existing form view for res.company -->
     <record id="view_form_inherit_res_company" model="ir.ui.view">
         <field name="name">res.company.form.inherit</field>
         <field name="model">res.company</field>
