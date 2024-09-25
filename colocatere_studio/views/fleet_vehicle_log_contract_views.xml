@@ -6,6 +6,9 @@
         <field name="model">fleet.vehicle.log.contract</field>
         <field name="inherit_id" ref="fleet.fleet_vehicle_log_contract_view_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='expiration_date']" position="after">
+                <field name="fleet_contrats_moiscontr"/>
+            </xpath>
             <xpath expr="//form[1]/sheet[1]/group[3]" position="after">
                 <group name="group_1ZH2A">
                     <group name="group_1ZH2A_left" string="">

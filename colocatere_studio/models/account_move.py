@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
 from odoo import api, fields, models, _
 
 
@@ -18,7 +17,7 @@ class AccountMove(models.Model):
                                       'account_move_id',
                                       'res_partner_category_id', string='Etiquettes', readonly=True,
                                       related='partner_id.category_id')
-    # fin_de_bail_le = fields.date(string=_('Fin de bail le'), readonly=True, related='lease_id.end_date')
+    fin_de_bail_le = fields.Date(string=_('Fin de bail le'), readonly=True, related='lease_id.end_date')
     gestion_particuliere = fields.Boolean('Gestion Particulière', related='project_id.gestion_particuliere')
     in_deficit = fields.Boolean("In deficit", related='project_id.in_deficit')
     marque_finvest_immo = fields.Boolean("Marque FINVEST IMMO")
@@ -26,7 +25,7 @@ class AccountMove(models.Model):
     project_id_akawam_id = fields.Integer("Projet - Akawam ID", readonly=True, related='project_id.akawam_id')
     is_recompute_from_product = fields.Boolean("Recompute From Product")
     sourceur_id = fields.Many2one('res.partner', string=_("Sourceur"), ondelete='set null',
-                                  related='project_id.sourcer_id',store=True)
+                                  related='project_id.sourcer_id', store=True)
     type_akawam = fields.Char(string=_("Type Akawam"))
     vendeur_id = fields.Many2one("res.partner", string=_("Vendeur"), related='project_id.seller_id',
-                                 ondelete='set null')
+                                 ondelete='set null', store=True)

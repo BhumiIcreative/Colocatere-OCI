@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Create new user group named "Admin" under "Usability" category -->
+        <record model="res.groups" id="group_move">
+            <field name="name">Admin</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+        </record>
+    </data>
+</odoo>

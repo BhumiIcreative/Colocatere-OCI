@@ -29,4 +29,23 @@
             </field>
         </field>
     </record>
+    <!-- Inheriting the existing filter view for purchase.order -->
+    <record id="purchase_order_view_filter_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.view.filter.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='activities_exception']" position="after">
+                <separator name="separator_AmmVD"/>
+                <filter domain="[('tag_ids.name', '=' ,'CGP')]"
+                        name="filter_Cfn3i" string="CGP"/>
+                <filter domain="[('tag_ids.name', '=' , 'Sous-traitant')]"
+                        name="filter_lWC3E" string="Sous-traitant"/>
+                <filter domain="[('tag_ids.name', '=' ,'Commercial')]"
+                        name="filter_iGwwu" string="Commercial"/>
+                <filter domain="[('tag_ids.name','=','Décorateur')]"
+                        name="filter_Oq4hU" string="Decorateur"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='other_information']//field[@name='invoice_status']" position="after">
                 <field name="sourceur_id"/>
+                <field name="vendeur_id"/>
                 <field name="cgp_id"/>
             </xpath>
             <xpath expr="//page[@name='other_information']//group[4]" position="after">
@@ -29,6 +30,7 @@
                 <field name="is_projet_active" string="Is Projet active" widget="boolean_toggle" optional="show"/>
                 <field name="is_signature_relle" widget="boolean_toggle" optional="hide"/>
                 <field name="signature_date" optional="hide"/>
+                <field name="vendeur_id"/>
                 <field name="cgp_id" optional="hide"/>
                 <field name="sourceur_id" optional="hide"/>
             </field>
@@ -40,15 +42,17 @@
         <field name='model'>sale.order</field>
         <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
         <field name='arch' type='xml'>
-            <xpath expr="//group" position="inside">
-                <group expand="0" string="Group By">
-                    <filter string="CGP" name="cgp_id" context="{'group_by':'cgp_id'}"/>
-                    <filter string="Sourceur" name="sourceur_id" context="{'group_by': 'sourceur_id'}"/>
-                </group>
+            <xpath expr="//filter[@name='order_month']" position="after">
+                <filter context="{'group_by': 'vendeur_id'}" name="vendeur_id"/>
+                <filter string="CGP" name="cgp_id" context="{'group_by':'cgp_id'}"/>
+                <filter string="Sourceur" name="sourceur_id" context="{'group_by': 'sourceur_id'}"/>
             </xpath>
             <xpath expr="//field[@name='campaign_id']" position="after">
                 <field name="cgp_id"/>
                 <field name="sourceur_id"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="replace">
+                <field name="vendeur_id"/>
             </xpath>
         </field>
     </record>

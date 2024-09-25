@@ -1,28 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Inheriting the existing form view for account.move -->
-    <record id="view_order_search_inherit_account_move" model="ir.ui.view">
-        <field name="name">account.move.search.inherit</field>
-        <field name="model">account.move</field>
-        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
-        <field name="arch" type="xml">
-            <xpath expr="//filter[@name='duedate']" position="after">
-                <filter string="CGP" name="cgp_id" context="{'group_by': 'cgp_id'}"/>
-                <filter string="Anomaly Description" name="anomaly_description"
-                        context="{'group_by':'anomaly_description'}"/>
-                <filter context="{'group_by': 'sourceur_id'}" name="group_by_dOMIf" string="Sourceur"/>
-
-            </xpath>
-            <xpath expr="//search[1]/field[@name='date']" position="after">
-                <field name="cgp_id"/>
-                <field name="sourceur_id"/>
-            </xpath>
-            <xpath expr="//filter[@name='in_deficit']" position="after">
-                <filter domain="[('marque_finvest_immo', '=', True)]" name="filter_SUXx1"
-                        string="Marque FINVEST IMMO"/>
-            </xpath>
-        </field>
-    </record>
     <record id="view_order_form_inherit_account_move" model="ir.ui.view">
         <field name="name">account.move.form.inherit</field>
         <field name="model">account.move</field>
@@ -35,8 +13,12 @@
             <xpath expr="//field[@name='lease_id']" position="after">
                 <field name="debut_de_bail_le" string="Debut de bail le"
                        invisible="project_id == False or company_id != 2"/>
-                <field name="etiquette_ids" widget="many2many_tags"/>
-
+                <field name="etiquettes_ids" widget="many2many_tags"/>
+                <field name="fin_de_bail_le" invisible="project_id == False or company_id != 2"/>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[2]/field[@name='line_ids']/tree[1]/field[@name='partner_id']"
+                   position="after">
+                <field name="qualit_partenaire_ids" widget="many2many_tags"/>
             </xpath>
             <xpath expr="//label[@for='partner_id']" position="before">
                 <field name="etiquette_ids" widget="many2many_tags"/>
@@ -48,8 +30,50 @@
                     </group>
                 </group>
             </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="page_h40GX" string="Colocatère">
+                    <group name="group_h40GX">
+                        <group name="group_h40GX_left">
+                            <field name="sourceur_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="vendeur_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group name="group_h40GX_right">
+                            <field name="type_akawam" force_save="True" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
         </field>
     </record>
+    <!-- Inheriting the existing search view for account.move -->
+    <record id="view_order_search_inherit_account_move" model="ir.ui.view">
+        <field name="name">account.move.search.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='duedate']" position="after">
+                <filter string="CGP" name="cgp_id" context="{'group_by': 'cgp_id'}"/>
+                <filter string="Vendeur" name="vendeur_id" context="{'group_by': 'vendeur_id'}"/>
+                <filter string="Sourceur" name="sourceur_id" context="{'group_by': 'sourceur_id'}"/>
+                <filter string="Type Akawam" name="type_akawam"
+                        context="{'group_by': 'type_akawam'}"/>
+                <filter string="Anomaly Description" name="anomaly_description"
+                        context="{'group_by':'anomaly_description'}"/>
+                <filter context="{'group_by': 'fin_de_bail_le'}" name="fin_de_bail_le"
+                        string="Fin de bail le"/>
+            </xpath>
+            <xpath expr="//search[1]/field[@name='date']" position="after">
+                <field name="cgp_id"/>
+                <field name="vendeur_id"/>
+                <field name="sourceur_id"/>
+            </xpath>
+            <xpath expr="//filter[@name='in_deficit']" position="after">
+                <filter domain="[('marque_finvest_immo', '=', True)]" name="filter_SUXx1"
+                        string="Marque FINVEST IMMO"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing Invoice Tree view for account.move -->
     <record id="view_order_tree_inherit_invoice_account_move" model="ir.ui.view">
         <field name="name">account.move.tree.inherit</field>
         <field name="model">account.move</field>
@@ -61,12 +85,14 @@
             </xpath>
             <xpath expr="//field[@name='amount_total_signed']" position="after">
                 <field name="in_deficit" optional="hide"/>
+                <field name="gestion_particuliere" optional="hide"/>
             </xpath>
             <xpath expr="//field[@name='amount_residual_signed']" position="after">
                 <field name="project_id_akawam_id" optional="hide"/>
             </xpath>
         </field>
     </record>
+    <!-- Inheriting the existing move tree view for account.move -->
     <record id="view_order_tree_inherit_account_move" model="ir.ui.view">
         <field name="name">account.move.tree.inherit</field>
         <field name="model">account.move</field>
@@ -80,6 +106,7 @@
             </xpath>
         </field>
     </record>
+    <!-- Inheriting the existing filter view for account.move -->
     <record id="view_filter_inherit_account_move" model="ir.ui.view">
         <field name="name">account.move.filter.inherit</field>
         <field name="model">account.move</field>

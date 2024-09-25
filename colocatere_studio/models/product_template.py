@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-
-import operator as py_operator
-from odoo import api, fields, models, _
+from odoo import fields, models, _
 
 
 class ProductTemplate(models.Model):

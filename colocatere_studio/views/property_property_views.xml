@@ -7,8 +7,32 @@
         <field name="inherit_id" ref="col_property.view_property_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='lease_manager_id']" position="after">
+                <field name="nom_colocation"/>
                 <field name="marque_finvest_immo"/>
             </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing tree view for property.property -->
+    <record id="view_order_tree_inherit_property" model="ir.ui.view">
+        <field name="name">property.property.tree.inherit</field>
+        <field name="model">property.property</field>
+        <field name="inherit_id" ref="col_property.view_property_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='purchase_contract_count']" position="after">
+                <field name="nom_colocation"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- custom search view for property.property -->
+    <record id="view_property_property_search_custom" model="ir.ui.view">
+        <field name="name">property.property.search.custom</field>
+        <field name="model">property.property</field>
+        <field name="arch" type="xml">
+            <search string="property property">
+                <field name="name" position="after">
+                    <field name="nom_colocation"/>
+                </field>
+            </search>
         </field>
     </record>
 </odoo>
