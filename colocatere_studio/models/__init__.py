@@ -18,5 +18,6 @@ from . import fleet_vehicle
 from . import product_template
 from . import product_product
 from . import res_partner_category
+from . import x_name
 
 

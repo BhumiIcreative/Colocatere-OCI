@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Inheriting the existing form view for property.property -->
-    <record id="view_order_form_inherit_property" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_view_property_form" model="ir.ui.view">
         <field name="name">property.property.form.inherit</field>
         <field name="model">property.property</field>
         <field name="inherit_id" ref="col_property.view_property_form"/>
@@ -13,7 +13,7 @@
         </field>
     </record>
     <!-- Inheriting the existing tree view for property.property -->
-    <record id="view_order_tree_inherit_property" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_view_property_tree" model="ir.ui.view">
         <field name="name">property.property.tree.inherit</field>
         <field name="model">property.property</field>
         <field name="inherit_id" ref="col_property.view_property_tree"/>
@@ -24,7 +24,7 @@
         </field>
     </record>
     <!-- custom search view for property.property -->
-    <record id="view_property_property_search_custom" model="ir.ui.view">
+    <record id="colocatere_studio_custom_search_view" model="ir.ui.view">
         <field name="name">property.property.search.custom</field>
         <field name="model">property.property</field>
         <field name="arch" type="xml">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Inheriting the existing form view for account.payment -->
-    <record id="view_order_form_inherit_payment" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_view_account_payment_form" model="ir.ui.view">
         <field name="name">account.payment.form.inherit</field>
         <field name="model">account.payment</field>
         <field name="inherit_id" ref="account.view_account_payment_form"/>

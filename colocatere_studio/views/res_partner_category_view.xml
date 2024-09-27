@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Inheriting the existing form view for res.partner.category -->
-    <record id="res_partner_category_form_inherit" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_view_partner_category_form" model="ir.ui.view">
         <field name="name">res.partner.category.form.inherit</field>
         <field name="model">res.partner.category</field>
         <field name="inherit_id" ref="base.view_partner_category_form"/>

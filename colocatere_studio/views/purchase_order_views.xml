@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Inheriting the existing form view for purchase.order -->
-    <record id="view_order_form_inherit_purchase" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_purchase_order_form" model="ir.ui.view">
         <field name="name">purchase.order.form.inherit</field>
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_form"/>
@@ -16,7 +16,7 @@
         </field>
     </record>
     <!-- Inheriting the existing tree view for purchase.order -->
-    <record id="purchase_order_view_tree_inherit" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_purchase_order_kpis_tree" model="ir.ui.view">
         <field name="name">purchase.order.view.tree.inherit</field>
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
@@ -30,7 +30,7 @@
         </field>
     </record>
     <!-- Inheriting the existing filter view for purchase.order -->
-    <record id="purchase_order_view_filter_inherit" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_view_purchase_order_filter" model="ir.ui.view">
         <field name="name">purchase.order.view.filter.inherit</field>
         <field name="model">purchase.order</field>
         <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>

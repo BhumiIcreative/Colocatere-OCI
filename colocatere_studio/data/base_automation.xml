@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="update_sdd_mandate_on_unpaid_invoice" model="base.automation">
+        <field name="name">update sdd mandat on unpaid invoice</field>
+        <field name="model_id" eval="ref('account_sepa_direct_debit.model_sdd_mandate')"/>
+        <field name="active" eval="True"/>
+        <field name="last_run" eval="False"/>
+        <field name="trg_date_id" eval="False"/>
+        <field name="trg_date_range" eval="False"/>
+        <field name="trg_date_range_type" eval="False"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_domain" eval="False"/>
+        <field name="filter_pre_domain" eval="False"/>
+    </record>
+<!--    <record id="update_partenaire_automation" model="base.automation">-->
+<!--        <field name="name">Partenaire</field>-->
+<!--        <field name="model_id" eval="ref('hr.model_hr_employee')"/>-->
+<!--        <field name="active" eval="True"/>-->
+<!--        <field name="last_run" eval="False"/>-->
+<!--        <field name="trg_date_id" eval="False"/>-->
+<!--        <field name="trg_date_range" eval="False"/>-->
+<!--        <field name="trg_date_range_type" eval="False"/>-->
+<!--        <field name="trigger">on_create_or_write</field>-->
+<!--        <field name="filter_domain">[("user_partner_id","!=",False)]</field>-->
+<!--        <field name="filter_pre_domain">[("user_partner_id","!=",False)]</field>-->
+<!--    </record>-->
+
+    <record id="nofication_msg_automation" model="base.automation">
+        <field name="name">notif màj akawam</field>
+        <field name="model_id" eval="ref('mail.model_mail_message')"/>
+        <field name="active" eval="True"/>
+        <field name="last_run" eval="False"/>
+        <field name="trg_date_id" eval="False"/>
+        <field name="trg_date_range" eval="False"/>
+        <field name="trg_date_range_type" eval="False"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_domain">[("body","ilike","La quantité commandée a été mise à jour.")]</field>
+        <field name="filter_pre_domain" eval="False"/>
+    </record>
+    <record id="invoice_compte_banca_automation" model="base.automation">
+        <field name="name">Invoice : Compte bancaire : PNO</field>
+        <field name="model_id" eval="ref('account.model_account_move')"/>
+        <field name="active" eval="True"/>
+        <field name="last_run" eval="False"/>
+        <field name="trg_date_id" eval="False"/>
+        <field name="trg_date_range" eval="False"/>
+        <field name="trg_date_range_type" eval="False"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_domain">[("move_type", "=", "out_invoice"),("journal_id.id","=",38)]</field>
+        <field name="filter_pre_domain" eval="False"/>
+    </record>
+    <record id="invoice_compte_bancaire_par_automation" model="base.automation">
+        <field name="name">Invoice : Compte bancaire par défaut [OCI]</field>
+        <field name="model_id" eval="ref('account.model_account_move')"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="active" eval="True"/>
+        <field name="filter_domain">[("journal_id", "=", 1)]</field>
+        <field name="filter_pre_domain" eval="False"/>
+        <field name="trg_date_id" eval="False"/>
+        <field name="trg_date_range" eval="False"/>
+        <field name="trg_date_range_type" eval="False"/>
+    </record>
+
+    <record id="invoice_compte_banca_par_automation" model="base.automation">
+        <field name="name">Invoice : Compte bancaire par défaut [OCI]</field>
+        <field name="model_id" eval="ref('account.model_account_move')"/>
+        <field name="last_run">2020-12-04 08:52:52</field>
+        <field name="trigger">on_create_or_write</field>
+        <field name="active" eval="True"/>
+        <field name="filter_domain">[("partner_bank_id","=",False),("journal_id","=",1)]</field>
+        <field name="filter_pre_domain" eval="False"/>
+        <field name="trg_date_id" eval="False"/>
+        <field name="trg_date_range" eval="False"/>
+        <field name="trg_date_range_type" eval="False"/>
+    </record>
+
+</odoo>

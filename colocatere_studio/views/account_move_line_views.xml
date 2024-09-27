@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!-- Inheriting the existing form view for account.move.line -->
-    <record id="view_tree_inherit_account_move_line" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_view_move_line_tree" model="ir.ui.view">
         <field name="name">account.move.line.tree.inherit</field>
         <field name="model">account.move.line</field>
         <field name="inherit_id" ref="account.view_move_line_tree"/>
@@ -17,10 +17,13 @@
                 <field name="marque_finvest_immo" optional="hide"/>
                 <field name="in_deficit" optional="hide"/>
             </xpath>
+            <xpath expr="//field[@name='date']" position="before">
+                <field name="external_identifier"/>
+            </xpath>
         </field>
     </record>
     <!-- Inheriting the existing filter view for account.move.line -->
-    <record id="view_filter_inherit_account_move_line" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_view_account_move_line_filter" model="ir.ui.view">
         <field name="name">account.move.line.filter.inherit</field>
         <field name="model">account.move.line</field>
         <field name="inherit_id" ref="account.view_account_move_line_filter"/>
@@ -42,7 +45,7 @@
         </field>
     </record>
     <!-- Inheriting the existing Tree view for account.move.line -->
-    <record id="view_tree_grouped_inherit_account_move_line" model="ir.ui.view">
+    <record id="colocatere_studio_inherit_view_move_line_tree_grouped_general" model="ir.ui.view">
         <field name="name">account.move.line.tree.group.inherit</field>
         <field name="model">account.move.line</field>
         <field name="inherit_id" ref="account.view_move_line_tree_grouped_general"/>
