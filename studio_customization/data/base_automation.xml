@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.partenaire_f86b7b8e-5616-489d-ba9b-91177981acec" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization.partenaire_f8a3e389-71e4-4e4c-a130-8d8bf5c10d70"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["user_partner_id","!=",False]]</field>
+    <field name="filter_pre_domain">[["user_partner_id","!=",False]]</field>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_fields" eval="False"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization.update_sdd_mandat_on_5085f74b-9fb6-415c-afde-7a1d0330acb4" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization.update_sdd_mandat_on_73e1ffcd-eefa-4cc5-bf8a-f5e6f3bccfa1"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain" eval="False"/>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_fields" eval="False"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization.notif_maj_akawam_2cc0858c-96ca-4359-8822-0a793bc64653" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization.notif_maj_akawam_2758d111-7884-4734-9343-51f144a42161"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["body","ilike","La quantité commandée a été mise à jour."]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_fields" eval="False"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+  <record id="studio_customization.invoice_compte_banca_9c777d90-247b-43a9-ada4-69a54967a94e" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization.invoice_compte_banca_e11a0298-235e-4262-8c2a-a5e7e8c7838a"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">["&amp;",["journal_id.id","=",38],["type","=","out_invoice"]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_fields" eval="False"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create</field>
+  </record>
+  <record id="studio_customization.invoice_compte_banca_3b12cb0a-0a0d-4654-8df9-4e457e690db0" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization.invoice_compte_banca_dae260a1-6eb9-49ed-9bf8-8a85d9cd14b9"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">[["journal_id","=",1]]</field>
+    <field name="filter_pre_domain" eval="False"/>
+    <field name="last_run" eval="False"/>
+    <field name="on_change_fields" eval="False"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create</field>
+  </record>
+  <record id="studio_customization.invoice_compte_banca_ad37720c-e116-4683-84ad-c5125de694f7" model="base.automation" context="{'studio': True}">
+    <field name="action_server_id" ref="studio_customization.invoice_compte_banca_3de6a923-4452-45e6-998b-427937eb1b01"/>
+    <field name="active" eval="True"/>
+    <field name="filter_domain">["&amp;",["invoice_partner_bank_id","=",False],["journal_id","=",1]]</field>
+    <field name="filter_pre_domain">[]</field>
+    <field name="last_run">2020-12-04 08:52:52</field>
+    <field name="on_change_fields" eval="False"/>
+    <field name="trg_date_id" eval="False"/>
+    <field name="trg_date_range" eval="False"/>
+    <field name="trg_date_range_type" eval="False"/>
+    <field name="trigger">on_create_or_write</field>
+  </record>
+</odoo>

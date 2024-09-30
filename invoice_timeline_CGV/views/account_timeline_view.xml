@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="timeline_template_cgv_form" model="ir.ui.view">
+        <field name="name">invoice_timeline_cgv.timeline_cgv.form</field>
+        <field name="model">account.timeline.template</field>
+        <field name="inherit_id" ref="invoice_timeline.timeline_template_form"/>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='line_ids']" position="after">
+                <br/>
+                <h3>CGV</h3>
+                <br/>
+                <field colspan="4" name="oci_note_cgv" nolabel="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

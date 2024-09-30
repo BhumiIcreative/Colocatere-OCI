@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <record model="ir.ui.view" id="timeline_template_form">
+    <field name="name">Timeline template form</field>
+    <field name="model">account.timeline.template</field>
+    <field name="inherit_id" ref="invoice_timeline.timeline_template_form"/>
+    <field name="arch" type="xml">
+      <group name="other" position="inside">
+        <field name="room_min"/>
+        <field name="room_max"/>
+      </group>
+    </field>
+  </record>
+</odoo>

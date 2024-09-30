@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Account timeline template form view -->
+    <record model="ir.ui.view" id="timeline_template_form">
+        <field name="name">Timeline template form</field>
+        <field name="model">account.timeline.template</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <field name="invoice_ids" invisible="1"/>
+                        <button class="oe_stat_button" name="action_view_invoices" type="object"
+                                icon="fa-pencil-square-o" invisible="not invoice_ids">
+                            <field name="invoice_count" widget="statinfo" string="Invoices"/>
+                        </button>
+                    </div>
+                    <field name="active" invisible="1"/>
+                    <field name="sequence" invisible="1"/>
+
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group name="other">
+                        <field name="used_on"/>
+                    </group>
+                    <label for="line_ids" string="Timelines"/>
+                    <field name="line_ids" nolabel="1" readonly="invoice_count > 0">
+                        <tree editable="bottom">
+                            <field name="interval"/>
+                            <field name="interval_type"/>
+                            <field name="percent"/>
+                            <field name="product_categ_id"/>
+                        </tree>
+                    </field>
+                    <br/>
+                    <h3>CGV</h3>
+                    <br/>
+                    <field colspan="4" name="oci_note_cgv" nolabel="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Account timeline template tree view -->
+    <record model="ir.ui.view" id="timeline_template_tree">
+        <field name="name">Timeline template tree</field>
+        <field name="model">account.timeline.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+    <!-- Account timeline template search view -->
+    <record model="ir.ui.view" id="timeline_template_search">
+        <field name="name">Timeline template search</field>
+        <field name="model">account.timeline.template</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                <group expand="0" string="Group By...">
+                    <filter string="Usage" name="group_used_on" context="{'group_by': 'used_on'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <!-- Account timeline template action -->
+    <record model="ir.actions.act_window" id="action_timeline_template_tree">
+        <field name="res_model">account.timeline.template</field>
+        <field name="context">{
+            'search_default_active': 1,
+            'search_default_group_used_on': 1,
+            }
+        </field>
+    </record>
+    <!-- Account timeline template menu items -->
+    <menuitem
+            parent="account.menu_finance_configuration"
+            id="timeline_root"
+            name="Invoice timeline"/>
+    <menuitem
+            parent="timeline_root"
+            id="timeline_template"
+            action="action_timeline_template_tree"
+            name="Timeline template"/>
+</odoo>

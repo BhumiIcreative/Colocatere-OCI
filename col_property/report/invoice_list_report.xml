@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <report
+                id="invoice_list"
+                model="project.project"
+                string="Invoice List"
+                report_type="qweb-pdf"
+                name="col_property.report_list_invoice"
+                file="col_property.report_list_invoice"/>
+        <template id="report_list_invoice">
+            <t t-name="col_property.report_list_invoice">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+                            <div name="project Invoice">
+                                <header>
+                                    <t t-set="address">
+                                        <address t-field="o.partner_id"
+                                                 t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                                    </t>
+                                </header>
+                                <h2>Name Project :
+                                    <t t-esc="o.name"/>
+                                </h2>
+                                <div class="page">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <th>
+                                                <strong>Reference</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Customer</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Total Price</strong>
+                                            </th>
+                                        </thead>
+                                        <tbody>
+                                            <t t-set="sum_invoice" t-value="0"/>
+                                            <t t-foreach="o.account_move_ids" t-as="invoice">
+                                                <tr>
+                                                    <td>
+                                                        <t t-esc="invoice.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="invoice.partner_id.name"/>
+                                                    </td>
+                                                    <td>
+                                                        <t t-esc="invoice.amount_total"/>
+                                                        <t t-set="sum_invoice"
+                                                           t-value="sum_invoice + invoice.amount_total"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                    Total Invoice :
+                                    <t t-esc="sum_invoice"/>
+                                </div>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

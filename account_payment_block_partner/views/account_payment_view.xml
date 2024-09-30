@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit payment form view and add fields -->
+    <record id="account_payment_block_partner_inherit_form" model="ir.ui.view">
+        <field name="name">apbp.payment.form</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="display_error" invisible="1"/>
+                <field name="error_message" readonly="1" widget="text"
+                       invisible="display_error == False"/>
+            </field>
+        </field>
+    </record>
+</odoo>

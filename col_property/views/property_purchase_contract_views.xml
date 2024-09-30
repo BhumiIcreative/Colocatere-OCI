@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="purchase_contract_form" model="ir.ui.view">
+            <field name="name">purchase contract view form</field>
+            <field name="model">property.purchase_contract</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="akawam_id" string="Akawam id"/>
+                                <field name="project_id" string="Project id"/>
+                                <field name="project_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                                <field name="property_id" string="Property" options="{'no_create': True}"/>
+                                <field name="owner_type" string="Owner type"/>
+                                <field name="owner_ids" string="Co-Owners" widget="many2many_tags"/>
+                                <field name="amount" string="Property price (buying price)"/>
+                            </group>
+                            <group>
+                                <field name="compromise_date" string="Compromise date"/>
+                                <field name="is_real_compromise" string="Is the compromise date the real one ?"/>
+                                <field name="signature_date" string="Signature date"/>
+                                <field name="is_real_signature" string="Is the signature date the real one ?"/>
+                            </group>
+                        </group>
+                        <separator string="Commissions" name="Commissions"/>
+                        <field name="commission_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="partner_id" options="{'no_create': True}"/>
+                                <field name="price"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="purchase_contract_tree" model="ir.ui.view">
+            <field name="name">purchase contract view tree</field>
+            <field name="model">property.purchase_contract</field>
+            <field name="arch" type="xml">
+                <tree string="Purchase Contract">
+                    <field name="property_id" string="Property"/>
+                    <field name="project_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                    <field name="compromise_date" string="Compromise date"/>
+                    <field name="is_real_compromise" string="is real ?"/>
+                    <field name="signature_date" string="Signature date"/>
+                    <field name="is_real_signature" string="is real ?"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_purchase_contract_action" model="ir.actions.act_window">
+            <field name="name">Purchase Contract</field>
+            <field name="res_model">property.purchase_contract</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+                id="property_menu_purchase_contract"
+                name="Purchase Contract"
+                action="property_purchase_contract_action"
+                parent="property_menu"
+                sequence="3"
+        />
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_property_room,access_property_room,model_property_room,base.group_user,1,1,1,1
+access_property_property,access_property_property,model_property_property,base.group_user,1,1,1,1
+access_property_pricing,access_property_pricing,model_property_pricing,base.group_user,1,1,1,1
+access_property_lease,access_property_lease,model_property_lease,base.group_user,1,1,1,1
+access_property_commission_line,access_property_commission_line,model_property_commission_line,base.group_user,1,1,1,1
+access_property_purchase_contract,access_property_purchase_contract,model_property_purchase_contract,base.group_user,1,1,1,1

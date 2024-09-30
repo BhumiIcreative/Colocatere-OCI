@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Group is likely used to manage or configure warnings related to payments for partners -->
+        <record id="group_warning_payment" model="res.groups">
+            <field name="name">A warning can be set on a partner (Payment)</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+    </data>
+</odoo>
+

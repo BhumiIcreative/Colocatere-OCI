@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.name_group_system_77657abf-9d54-49e6-8161-14636679e200" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_system"/>
+    <field name="model_id" ref="studio_customization.name_faa9d48b-72f8-438c-b212-d6fa7aba6c16"/>
+    <field name="name">name group_system</field>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+    <field name="perm_write" eval="True"/>
+  </record>
+  <record id="studio_customization.name_group_user_e7d3df55-7743-4c58-a634-062e29ea4933" model="ir.model.access" context="{'studio': True}">
+    <field name="active" eval="True"/>
+    <field name="group_id" ref="base.group_user"/>
+    <field name="model_id" ref="studio_customization.name_faa9d48b-72f8-438c-b212-d6fa7aba6c16"/>
+    <field name="name">name group_user</field>
+    <field name="perm_create" eval="False"/>
+    <field name="perm_read" eval="True"/>
+    <field name="perm_unlink" eval="False"/>
+    <field name="perm_write" eval="False"/>
+  </record>
+</odoo>

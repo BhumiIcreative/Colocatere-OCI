@@ -1,0 +1,38 @@
+The following relational data haven't been exported because they either refer
+to a model that Studio doesn't export, or have no XML id:
+
+Record: studio_customization.invoice_compte_banca_3de6a923-4452-45e6-998b-427937eb1b01
+Model: ir.actions.server
+Field: fields_lines
+Type: one2many
+Value: ir.server.object.lines(594,) ('ir.server.object.lines,594')
+
+Record: studio_customization.invoice_compte_banca_e11a0298-235e-4262-8c2a-a5e7e8c7838a
+Model: ir.actions.server
+Field: fields_lines
+Type: one2many
+Value: ir.server.object.lines(714,) ('ir.server.object.lines,714')
+
+Record: studio_customization.partenaire_f8a3e389-71e4-4e4c-a130-8d8bf5c10d70
+Model: ir.actions.server
+Field: fields_lines
+Type: one2many
+Value: ir.server.object.lines(732,) ('ir.server.object.lines,732')
+
+Record: studio_customization.invoice_compte_banca_dae260a1-6eb9-49ed-9bf8-8a85d9cd14b9
+Model: ir.actions.server
+Field: fields_lines
+Type: one2many
+Value: ir.server.object.lines(841,) ('ir.server.object.lines,841')
+
+Record: col_payment_import.payment_import_wizard
+Model: ir.ui.menu
+Field: groups_id
+Type: many2many
+Value: res.groups(67,) ('Comptabilité / Comptabilité + comptes 42 [OCI]')
+
+Record: studio_customization.rvrst_31_octobre_com_93b34af4-8268-4b21-b795-6944e8c6f922
+Model: ir.filters
+Field: action_id
+Type: many2one
+Value: ir.actions.actions(217,) ('Bills')

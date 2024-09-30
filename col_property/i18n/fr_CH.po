@@ -1,0 +1,938 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* col_property
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-04 12:12+0000\n"
+"PO-Revision-Date: 2024-09-04 12:12+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: col_property
+#: model:mail.template,body_html:col_property.mail_template_exception
+msgid ""
+"\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); \">\n"
+"    <p>test</p>\n"
+"    <br/>\n"
+"</div>\n"
+"            "
+msgstr ""
+
+#. module: col_property
+#: code:addons/col_property/models/property_lease.py:0
+#, python-format
+msgid " to %s"
+msgstr " à %s"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.property_account_move_form_project
+msgid "/&gt;"
+msgstr ""
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.report_list_invoice
+msgid "<strong>Customer</strong>"
+msgstr "<strong>Client</strong>"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.report_list_invoice
+msgid "<strong>Reference</strong>"
+msgstr "<strong>Réference</strong>"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.report_list_invoice
+msgid "<strong>Total Price</strong>"
+msgstr "<strong>Prix total</strong>"
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_purchase_order_line__account_analytic_id
+msgid "Account Analytic"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__active
+#, python-format
+msgid "Active"
+msgstr "Actif"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#: model:ir.model.fields,field_description:col_property.field_account_bank_statement_line__additional_invoice_payment_ref
+#: model:ir.model.fields,field_description:col_property.field_account_move__additional_invoice_payment_ref
+#: model:ir.model.fields,field_description:col_property.field_account_payment__additional_invoice_payment_ref
+#, python-format
+msgid "Additional invoice payment ref"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__agency_col_id
+#, python-format
+msgid "Agence"
+msgstr ""
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_account_move__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_project_project__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_property_lease__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_property_property__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_property_room__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_purchase_order__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_purchase_order_line__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_res_partner__akawam_id
+#: model:ir.model.fields,field_description:col_property.field_sale_order__akawam_id
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_order_form
+#: model_terms:ir.ui.view,arch_db:col_property.sale_order_form
+msgid "Akawam id"
+msgstr "ID Akawam"
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_account_move__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_project_project__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_property_lease__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_property_property__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_property_room__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_purchase_order__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_purchase_order_line__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_res_partner__akawam_last_hash
+#: model:ir.model.fields,field_description:col_property.field_sale_order__akawam_last_hash
+msgid "Akawam last hash"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_pricing.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__amount
+#, python-format
+msgid "Amount"
+msgstr "Montant"
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_sale_order__analytic_account_id
+msgid "Analytic Account"
+msgstr "Compte analytique"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__area
+#, python-format
+msgid "Area"
+msgstr "Surface"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__cgp_id
+#, python-format
+msgid "CGP"
+msgstr "CGP"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__account_move__state__cancel
+#, python-format
+msgid "Cancel"
+msgstr "Annulé"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__property_purchase_contract__owner_type__co-owners
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#, python-format
+msgid "Co-Owners"
+msgstr "Copropriétaires"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__commission_ids
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#, python-format
+msgid "Commissions"
+msgstr "Commissions"
+
+#. module: col_property
+#: model:ir.actions.server,name:col_property.cron_auto_invoice_repayment_ir_actions_server
+msgid "Compatbiliser automatiquement les reversements"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__compromise_date
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_tree
+#, python-format
+msgid "Compromise date"
+msgstr "Date de compromis"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__create_uid
+#: model:ir.model.fields,field_description:col_property.field_property_lease__create_uid
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__create_uid
+#: model:ir.model.fields,field_description:col_property.field_property_property__create_uid
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__create_uid
+#: model:ir.model.fields,field_description:col_property.field_property_room__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__create_date
+#: model:ir.model.fields,field_description:col_property.field_property_lease__create_date
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__create_date
+#: model:ir.model.fields,field_description:col_property.field_property_property__create_date
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__create_date
+#: model:ir.model.fields,field_description:col_property.field_property_room__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: col_property
+#: model:mail.template,name:col_property.mail_template_exception
+#: model:mail.template,subject:col_property.mail_template_exception
+msgid ""
+"Cron Exception\n"
+"            "
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_commission_line.py:0
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__currency_id
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__currency_id
+#, python-format
+msgid "Currency"
+msgstr "Devise"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_pricing.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__property_pricing__interval_type__day
+#, python-format
+msgid "Day"
+msgstr "Jour"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__decorator_id
+#, python-format
+msgid "Decorator"
+msgstr "Décorateur"
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__display_name
+#: model:ir.model.fields,field_description:col_property.field_property_lease__display_name
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__display_name
+#: model:ir.model.fields,field_description:col_property.field_property_property__display_name
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__display_name
+#: model:ir.model.fields,field_description:col_property.field_property_room__display_name
+msgid "Display Name"
+msgstr "Afficher un nom"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__account_move__state__draft
+#, python-format
+msgid "Draft"
+msgstr "Brouillon"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_lease__end_date
+#, python-format
+msgid "End Date"
+msgstr "Date de Fin"
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__id
+#: model:ir.model.fields,field_description:col_property.field_property_lease__id
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__id
+#: model:ir.model.fields,field_description:col_property.field_property_property__id
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__id
+#: model:ir.model.fields,field_description:col_property.field_property_room__id
+msgid "ID"
+msgstr ""
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.property_account_move_filter
+msgid "In deficit"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_pricing.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__interval
+#, python-format
+msgid "Interval"
+msgstr "Intervalle"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_pricing.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__interval_type
+#, python-format
+msgid "Interval type"
+msgstr "Type d'intervalle"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#: code:addons/col_property/models/project_project.py:0
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_account_bank_statement_line__in_deficit
+#: model:ir.model.fields,field_description:col_property.field_account_move__in_deficit
+#: model:ir.model.fields,field_description:col_property.field_account_payment__in_deficit
+#: model:ir.model.fields,field_description:col_property.field_project_project__in_deficit
+#: model:ir.model.fields,field_description:col_property.field_property_property__in_deficit
+#, python-format
+msgid "Is in deficit"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__is_real_compromise
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#, python-format
+msgid "Is the compromise date the real one ?"
+msgstr "La date de compromis est-elle la vraie ?"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__is_real_signature
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#, python-format
+msgid "Is the signature date the real one ?"
+msgstr "La date de signature est-elle la vraie ?"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_account_move
+msgid "Journal Entry"
+msgstr "Pièce comptable"
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__write_uid
+#: model:ir.model.fields,field_description:col_property.field_property_lease__write_uid
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__write_uid
+#: model:ir.model.fields,field_description:col_property.field_property_property__write_uid
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__write_uid
+#: model:ir.model.fields,field_description:col_property.field_property_room__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__write_date
+#: model:ir.model.fields,field_description:col_property.field_property_lease__write_date
+#: model:ir.model.fields,field_description:col_property.field_property_pricing__write_date
+#: model:ir.model.fields,field_description:col_property.field_property_property__write_date
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__write_date
+#: model:ir.model.fields,field_description:col_property.field_property_room__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_account_bank_statement_line__lease_id
+#: model:ir.model.fields,field_description:col_property.field_account_move__lease_id
+#: model:ir.model.fields,field_description:col_property.field_account_payment__lease_id
+#: model:ir.model.fields,field_description:col_property.field_project_project__lease_ids
+#, python-format
+msgid "Lease"
+msgstr "Bail"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: code:addons/col_property/models/property_room.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__lease_count
+#: model:ir.model.fields,field_description:col_property.field_property_room__lease_count
+#, python-format
+msgid "Lease Count"
+msgstr "Nombre de baux"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__lease_count
+#, python-format
+msgid "Lease count"
+msgstr "Nombre de baux"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__lease_manager_id
+#, python-format
+msgid "Lease manager"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: code:addons/col_property/models/property_property.py:0
+#: code:addons/col_property/models/property_property.py:0
+#: code:addons/col_property/models/property_room.py:0
+#: code:addons/col_property/models/property_room.py:0
+#: model:ir.actions.act_window,name:col_property.property_leases_action
+#: model:ir.model.fields,field_description:col_property.field_property_property__lease_ids
+#: model:ir.model.fields,field_description:col_property.field_property_room__lease_ids
+#: model:ir.ui.menu,name:col_property.property_menu_leases
+#: model_terms:ir.ui.view,arch_db:col_property.property_project_form
+#: model_terms:ir.ui.view,arch_db:col_property.view_property_form
+#: model_terms:ir.ui.view,arch_db:col_property.view_room_form
+#, python-format
+msgid "Leases"
+msgstr "Baux"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_lease__lessor_partner_ids
+#: model_terms:ir.ui.view,arch_db:col_property.view_leases_form
+#, python-format
+msgid "Lessor"
+msgstr "Bailleur"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#: model:ir.model.fields,field_description:col_property.field_account_bank_statement_line__lease_partner_ids
+#: model:ir.model.fields,field_description:col_property.field_account_move__lease_partner_ids
+#: model:ir.model.fields,field_description:col_property.field_account_payment__lease_partner_ids
+#, python-format
+msgid "Lessors"
+msgstr "Bailleurs"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_pricing.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__property_pricing__interval_type__month
+#, python-format
+msgid "Month"
+msgstr "Mois"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: code:addons/col_property/models/property_property.py:0
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: code:addons/col_property/models/property_room.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_lease__name
+#: model:ir.model.fields,field_description:col_property.field_property_property__name
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__name
+#: model:ir.model.fields,field_description:col_property.field_property_room__name
+#: model_terms:ir.ui.view,arch_db:col_property.view_property_form
+#: model_terms:ir.ui.view,arch_db:col_property.view_room_form
+#, python-format
+msgid "Name"
+msgstr "Nom"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.report_list_invoice
+msgid "Name Project :"
+msgstr "Nom du projet :"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__property_purchase_contract__owner_type__owner
+#, python-format
+msgid "Owner"
+msgstr "Propriétaire"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__owner_type
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#, python-format
+msgid "Owner type"
+msgstr "Type de propriétaire"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__owner_ids
+#, python-format
+msgid "Owners"
+msgstr "Propriétaires"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_commission_line.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__partner_id
+#, python-format
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__partner_address_id
+#, python-format
+msgid "Partner Adresse"
+msgstr "Addresse du partenaire"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.property_project_form
+msgid "Partners"
+msgstr "Partenaires"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_account_payment
+msgid "Payments"
+msgstr "Paiements"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.property_account_move_form
+msgid "Post"
+msgstr "Comptabiliser"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__account_move__state__posted
+#, python-format
+msgid "Posted"
+msgstr "Comptabilisé"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_commission_line.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__price
+#, python-format
+msgid "Price"
+msgstr "Prix"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_lease__pricing_id
+#, python-format
+msgid "Pricing"
+msgstr "Tarification"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: code:addons/col_property/models/property_property.py:0
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: code:addons/col_property/models/purchase_order.py:0
+#: code:addons/col_property/models/sale_order.py:0
+#: model:ir.model,name:col_property.model_project_project
+#: model:ir.model.fields,field_description:col_property.field_property_lease__project_id
+#: model:ir.model.fields,field_description:col_property.field_property_property__project_id
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__project_id
+#: model:ir.model.fields,field_description:col_property.field_purchase_order__project_id
+#: model:ir.model.fields,field_description:col_property.field_sale_order__project_id
+#, python-format
+msgid "Project"
+msgstr "Projet"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+msgid "Project id"
+msgstr "ID du projet"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: code:addons/col_property/models/property_property.py:0
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_lease__project_ids
+#: model:ir.model.fields,field_description:col_property.field_property_property__project_ids
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__project_ids
+#, python-format
+msgid "Projects"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: code:addons/col_property/models/project_project.py:0
+#: code:addons/col_property/models/property_lease.py:0
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: code:addons/col_property/models/property_room.py:0
+#: model:ir.actions.act_window,name:col_property.property_property_action
+#: model:ir.model.fields,field_description:col_property.field_project_project__property_ids
+#: model:ir.model.fields,field_description:col_property.field_property_lease__property_id
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__property_id
+#: model:ir.model.fields,field_description:col_property.field_property_room__property_id
+#: model:ir.ui.menu,name:col_property.property_menu
+#: model_terms:ir.ui.view,arch_db:col_property.property_project_form
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_tree
+#, python-format
+msgid "Property"
+msgstr "Propriété"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__property_count
+#, python-format
+msgid "Property count"
+msgstr "Nombre de biens"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: model:ir.model,name:col_property.model_property_lease
+#, python-format
+msgid "Property lease"
+msgstr "Nombre de baux"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__amount
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#, python-format
+msgid "Property price (buying price)"
+msgstr "Prix ​​de la propriété (prix d'achat)"
+
+#. module: col_property
+#: model:ir.actions.act_window,name:col_property.property_purchase_contract_action
+#: model:ir.ui.menu,name:col_property.property_menu_purchase_contract
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_tree
+msgid "Purchase Contract"
+msgstr "Contrat d'achat"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: model_terms:ir.ui.view,arch_db:col_property.property_project_form
+#: model_terms:ir.ui.view,arch_db:col_property.view_property_form
+#, python-format
+msgid "Purchase Contracts"
+msgstr "Contrats d'achat"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__purchase_contract_count
+#, python-format
+msgid "Purchase Contracts Count"
+msgstr "Nombre de contrats d'achat"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_purchase_order
+msgid "Purchase Order"
+msgstr "Bon de commande fournisseur"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Ligne de bon de commande"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#: code:addons/col_property/models/property_commission_line.py:0
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: code:addons/col_property/models/purchase_order.py:0
+#: code:addons/col_property/models/sale_order.py:0
+#: model:ir.model,name:col_property.model_property_purchase_contract
+#: model:ir.model.fields,field_description:col_property.field_account_bank_statement_line__purchase_contract_id
+#: model:ir.model.fields,field_description:col_property.field_account_move__purchase_contract_id
+#: model:ir.model.fields,field_description:col_property.field_account_payment__purchase_contract_id
+#: model:ir.model.fields,field_description:col_property.field_property_commission_line__purchase_contract_id
+#: model:ir.model.fields,field_description:col_property.field_purchase_order__purchase_contract_id
+#: model:ir.model.fields,field_description:col_property.field_sale_order__purchase_contract_id
+#, python-format
+msgid "Purchase contract"
+msgstr "Contrat d'achat"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__purchase_contract_count
+#, python-format
+msgid "Purchase contract count"
+msgstr "Nombre de contrat d'achat"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: code:addons/col_property/models/project_project.py:0
+#: code:addons/col_property/models/res_partner.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__purchase_contract_ids
+#: model:ir.model.fields,field_description:col_property.field_res_partner__purchase_contract_ids
+#: model:ir.model.fields,field_description:col_property.field_res_users__purchase_contract_ids
+#, python-format
+msgid "Purchase contracts"
+msgstr "Contrats d'achat"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__purchase_count
+#, python-format
+msgid "Purchase count"
+msgstr "Nombre achats"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__purchase_ids
+#: model_terms:ir.ui.view,arch_db:col_property.property_project_form
+#, python-format
+msgid "Purchases"
+msgstr "Achats"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__purchase_contract_ids
+#, python-format
+msgid "Purchases Contracts"
+msgstr "Contrats d'achats"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_account_payment_register
+msgid "Register Payment"
+msgstr "Enregistrer un paiement"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__renovated_area
+#, python-format
+msgid "Renovated area"
+msgstr "Surface rénovée"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_lease__room_id
+#, python-format
+msgid "Room"
+msgstr "Chambre"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: code:addons/col_property/models/property_property.py:0
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__room_ids
+#, python-format
+msgid "Rooms"
+msgstr "Chambres"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__sale_count
+#, python-format
+msgid "Sale count"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__sale_ids
+#: model_terms:ir.ui.view,arch_db:col_property.property_project_form
+#, python-format
+msgid "Sales"
+msgstr "Nombre de ventes"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Facture de paiement d'avance"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__seller_id
+#, python-format
+msgid "Seller"
+msgstr "Vendeur"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_pricing.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__property_pricing__interval_type__semester
+#, python-format
+msgid "Semester"
+msgstr "Semestre"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_purchase_contract.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_purchase_contract__signature_date
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_form
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_tree
+#, python-format
+msgid "Signature date"
+msgstr "Date de signature"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__sourcer_id
+#, python-format
+msgid "Sourcer"
+msgstr "Sourceur"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_lease__start_date
+#, python-format
+msgid "Start Date"
+msgstr "Date de début"
+
+#. module: col_property
+#: model:ir.model.fields,field_description:col_property.field_account_bank_statement_line__state
+#: model:ir.model.fields,field_description:col_property.field_account_move__state
+#: model:ir.model.fields,field_description:col_property.field_account_payment__state
+msgid "Status"
+msgstr "Statut"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__subcontractor_id
+#, python-format
+msgid "Subcontractor"
+msgstr "Sous-traitant"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_lease.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_lease__tenant_partner_ids
+#: model_terms:ir.ui.view,arch_db:col_property.view_leases_form
+#, python-format
+msgid "Tenant"
+msgstr "Locataire"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#, python-format
+msgid "This action isn't available for this document."
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__account_move__state__to_post
+#: model_terms:ir.ui.view,arch_db:col_property.property_account_move_form
+#, python-format
+msgid "To post"
+msgstr "À traiter"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.report_list_invoice
+msgid "Total Invoice :"
+msgstr "Total facture :"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/project_project.py:0
+#: model:ir.model.fields,field_description:col_property.field_project_project__transfer_locked
+#, python-format
+msgid "Transfer locked"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_pricing.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__property_pricing__interval_type__trimester
+#, python-format
+msgid "Trimester"
+msgstr "Trimestre"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_pricing.py:0
+#: model:ir.model.fields.selection,name:col_property.selection__property_pricing__interval_type__year
+#, python-format
+msgid "Year"
+msgstr "Année"
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/account_move.py:0
+#, python-format
+msgid "You can't mark an invoice as to post if it's not in draft state."
+msgstr "Vous ne pouvez pas mettre une facture à l'état \"À poster\" si elle n'est pas au statut Brouillon"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.purchase_contract_tree
+msgid "is real ?"
+msgstr "est vrai ?"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_property_pricing
+msgid "property.pricing"
+msgstr ""
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_property_property
+msgid "property.property"
+msgstr ""
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_property_room
+msgid "property.room"
+msgstr ""
+
+#. module: col_property
+#. odoo-python
+#: code:addons/col_property/models/property_property.py:0
+#: model:ir.model.fields,field_description:col_property.field_property_property__room_count
+#, python-format
+msgid "room Count"
+msgstr "Nombre de chambres"
+
+#. module: col_property
+#: model_terms:ir.ui.view,arch_db:col_property.view_property_form
+msgid "rooms"
+msgstr "Chambres"
+
+#. module: col_property
+#: model:ir.model,name:col_property.model_property_commission_line
+msgid "this is the commission line model for purchase contract"
+msgstr "C'est le modèle de ligne de commission pour le contrat d'achat"

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit payment register form view and add fields -->
+    <record id="account_payment_block_partner_register_multiple_payment_button_form" model="ir.ui.view">
+        <field name="name">apbp.payment.register.multi.form</field>
+        <field name="model">account.payment.register</field>
+        <field name="inherit_id" ref="account.view_account_payment_register_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_method_line_id" position="before">
+                <field name="display_error" invisible="1"/>
+                <field name="is_lock_payment" invisible="1"/>
+                <field name="error_message" readonly="1" widget="text" invisible="display_error == False"/>
+            </field>
+            <xpath expr="//footer/button[@name='action_create_payments'][1]" position="attributes">
+                <attribute name="invisible">is_lock_payment == True</attribute>
+            </xpath>
+            <xpath expr="//footer/button[@name='action_create_payments'][2]" position="attributes">
+                <attribute name="invisible">is_lock_payment == True</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

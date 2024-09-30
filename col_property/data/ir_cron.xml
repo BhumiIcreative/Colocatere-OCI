@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.cron" id="cron_auto_invoice_repayment">
+      <field name="name">Compatbiliser automatiquement les reversements</field>
+      <field name="model_id" ref="account.model_account_move"/>
+      <field name="active" eval="False"/>
+      <field name="numbercall">-1</field>
+      <field name="code">
+# Available variables:
+#  - env: Odoo Environment on which the action is triggered
+#  - model: Odoo Model of the record on which the action is triggered; is a void recordset
+#  - record: record on which the action is triggered; may be void
+#  - records: recordset of all records on which the action is triggered in multi-mode; may be void
+#  - time, datetime, dateutil, timezone: useful Python libraries
+#  - log: log(message, level='info'): logging function to record debug information in ir.logging table
+#  - Warning: Warning Exception to use with raise
+# To return an action, assign: action = {...}
+
+# If you need to invoice past or future invoices, just put date of required month
+# Date's format is YYYY-mm-dd
+model.cron_auto_invoice_repayment(date='')
+      </field>
+    </record>
+</odoo>

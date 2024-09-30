@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Inherit Partner form view and add field.-->
+    <record model="ir.ui.view" id="partner_employee_account_form">
+        <field name="name">Res partner employee account</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+            <field name="property_account_payable_id" position="after">
+                <field name="property_account_employee_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action to open the Chart Templates view and view in kanban, tree, or form mode -->
+    <record id="open_account_charts_modules" model="ir.actions.act_window">
+        <field name="name">Chart Templates</field>
+        <field name="res_model">ir.module.module</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context" eval="{
+                'search_default_category_id': ref('base.module_category_accounting_localizations_account_charts'),
+                'searchpanel_default_category_id': ref('base.module_category_accounting_localizations_account_charts'),
+            }"/>
+        <field name="search_view_id" ref="account.view_module_filter_inherit_account"/>
+    </record>
+
+    <!-- Inherit res.config.settings form view and Warnings payment field-->
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.account</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='invoicing_settings']" position="inside">
+                <setting id="group_warning_payment_0" help="Get warnings when invoicing/paying specific partner"
+                         groups="account.group_account_manager">
+                    <field name="group_warning_payment" field_id="group_warning_payment_0" string="Warnings payment"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

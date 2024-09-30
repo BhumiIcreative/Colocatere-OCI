@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record model="environment" id="production_environment">
+    <field name="name">Production</field>
+    <field name="is_production" eval="True"/>
+  </record>
+  <record model="environment" id="development_environment">
+    <field name="name">Development</field>
+  </record>
+</odoo>

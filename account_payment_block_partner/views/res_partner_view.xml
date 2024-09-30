@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherit partners form view and add fields -->
+    <record model="ir.ui.view" id="partner_view_payment_warn">
+        <field name="name">partner.view.payment.warn</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="priority" eval="12"/>
+        <field name="arch" type="xml">
+            <page name="internal_notes" position="inside">
+                <separator string="Payment alert" groups="account_payment_block_partner.group_warning_payment"/>
+                <field name="payment_warn" nolabel="1" class="col-12"
+                       groups="account_payment_block_partner.group_warning_payment"/>
+                <field name="payment_warn_msg" nolabel="1"
+                       readonly="payment_warn == 'no-message'"
+                       required="payment_warn != False and payment_warn != 'no-message'"
+                       groups="account_payment_block_partner.group_warning_payment"/>
+            </page>
+        </field>
+    </record>
+</odoo>

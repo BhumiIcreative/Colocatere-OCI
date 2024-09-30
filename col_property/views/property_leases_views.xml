@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_leases_form" model="ir.ui.view">
+        <field name="name">Property form</field>
+        <field name="model">property.lease</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="property_id" options="{'no_create': True}"/>
+                            <field name="project_id"/>
+                            <field name="project_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            <field name="room_id" options="{'no_create': True}"/>
+                            <field name="akawam_id"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="pricing_id"/>
+                        </group>
+                    </group>
+                    <separator string="Tenant" name="Tenant"/>
+                    <field name="tenant_partner_ids" options="{'no_create': True}" nolabel="1"/>
+
+                    <separator string="Lessor" name="Lessor"/>
+                    <field name="lessor_partner_ids" options="{'no_create': True}" nolabel="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_leases_tree" model="ir.ui.view">
+        <field name="name">Property tree</field>
+        <field name="model">property.lease</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="property_id"/>
+                <field name="room_id"/>
+                <field name="tenant_partner_ids" widget="many2many_tags"/>
+                <field name="lessor_partner_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="property_leases_action" model="ir.actions.act_window">
+        <field name="name">Leases</field>
+        <field name="res_model">property.lease</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="property_menu_leases"
+            name="Leases"
+            action="property_leases_action"
+            parent="col_property.property_menu"
+            sequence="2"
+    />
+</odoo>

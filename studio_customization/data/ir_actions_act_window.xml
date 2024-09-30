@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="account.action_move_in_invoice_type" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{'default_type': 'in_invoice'}</field>
+    <field name="domain">[('type', '=', 'in_invoice')]</field>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                Créer une facture fournisseur
+              </p><p>
+                Créez des factures, enregistrez des paiements et suivez les discussions avec vos fournisseurs.
+              </p>
+            ]]></field>
+    <field name="limit">80</field>
+    <field name="name">Factures</field>
+    <field name="res_model">account.move</field>
+    <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" ref="account.view_invoice_tree"/>
+    <field name="view_mode">tree,kanban,form</field>
+  </record>
+  <record id="akawam_link.akawam_ws_call_action" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{}</field>
+    <field name="domain" eval="False"/>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help" eval="False"/>
+    <field name="limit">80</field>
+    <field name="name">Akawam WS Call</field>
+    <field name="res_model">akawam.ws.call</field>
+    <field name="search_view_id" eval="False"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree,form,graph</field>
+  </record>
+  <record id="base.ir_logging_all_act" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{}</field>
+    <field name="domain" eval="False"/>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help" eval="False"/>
+    <field name="limit">80</field>
+    <field name="name">Historisation</field>
+    <field name="res_model">ir.logging</field>
+    <field name="search_view_id" ref="base.ir_logging_search_view"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree,form,graph</field>
+  </record>
+  <record id="contacts.action_contacts" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{'default_is_company': True}</field>
+    <field name="domain" eval="False"/>
+    <field name="filter" eval="True"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+            Créez un contact dans votre carnet d'adresse
+          </p><p>
+            Odoo vous aide à facilement suivre toutes les activités liées à un vendeur.
+          </p>
+        ]]></field>
+    <field name="limit">80</field>
+    <field name="name">Contacts</field>
+    <field name="res_model">res.partner</field>
+    <field name="search_view_id" ref="base.view_res_partner_filter"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">kanban,tree,form,activity</field>
+  </record>
+  <record id="mail.action_view_mail_message" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{}</field>
+    <field name="domain" eval="False"/>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help" eval="False"/>
+    <field name="limit">80</field>
+    <field name="name">Messages</field>
+    <field name="res_model">mail.message</field>
+    <field name="search_view_id" ref="mail.view_message_search"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree,form,pivot,graph</field>
+  </record>
+  <record id="project.open_view_project_all" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{}</field>
+    <field name="domain">[]</field>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                    Créer un nouveau projet
+                </p><p>
+                    Ou <a type="action" name="434" tabindex="-1">activer le projet de démonstration</a> pour jouer avec.
+                </p>
+            ]]></field>
+    <field name="limit">80</field>
+    <field name="name">Projets</field>
+    <field name="res_model">project.project</field>
+    <field name="search_view_id" ref="project.view_project_project_filter"/>
+    <field name="target">main</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" ref="project.view_project_kanban"/>
+    <field name="view_mode">kanban,tree,form</field>
+  </record>
+  <record id="project.open_view_project_all_config" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{}</field>
+    <field name="domain">[]</field>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help"><![CDATA[<p class="o_view_nocontent_empty_folder">
+                    Créer un nouveau projet
+                </p><p>
+                    Organisez vos activités (planifier les tâches, suivre les incidents, facturer les feuilles de temps) pour les projets internes, personnels ou clients.
+                </p>
+            ]]></field>
+    <field name="limit">80</field>
+    <field name="name">Projets</field>
+    <field name="res_model">project.project</field>
+    <field name="search_view_id" ref="project.view_project_project_filter"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree,kanban,form,pivot</field>
+  </record>
+  <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{}</field>
+    <field name="domain" eval="False"/>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                Créez un nouveau devis, la première étape d'une vente!
+              </p><p>
+                Une fois le devis confirmé par le client, il devient une commande de vente. <br>Vous pourrez créer une facture et collecter le paiement.
+              </p>
+            ]]></field>
+    <field name="limit">80</field>
+    <field name="name">Devis</field>
+    <field name="res_model">sale.order</field>
+    <field name="search_view_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" ref="sale.view_quotation_tree_with_onboarding"/>
+    <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+  </record>
+  <record id="studio_customization.employe_fb5785ee-9467-41a1-a0b9-e5a42108db70" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{'search_default_x_studio_partenaire': active_id,'default_x_studio_partenaire': active_id}</field>
+    <field name="domain">[('x_studio_partenaire', '=', active_id)]</field>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help" eval="False"/>
+    <field name="limit">80</field>
+    <field name="name">Employé</field>
+    <field name="res_model">hr.employee</field>
+    <field name="search_view_id" eval="False"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="studio_customization.factures_avoirs_28bd1b88-88ab-45b9-9287-a113bcea6010" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{'default_type': 'in_invoice'}</field>
+    <field name="domain">[('type', 'in', ('in_refund','in_invoice'))]</field>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                Créer une note de crédit vendeur
+              </p><p>
+                Notez que la façon la plus simple de créer un avoir fournisseur est de le faire directement à partir de la facture fournisseur.
+              </p>
+            ]]></field>
+    <field name="limit">80</field>
+    <field name="name">Factures + Avoirs</field>
+    <field name="res_model">account.move</field>
+    <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" ref="account.view_invoice_tree"/>
+    <field name="view_mode">tree,kanban,form,pivot</field>
+  </record>
+  <record id="studio_customization.name_d4c95dac-42bf-483c-b2f1-741d672812ae" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{}</field>
+    <field name="domain" eval="False"/>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                        This is your new action ; by default, it contains a list view and a form view.
+                    </p>
+                    <p>
+                        You can start customizing these screens by clicking on the Studio icon on the
+                        top right corner (you can also customize this help message there).
+                    </p>
+                ]]></field>
+    <field name="limit">80</field>
+    <field name="name">name</field>
+    <field name="res_model">x_name</field>
+    <field name="search_view_id" eval="False"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="studio_customization.projet_9db4e835-6903-4c2f-9665-fcbbe6e5ec39" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{'search_default_partner_id': active_id,'default_partner_id': active_id}</field>
+    <field name="domain">[('partner_id', '=', active_id)]</field>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help" eval="False"/>
+    <field name="limit">80</field>
+    <field name="name">Projet</field>
+    <field name="res_model">project.project</field>
+    <field name="search_view_id" eval="False"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <record id="studio_customization.projets_7fc509f2-08f9-4119-a171-6e8af598a593" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{}</field>
+    <field name="domain" eval="False"/>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help"><![CDATA[<p class="o_view_nocontent_smiling_face">
+                        This is your new action ; by default, it contains a list view and a form view.
+                    </p>
+                    <p>
+                        You can start customizing these screens by clicking on the Studio icon on the
+                        top right corner (you can also customize this help message there).
+                    </p>
+                ]]></field>
+    <field name="limit">80</field>
+    <field name="name">Projets</field>
+    <field name="res_model">account.analytic.account</field>
+    <field name="search_view_id" eval="False"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree,form,dashboard</field>
+  </record>
+  <record id="studio_customization.vehicules_0a25aa4d-c749-4b37-af66-ef1f8bf17bca" model="ir.actions.act_window" context="{'studio': True}">
+    <field name="binding_model_id" eval="False"/>
+    <field name="binding_type">action</field>
+    <field name="binding_view_types">list,form</field>
+    <field name="context">{'search_default_driver_id': active_id,'default_driver_id': active_id}</field>
+    <field name="domain">[('driver_id', '=', active_id)]</field>
+    <field name="filter" eval="False"/>
+    <field name="groups_id" eval="[(6, 0, [])]"/>
+    <field name="help" eval="False"/>
+    <field name="limit">80</field>
+    <field name="name">Véhicules</field>
+    <field name="res_model">fleet.vehicle</field>
+    <field name="search_view_id" eval="False"/>
+    <field name="target">current</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="usage" eval="False"/>
+    <field name="view_id" eval="False"/>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

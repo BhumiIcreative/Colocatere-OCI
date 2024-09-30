@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherit journal items tree view for adding reconciliation date -->
+    <record id="account_move_line_reconciliation_date" model="ir.ui.view">
+        <field name="name">account.move.line.reconciliation.date</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="arch" type="xml">
+            <field name="matching_number" position="after">
+                <field name="reconciliation_date"/>
+            </field>
+        </field>
+    </record>
+</odoo>

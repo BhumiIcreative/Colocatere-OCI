@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_property_form" model="ir.ui.view">
+        <field name="name">Property form</field>
+        <field name="model">property.property</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_room"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-heart">
+                            <field name="room_count" widget="statinfo" string="rooms"/>
+                        </button>
+
+                        <button name="action_view_leases"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o">
+                            <field name="lease_count" widget="statinfo" string="Leases"/>
+                        </button>
+
+                        <button name="action_view_purchase_contracts"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-dollar">
+                            <field name="purchase_contract_count" widget="statinfo" string="Purchase Contracts"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="akawam_id"/>
+                        <field name="project_id" options="{'no_create': True}"/>
+                        <field name="project_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                        <field name="partner_address_id" widget="res_partner_many2one"
+                               context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}"
+                               options="{'always_reload': True, 'no_create': True}"/>
+                        <field name="area"/>
+                        <field name="renovated_area"/>
+                        <field name="in_deficit"/>
+                        <field name="lease_manager_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_property_tree" model="ir.ui.view">
+        <field name="name">Property tree</field>
+        <field name="model">property.property</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="area"/>
+                <field name="renovated_area"/>
+                <field name="room_count"/>
+                <field name="lease_count"/>
+                <field name="purchase_contract_count"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="property_property_action" model="ir.actions.act_window">
+        <field name="name">Property</field>
+        <field name="res_model">property.property</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="property_menu"
+            name="Property"
+            action="property_property_action"
+            sequence="20"
+            web_icon="col_property,static/description/icon.png"
+    />
+</odoo>

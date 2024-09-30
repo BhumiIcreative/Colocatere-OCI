@@ -1,0 +1,67 @@
+<odoo>
+  <record model="ir.actions.act_window" id="environment_action">
+    <field name="name">Environment</field>
+    <field name="res_model">environment</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem id="environment_menu"
+    name="Environment"
+    action="environment_action"
+    parent="base.menu_ir_property"/>
+
+  <record model="ir.ui.view" id="environment_tree">
+    <field name="name">Environment tree</field>
+    <field name="model">environment</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="is_active"/>
+      </tree>
+    </field>
+  </record>
+  <record model="ir.ui.view" id="environment_form">
+    <field name="name">Environment form</field>
+    <field name="model">environment</field>
+    <field name="arch" type="xml">
+      <form>
+        <header>
+          <button type="object" class="btn-primary" name="apply_env" string="Use this environment" confirm="Do you really want to use this environment ? It may break your base !"/>
+          <button type="object" class="btn-secondary" name="load_default_lines" string="Preload lines"/>
+        </header>
+        <sheet>
+          <div class="oe_title">
+            <h1>
+              <field name="name" placeholder="Environment name (Production, Developpment...)"/>
+            </h1>
+          </div>
+          <notebook>
+            <page name="parameters" string="Parameters">
+                <field name="parameter_ids" nolabel="1">
+                  <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="value"/>
+                    <field name="current_value"/>
+                  </tree>
+                </field>
+                <div class="text-right">
+                  <button type="object" class="btn-primary" name="toggle_parameter_value" string="Anonymize parameter" confirm="Set value to Inactive to all crons ?"/>
+                </div>
+            </page>
+            <page name="crons" string="Crons">
+                <field name="cron_ids" nolabel="1">
+                  <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="current_state"/>
+                  </tree>
+                </field>
+                <div class="text-right">
+                  <button type="object" class="btn-primary" name="toggle_cron_inactive" string="Mark all as Inactive" confirm="Set value to Inactive to all crons ?"/>
+                </div>
+              </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>

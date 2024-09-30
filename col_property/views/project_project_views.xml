@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="property_project_kanban" model="ir.ui.view">
+            <field name="name">property.project.project.kanban</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.view_project_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[contains(@class, 'o_project_kanban_boxes')]" position="attributes">
+                    <attribute name="class">o_project_kanban_boxes_inactive</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="property_project_form" model="ir.ui.view">
+            <field name="name">property.project.project.form</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <button name="action_view_tasks" position="before">
+                    <button name="action_view_property"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-home">
+                        <field name="property_count" widget="statinfo" string="Property"/>
+                    </button>
+
+                    <button name="action_view_leases"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-pencil-square-o">
+                        <field name="lease_count" widget="statinfo" string="Leases"/>
+                    </button>
+
+                    <!-- <button name="action_view_sales"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-dollar">
+                        <field name="sale_count" widget="statinfo" string="Sales"/>
+                    </button> -->
+
+                    <button name="action_view_purchases"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-dollar">
+                        <field name="purchase_count" widget="statinfo" string="Purchases"/>
+                    </button>
+
+                    <button name="action_view_purchase_contracts"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-dollar">
+                        <field name="purchase_contract_count" widget="statinfo" string="Purchase Contracts"/>
+                    </button>
+
+                </button>
+
+                <field name="partner_id" position="after">
+                    <field name="akawam_id"/>
+                    <field name="in_deficit"/>
+                    <field name="transfer_locked"/>
+                </field>
+
+                <page name="settings" position="after">
+                    <page name="partners" string="Partners">
+                        <group>
+                            <field name="seller_id"/>
+                            <field name="cgp_id"/>
+                            <field name="sourcer_id"/>
+                            <field name="subcontractor_id"/>
+                            <field name="decorator_id"/>
+                            <field name="agency_col_id"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+    </data>
+</odoo>

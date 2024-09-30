@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+  <record id="studio_customization.maj_po_par_akawam_efe237d1-cd31-4adc-9b82-d66890a0c117" model="mail.template" context="{'studio': True}">
+    <field name="auto_delete" eval="False"/>
+    <field name="body_html">&lt;p style="margin:0px;font-size:13px;font-family:&amp;quot;Lucida Grande&amp;quot;, Helvetica, Verdana, Arial, sans-serif;"&gt;L'achat 
+${object.record_name} 
+a été mis à jour par Akawam&lt;br&gt;&lt;/p&gt;&lt;table class="o_outlook_hack" style="display: inline-table;vertical-align:middle"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style="text-align: left; margin: 4.5px 9px; border-radius: 0px; background-color: rgb(0, 160, 157);" height="0"&gt;&lt;a href="/mail/view?model=purchase.order&amp;amp;res_id=${object.res_id}" class="btn btn-alpha" style="text-decoration:none;border-radius:0px;border-style:solid;padding:0.375rem 0.75rem 0.375rem 0.75rem;cursor:pointer;transition-delay:0s, 0s, 0s, 0s;transition-timing-function:ease-in-out, ease-in-out, ease-in-out, ease-in-out;transition-duration:0.15s, 0.15s, 0.15s, 0.15s;transition-property:color, background-color, border-color, box-shadow;line-height:1.5;font-size:1.08333rem;border-image-width:1;border-image-source:none;border-image-slice:100%;border-image-repeat:stretch;border-image-outset:0;border-left-width:1px;border-left-color:rgb(0, 160, 157);border-bottom-width:1px;border-bottom-color:rgb(0, 160, 157);border-right-width:1px;border-right-color:rgb(0, 160, 157);border-top-width:1px;border-top-color:rgb(0, 160, 157);user-select:none;vertical-align:middle;text-align:center;font-weight:500;display:inline-block;background-color:rgb(0, 160, 157);color:rgb(255, 255, 255);"&gt;Ouvrir la commande&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</field>
+    <field name="copyvalue">${object.record_name}</field>
+    <field name="email_cc" eval="False"/>
+    <field name="email_from">no-reply@colocatere.fr</field>
+    <field name="email_to">rpinset@oci.fr, sylvain.attoumani@akawam.com</field>
+    <field name="lang" eval="False"/>
+    <field name="model_id" ref="mail.model_mail_message"/>
+    <field name="model_object_field" ref="mail.field_mail_message__record_name"/>
+    <field name="name">MàJ PO par Akawam</field>
+    <field name="null_value" eval="False"/>
+    <field name="partner_to" eval="False"/>
+    <field name="ref_ir_act_window" eval="False"/>
+    <field name="reply_to" eval="False"/>
+    <field name="report_name" eval="False"/>
+    <field name="report_template" eval="False"/>
+    <field name="scheduled_date" eval="False"/>
+    <field name="sub_model_object_field" eval="False"/>
+    <field name="sub_object" eval="False"/>
+    <field name="subject">mise à jour de ${object.record_name} par Akawam</field>
+    <field name="use_default_to" eval="False"/>
+    <field name="user_signature" eval="False"/>
+  </record>
+</odoo>

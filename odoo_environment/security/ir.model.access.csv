@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_environment,Environment access,model_environment,base.group_system,1,1,1,1
+access_environment_cron,Environment cron access,model_environment_cron,base.group_system,1,1,1,1
+access_environment_parameter,Environment parameter access,model_environment_parameter,base.group_system,1,1,1,1
