@@ -56,5 +56,18 @@
             </xpath>
         </field>
     </record>
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="name">Devis</field>
+        <field name="res_model">sale.order</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créez un nouveau devis, la première étape d'une vente!
+            </p>
+            <p>
+                Une fois le devis confirmé par le client, il devient une commande de vente.<br/>Vous pourrez créer une
+                facture et collecter le paiement.
+            </p>
+        </field>
+    </record>
 
 </odoo>

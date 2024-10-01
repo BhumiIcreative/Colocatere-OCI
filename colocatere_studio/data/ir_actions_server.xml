@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!--Server action : notif màj akawam-->
         <record id="notif_maj_akawam_server_action" model="ir.actions.server">
             <field name="name">notif màj akawam</field>
             <field name="model_id" ref="mail.model_mail_thread"/>
@@ -11,6 +12,7 @@
             <field name="binding_type">action</field>
             <field name="child_ids" eval="[(6, 0, [])]"/>
         </record>
+
         <!--Update data from UI side: evaluation_type:equation,update_field_id:partner_bank_id,value:FR76 1627 5000 1108 0004 9745 301-->
         <record id="invoice_compte_banca_server_action" model="ir.actions.server">
             <field name="name">Invoice : Compte bancaire par défaut [OCI]</field>

@@ -14,12 +14,15 @@
         'account_anomaly',
         'base_automation',
         'hr',
+        'akawam_web_service',
+        'col_property'
     ],
     "data": [
         'security/ir.model.access.csv',
         'data/base_automation.xml',
         'data/ir_actions_server.xml',
         'views/x_name_views.xml',
+        'views/ir_actions_act_window.xml',
         # 'data/mail_template.xml',
         'security/colocatere_security.xml',
         'views/sale_order_views.xml',
@@ -38,6 +41,12 @@
         'views/account_move_views.xml',
         'views/account_move_line_views.xml',
         'views/account_bank_statement_line.xml',
+        'views/ir_ui_menu.xml',
+        'views/akawam_ws_call_views.xml',
+        'views/ir_logging_views.xml',
+        'views/maiL_message_views.xml',
+        'report/sale_order_report.xml',
+
     ],
     "installable": True,
     "auto_install": False,

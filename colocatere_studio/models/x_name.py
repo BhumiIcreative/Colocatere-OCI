@@ -5,6 +5,7 @@ from odoo import fields, models, api
 
 class Xname(models.Model):
     _name = 'x_name'
+    _description = "X name"
 
     x_name_f = fields.Char("Name")
     external_identifier = fields.Char(string="external_identifier", copy=True)
@@ -23,7 +24,7 @@ class Xname(models.Model):
                  'credit', 'result')
     def _compute_result(self):
         for record in self:
-            record.result = self.env['account.move.line'].search([
+            record['result'] = self.env['account.move.line'].search([
                 ('external_identifier', '=', record.external_identifier),
                 ('account_id', '=', record.account_id),
                 ('partner_id', '=', record.partner_id),

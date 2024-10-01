@@ -137,4 +137,40 @@
         <field name="context">{'default_journal_id':33}</field>
     </record>
 
+    <record id="account.action_move_in_invoice_type" model="ir.actions.act_window">
+        <field name="name">Factures</field>
+        <field name="res_model">account.move</field>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+        <field name="view_id" ref="account.view_invoice_tree"/>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer une facture fournisseur
+            </p>
+            <p>
+                Créez des factures, enregistrez des paiements et suivez les discussions avec vos fournisseurs.
+            </p>
+        </field>
+    </record>
+    <record id="action_bills_and_refunds" model="ir.actions.act_window">
+        <field name="name">Factures + Avoirs</field>
+        <field name="res_model">account.move</field>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+        <field name="view_id" ref="account.view_invoice_tree"/>
+        <field name="view_mode">tree,kanban,form,pivot</field>
+        <field name="domain">[('move_type', 'in', ('in_refund','in_invoice'))]</field>
+        <field name="context">{'default_type': 'in_invoice'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer une note de crédit vendeur
+            </p>
+            <p>
+                Notez que la façon la plus simple de créer un avoir fournisseur est de le faire directement à partir de
+                la facture fournisseur.
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_bill_and_refunds" action="action_bills_and_refunds" parent="account.menu_finance_payables" sequence="3"/>
+
+
 </odoo>

@@ -57,7 +57,19 @@
         <field name="name">name</field>
         <field name="res_model">x_name</field>
         <field name="view_mode">tree,form</field>
-    </record>
-    <menuitem id="menu_x_name" parent="account.menu_finance_entries" name="name" sequence="20" action="action_x_name"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                This is your new action ; by default, it contains a list view and a form view.
 
+            </p>
+            <p>
+                You can start customizing these screens by clicking on the Studio icon on the
+                top right corner (you can also customize this help message there).
+            </p>
+        </field>
+    </record>
+    <menuitem id="account_tmp_reconcile_menu" name="tmp-reconcile" groups="base.group_no_one"
+              parent="account_accountant.menu_accounting" sequence="9999">
+        <menuitem id="menu_x_name" name="name" action="action_x_name" sequence="1"/>
+    </menuitem>
 </odoo>

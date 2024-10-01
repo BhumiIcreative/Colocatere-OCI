@@ -34,4 +34,38 @@
             </xpath>
         </field>
     </record>
+    <record id="project.open_view_project_all" model="ir.actions.act_window">
+        <field name="name">Projets</field>
+        <field name="res_model">project.project</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer un nouveau projet
+            </p>
+            <p>
+                Ou <a type="action" name="434" tabindex="-1">activer le projet de démonstration</a> pour jouer avec.
+            </p>
+        </field>
+    </record>
+    <record id="project_project_model_custom_pivot_view" model="ir.ui.view">
+        <field name="name">Default pivot view for project.project</field>
+        <field name="model">project.project</field>
+        <field name="arch" type="xml">
+            <pivot string="Projet"/>
+        </field>
+    </record>
+    
+    <record id="project.open_view_project_all_config" model="ir.actions.act_window">
+        <field name="name">Projets</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">tree,kanban,form,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer un nouveau projet
+            </p>
+            <p>
+                Organisez vos activités (planifier les tâches, suivre les incidents, facturer les feuilles de temps)
+                pour les projets internes, personnels ou clients.
+            </p>
+        </field>
+    </record>
 </odoo>
