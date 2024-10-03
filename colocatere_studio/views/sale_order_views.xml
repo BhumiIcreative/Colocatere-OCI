@@ -26,14 +26,14 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
         <field name="arch" type="xml">
-            <field name="partner_id" position="after">
+            <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="is_projet_active" string="Is Projet active" widget="boolean_toggle" optional="show"/>
                 <field name="is_signature_relle" widget="boolean_toggle" optional="hide"/>
                 <field name="signature_date" optional="hide"/>
                 <field name="vendeur_id"/>
                 <field name="cgp_id" optional="hide"/>
                 <field name="sourceur_id" optional="hide"/>
-            </field>
+            </xpath>
         </field>
     </record>
     <!-- Inheriting the existing search view for sale.order -->

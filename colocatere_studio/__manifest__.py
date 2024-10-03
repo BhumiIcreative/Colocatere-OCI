@@ -14,8 +14,11 @@
         'account_anomaly',
         'base_automation',
         'hr',
-        'akawam_web_service',
-        'col_property'
+        # 'akawam_web_service',
+        'account_accountant',
+        'account_followup',
+        'account',
+        'col_payment_import'
     ],
     "data": [
         'security/ir.model.access.csv',
@@ -45,7 +48,8 @@
         'views/akawam_ws_call_views.xml',
         'views/ir_logging_views.xml',
         'views/maiL_message_views.xml',
-        'report/sale_order_report.xml',
+        # 'report/sale_order_report.xml',
+        'report/account_move_report.xml',
 
     ],
     "installable": True,

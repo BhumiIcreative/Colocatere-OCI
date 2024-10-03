@@ -29,3 +29,5 @@ class AccountMove(models.Model):
     type_akawam = fields.Char(string="Type Akawam")
     vendeur_id = fields.Many2one("res.partner", string="Vendeur", related='project_id.seller_id',
                                  ondelete='set null', store=True)
+    origine_externe = fields.Char("Origine Externe")
+    is_balance_invoice = fields.Boolean("Facture de solde",copy=False)

@@ -39,6 +39,7 @@
                         </group>
                         <group name="group_h40GX_right">
                             <field name="type_akawam" force_save="True" readonly="1"/>
+                            <field name="is_balance_invoice"/>
                         </group>
                     </group>
                 </page>

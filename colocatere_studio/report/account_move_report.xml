@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//div/div[@class='page mb-4']/h2/span[4]" position="replace"/>
+        <xpath expr="//div/div[@class='page mb-4']/h2/span[5]" position="replace">
+            <span t-elif="o.move_type == 'out_invoice' and o.state != 'posted'">Draft Invoice</span>
+        </xpath>
+        <xpath expr="//div[@id='payment_term']/div[3]" position="after">
+            <div class="row">
+                <div class="col-4">
+                    <span t-field="o.company_id.seal" t-if="o.company_id.seal" t-options-widget="'image'"/>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div[@class='text-muted mb-3']" position="before">
+            <div class="row" t-if="o.partner_bank_id">
+                <div class="col">
+                    Merci d'effectuer votre virement sur le RIB :
+                    <span t-field="o.partner_bank_id.acc_number"/>
+                    --
+                    <span t-field="o.partner_bank_id.bank_id.bic"/>
+                </div>
+            </div>
+            <p t-if="o.sdd_mandate_id">
+                <span>
+                    <p>
+                        This invoice will be paid using direct debit and is only
+                        sent for informative purposes.
+                    </p>
+                    <p>
+                        Please do not pay it manually, the payment will be asked to your bank to be processed
+                        automatically.
+                    </p>
+                </span>
+            </p>
+        </xpath>
+        <xpath expr="//div[@class='mb-3']/p[@name='payment_communication']/t" position="replace"/>
+        <xpath expr="//div[@class='page mb-4']" position="before">
+            <div class="col-12">
+                <div class="col-6">
+                    <b>Projet :</b>
+                    <div t-field="o.purchase_contract_id.property_id.partner_address_id" t-options-widget="'contact'"
+                         t-options-no_marker="True"
+                         t-options-fields="['address']"/>
+                </div>
+                <div class="col-6">
+                    <span t-field="o.purchase_contract_id.owner_ids.display_name"
+                          t-if="o.purchase_contract_id.owner_ids is False"/>
+                    <t t-if="o.partner_id.parent_id">
+                        <p t-field="o.partner_id.parent_id.display_name" style="margin:0;font-weight: bold;"/>
+                    </t>
+                    <t t-else="">
+                        <t t-if="o.purchase_contract_id.owner_ids">
+                            <t t-foreach="o.purchase_contract_id.owner_ids" t-as="table_line">
+                                <p t-field="table_line.display_name" style="margin:0;font-weight: bold;"/>
+                            </t>
+                        </t>
+                    </t>
+                    <div t-field="o.partner_id" t-options-widget="'contact'" t-options-no_marker="True"
+                         t-options-fields="['address']"/>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//div/div[@class='page mb-4']/h2/span[10]" position="after">
+            <span t-if="o.is_balance_invoice">- Solde</span>
+            <span t-elif="o.timeline_sequence">- Appel de fonds n°
+                <span t-field="o.timeline_sequence"/>
+            </span>
+        </xpath>
+        <xpath expr="//div[@id='informations']/div[4]" position="replace">
+            <div t-attf-class="#{'col-auto col-3 mw-100' if report_type != 'html' else 'col'} mb-2"
+                 t-if="o.invoice_origin or o.origine_externe" name="origin">
+                <strong>Source:</strong>
+                <p class="m-0" t-if="o.origine_externe == False" t-field="o.invoice_origin"/>
+                <p class="m-0" t-if="o.origine_externe" t-field="o.origine_externe"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>
