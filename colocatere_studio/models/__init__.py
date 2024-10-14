@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
 from . import res_partner
 from . import property_property
 from . import account_move
@@ -14,7 +13,7 @@ from . import purchase_order
 from . import res_users
 from . import res_company
 from . import fleet
-from . import fleet_vehicle
+# from . import fleet_vehicle
 from . import product_template
 from . import product_product
 from . import res_partner_category

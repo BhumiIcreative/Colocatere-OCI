@@ -3,11 +3,11 @@
 from odoo import fields, models, api
 
 
-class Xname(models.Model):
-    _name = 'x_name'
-    _description = "X name"
+class name(models.Model):
+    _name = 'name'
+    _description = "name"
 
-    x_name_f = fields.Char("Name")
+    name_f = fields.Char("Name")
     external_identifier = fields.Char(string="external_identifier", copy=True)
     date = fields.Date("date", copy=True)
     account_id = fields.Integer("account_id", copy=True)

@@ -375,7 +375,7 @@ msgstr "Adresse"
 #: model:ir.model.fields,field_description:account_followup.field_res_partner__type
 #: model:ir.model.fields,field_description:account_followup.field_res_users__type
 msgid "Address Type"
-msgstr ""
+msgstr "Type d'adresse"
 
 #. module: colocatere_studio
 #. odoo-python
@@ -403,12 +403,12 @@ msgstr ""
 #: model:ir.model.fields,field_description:colocatere_studio.field_account_payment__agence_id
 #: model:ir.model.fields,field_description:colocatere_studio.field_sale_order__agence_id
 msgid "Agence"
-msgstr ""
+msgstr "Agence"
 
 #. module: colocatere_studio
 #: model_terms:ir.ui.view,arch_db:colocatere_studio.colocatere_studio_custom_graph_view
 msgid "Akawam Web Service Call"
-msgstr ""
+msgstr "Appel du service Web Akawam"
 
 #. module: colocatere_studio
 #: model:ir.model.fields,field_description:colocatere_studio.field_account_bank_statement_line__anomaly_description
@@ -416,7 +416,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:colocatere_studio.field_account_payment__anomaly_description
 #: model_terms:ir.ui.view,arch_db:colocatere_studio.colocatere_studio_inherit_view_account_invoice_filter
 msgid "Anomaly Description"
-msgstr ""
+msgstr "Description de l'anomalie"
 
 #. module: account_followup
 #: model_terms:ir.ui.view,arch_db:account_followup.customer_statements_search_view
@@ -427,7 +427,7 @@ msgstr "Assigné à moi"
 #: model:ir.model.fields,field_description:colocatere_studio.field_fleet_vehicle_log_contract__fleet_contrats_assurance
 #: model_terms:ir.ui.view,arch_db:colocatere_studio.colocatere_studio_inherit_fleet_vehicle_log_contract_view_form
 msgid "Assurance"
-msgstr ""
+msgstr "Assurance"
 
 #. module: account_followup
 #: model:ir.model.fields,field_description:account_followup.field_account_followup_followup_line__join_invoices

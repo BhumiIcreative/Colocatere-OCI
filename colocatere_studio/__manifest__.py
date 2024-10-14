@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     "name": "Colocatere Studio",
     "version": "1.0",
-    "summary": "studio",
-    "description": "studio",
-    "category": "account",
+    "summary": "Studio Customisation",
+    "description": "Studio Customisation",
+    "category": "",
     "author": "Aktiv software",
     "website": "www.aktivsoftware.com",
     "depends": [
@@ -24,10 +23,10 @@
         'security/ir.model.access.csv',
         'data/base_automation.xml',
         'data/ir_actions_server.xml',
-        'views/x_name_views.xml',
+        'views/name_views.xml',
         'views/ir_actions_act_window.xml',
         # 'data/mail_template.xml',
-        'security/colocatere_security.xml',
+        'security/security.xml',
         'views/sale_order_views.xml',
         'views/purchase_order_views.xml',
         'views/property_property_views.xml',

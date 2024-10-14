@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-from odoo import models, fields, api
-
+from odoo import models, fields
 
 class FleetVehicleLogContract(models.Model):
     _inherit = 'fleet.vehicle.log.contract'
@@ -14,3 +12,10 @@ class FleetVehicleLogContract(models.Model):
     fleet_contrats_moiscontr = fields.Float("New Décimal")
     fleet_contrats_serviceht = fields.Float("Service HT")
     fleet_contrats_tva = fields.Float("TVA")
+
+
+
+class FleetVehicle(models.Model):
+    _inherit = 'fleet.vehicle'
+
+    fleet_critair = fields.Integer("Vignette Crit'Air")
