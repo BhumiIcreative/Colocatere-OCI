@@ -11,7 +11,6 @@
     <record id="account_followup.customer_statements_menu" model="ir.ui.menu">
         <field name="groups_id" eval="[(6, 0, [])]"/>
         <field name="name">Follow-up Reports</field>
-<!--        <field name="name">Rapports de suivi / Relance</field>-->
     </record>
     <record id="account.menu_action_account_moves_all" model="ir.ui.menu">
         <field name="name">Journal Item</field>

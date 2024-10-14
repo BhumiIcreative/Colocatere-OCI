@@ -15,7 +15,7 @@
             </xpath>
         </field>
     </record>
-
+    <!-- Inheriting the existing tree view for product.template -->
     <record id="colocatere_studio_inherit_product_template_view_tree" model="ir.ui.view">
         <field name="name">product.template.tree.inherit</field>
         <field name="model">product.template</field>

@@ -17,6 +17,7 @@ from . import fleet
 from . import product_template
 from . import product_product
 from . import res_partner_category
-from . import x_name
+from . import name
+from . import hr_employee
 
 

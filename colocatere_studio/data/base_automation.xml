@@ -12,18 +12,18 @@
         <field name="filter_domain" eval="False"/>
         <field name="filter_pre_domain" eval="False"/>
     </record>
-<!--    <record id="update_partenaire_automation" model="base.automation">-->
-<!--        <field name="name">Partenaire</field>-->
-<!--        <field name="model_id" eval="ref('hr.model_hr_employee')"/>-->
-<!--        <field name="active" eval="True"/>-->
-<!--        <field name="last_run" eval="False"/>-->
-<!--        <field name="trg_date_id" eval="False"/>-->
-<!--        <field name="trg_date_range" eval="False"/>-->
-<!--        <field name="trg_date_range_type" eval="False"/>-->
-<!--        <field name="trigger">on_create_or_write</field>-->
-<!--        <field name="filter_domain">[("user_partner_id","!=",False)]</field>-->
-<!--        <field name="filter_pre_domain">[("user_partner_id","!=",False)]</field>-->
-<!--    </record>-->
+    <record id="update_partenaire_automation" model="base.automation">
+        <field name="name">Partenaire</field>
+        <field name="model_id" eval="ref('hr.model_hr_employee')"/>
+        <field name="active" eval="True"/>
+        <field name="last_run" eval="False"/>
+        <field name="trg_date_id" eval="False"/>
+        <field name="trg_date_range" eval="False"/>
+        <field name="trg_date_range_type" eval="False"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="filter_domain">[("user_partner_id","!=",False)]</field>
+        <field name="filter_pre_domain">[("user_partner_id","!=",False)]</field>
+    </record>
 
     <record id="nofication_msg_automation" model="base.automation">
         <field name="name">notif màj akawam</field>
