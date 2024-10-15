@@ -7,7 +7,7 @@ class AccountPayment(models.Model):
     _inherit = "account.payment"
 
     use_employee_account = fields.Boolean(
-        string=_("Use employee account"), readonly=False, default=False
+        string=_("Use employee account"), readonly=True, default=False
     )
 
     @api.depends_context("use_employee_account")  # add field on base depend

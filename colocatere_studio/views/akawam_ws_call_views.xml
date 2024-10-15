@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
+    <!--Akwam ws call custom graph view-->
     <record id="colocatere_studio_custom_graph_view" model="ir.ui.view">
         <field name="name">akawam.ws.call.custom.graph.view</field>
         <field name="model">akawam.ws.call</field>
@@ -9,6 +10,7 @@
             </graph>
         </field>
     </record>
+    <!--Akwam ws call custom action-->
     <record id="akawam_web_service.akawam_ws_call_action" model="ir.actions.act_window">
         <field name="name">Akawam WS Call</field>
         <field name="res_model">akawam.ws.call</field>

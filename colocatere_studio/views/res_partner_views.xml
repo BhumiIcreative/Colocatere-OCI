@@ -27,6 +27,7 @@
             </xpath>
         </field>
     </record>
+    <!--Inherited the existing contact action-->
     <record id="contacts.action_contacts" model="ir.actions.act_window">
         <field name="name">Contacts</field>
         <field name="res_model">res.partner</field>

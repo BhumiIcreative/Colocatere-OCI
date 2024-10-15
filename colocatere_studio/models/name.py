@@ -7,7 +7,6 @@ class name(models.Model):
     _name = 'name'
     _description = "name"
 
-    name_f = fields.Char("Name")
     external_identifier = fields.Char(string="external_identifier", copy=True)
     date = fields.Date("date", copy=True)
     account_id = fields.Integer("account_id", copy=True)

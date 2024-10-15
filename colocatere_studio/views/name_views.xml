@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="x_name_view_form" model="ir.ui.view">
+    <!--Custom form view-->
+    <record id="name_view_form" model="ir.ui.view">
         <field name="name">name.form.view</field>
         <field name="model">name</field>
         <field name="arch" type="xml">
@@ -34,7 +35,8 @@
             </form>
         </field>
     </record>
-    <record id="x_name_view_tree" model="ir.ui.view">
+    <!--Custom tree view-->
+    <record id="name_view_tree" model="ir.ui.view">
         <field name="name">name.tree.view</field>
         <field name="model">name</field>
         <field name="arch" type="xml">
@@ -53,7 +55,8 @@
             </tree>
         </field>
     </record>
-    <record id="action_x_name" model="ir.actions.act_window">
+    <!--Custom action-->
+    <record id="action_name" model="ir.actions.act_window">
         <field name="name">name</field>
         <field name="res_model">name</field>
         <field name="view_mode">tree,form</field>
@@ -68,8 +71,9 @@
             </p>
         </field>
     </record>
+    <!--custom menuitem-->
     <menuitem id="account_tmp_reconcile_menu" name="tmp-reconcile" groups="base.group_no_one"
               parent="account_accountant.menu_accounting" sequence="9999">
-        <menuitem id="menu_name" name="name" action="action_name" sequence="1"/>
+        <menuitem id="name_menu" name="name" action="action_name" sequence="1"/>
     </menuitem>
 </odoo>

@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
+    <!--Graph view for logging-->
     <record id="logging_model_custom_graph_view" model="ir.ui.view">
         <field name="name">Default graph view for ir.logging</field>
         <field name="model">ir.logging</field>
@@ -9,6 +10,7 @@
             </graph>
         </field>
     </record>
+    <!--Action for logging model-->
     <record id="base.ir_logging_all_act" model="ir.actions.act_window">
         <field name="name">Historisation</field>
         <field name="res_model">ir.logging</field>

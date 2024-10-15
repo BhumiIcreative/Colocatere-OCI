@@ -17,9 +17,6 @@
                 <field name="marque_finvest_immo" optional="hide"/>
                 <field name="in_deficit" optional="hide"/>
             </xpath>
-            <xpath expr="//field[@name='date']" position="before">
-                <field name="external_identifier"/>
-            </xpath>
         </field>
     </record>
     <!-- Inheriting the existing filter view for account.move.line -->

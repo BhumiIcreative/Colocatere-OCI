@@ -22,7 +22,7 @@ class AccountMove(models.Model):
     in_deficit = fields.Boolean("In deficit", related='project_id.in_deficit', copy=False)
     marque_finvest_immo = fields.Boolean("Marque FINVEST IMMO", copy=False)
     project_active = fields.Boolean("Is project active", related='project_id.active', readonly=True, copy=False)
-    project_id_akawam_id = fields.Integer("Projet - Akawam ID", readonly=True, related='project_id.akawam_id',
+    project_akawam_id = fields.Integer("Projet - Akawam ID", readonly=True, related='project_id.akawam_id',
                                           copy=False)
     is_recompute_from_product = fields.Boolean("Recompute From Product", copy=False)
     sourceur_id = fields.Many2one('res.partner', string="Sourceur", ondelete='set null',

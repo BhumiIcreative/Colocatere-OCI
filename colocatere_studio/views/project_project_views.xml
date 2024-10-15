@@ -34,6 +34,7 @@
             </xpath>
         </field>
     </record>
+    <!--Inherited the existing project action-->
     <record id="project.open_view_project_all" model="ir.actions.act_window">
         <field name="name">Projets</field>
         <field name="res_model">project.project</field>
@@ -46,6 +47,7 @@
             </p>
         </field>
     </record>
+    <!--Custom pivot view for project-->
     <record id="project_project_model_custom_pivot_view" model="ir.ui.view">
         <field name="name">Default pivot view for project.project</field>
         <field name="model">project.project</field>
@@ -53,7 +55,7 @@
             <pivot string="Projet"/>
         </field>
     </record>
-    
+
     <record id="project.open_view_project_all_config" model="ir.actions.act_window">
         <field name="name">Projets</field>
         <field name="res_model">project.project</field>

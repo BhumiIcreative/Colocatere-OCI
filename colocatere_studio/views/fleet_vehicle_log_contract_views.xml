@@ -7,20 +7,20 @@
         <field name="inherit_id" ref="fleet.fleet_vehicle_log_contract_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='expiration_date']" position="after">
-                <field name="fleet_contrats_moiscontr"/>
+                <field name="oci_fleet_contrats_moiscontr"/>
             </xpath>
             <xpath expr="//form[1]/sheet[1]/group[3]" position="after">
                 <group name="group_1ZH2A">
                     <group name="group_1ZH2A_left" string="">
-                        <field name="fleet_contrats_loyerht"/>
-                        <field name="fleet_contrats_loyerttc"/>
-                        <field name="fleet_contrats_serviceht"/>
-                        <field name="fleet_contrats_loyerfraisttc"/>
-                        <field name="fleet_contrats_tva" help="BPCE 19,6% FREE2MOVE 20%"/>
+                        <field name="oci_fleet_contrats_loyerht"/>
+                        <field name="oci_fleet_contrats_loyerttc"/>
+                        <field name="oci_fleet_contrats_serviceht"/>
+                        <field name="oci_fleet_contrats_loyerfraisttc"/>
+                        <field name="oci_fleet_contrats_tva" help="BPCE 19,6% FREE2MOVE 20%"/>
                     </group>
                     <group name="group_1ZH2A_right" string="">
-                        <field name="fleet_contrats_assurance" string="Assurance"/>
-                        <field name="fleet_contrats_avantnat" string="Avantage en nature"/>
+                        <field name="oci_fleet_contrats_assurance" string="Assurance"/>
+                        <field name="oci_fleet_contrats_avantnat" string="Avantage en nature"/>
                     </group>
                 </group>
             </xpath>

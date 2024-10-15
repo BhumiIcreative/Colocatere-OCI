@@ -1,22 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
+    <!--col payment import menu inherit and change string from PO file-->
     <record id="col_payment_import.payment_import_wizard" model="ir.ui.menu">
-<!--        <field name="name">Importation Paie</field>-->
         <field name="name">Payment import</field>
     </record>
+    <!--sale menu inherit and some changes-->
     <record id="sale.sale_menu_config_activity_type" model="ir.ui.menu">
         <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one'), ref('base.group_user')])]"/>
         <field name="parent_id" ref="sale.menu_sale_config"/>
     </record>
+    <!--Follow up reports menu inherit and some changes-->
     <record id="account_followup.customer_statements_menu" model="ir.ui.menu">
         <field name="groups_id" eval="[(6, 0, [])]"/>
         <field name="name">Follow-up Reports</field>
     </record>
+    <!--Journal Item menu inherit and some changes-->
     <record id="account.menu_action_account_moves_all" model="ir.ui.menu">
         <field name="name">Journal Item</field>
         <field name="groups_id" eval="[(6, 0, [])]"/>
     </record>
-
+    <!--account menu inherit and some changes-->
     <record id="account.menu_finance_entries" model="ir.ui.menu">
         <field name="groups_id"
                eval="[(6,0,[ref('account.group_account_user'),ref('account.group_account_manager')])]"/>
