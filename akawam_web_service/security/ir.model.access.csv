@@ -1,0 +1,2 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_akawam_ws_call_admin,Read Akawam WS Call,akawam_web_service.model_akawam_ws_call,base.group_no_one,1,0,0,0

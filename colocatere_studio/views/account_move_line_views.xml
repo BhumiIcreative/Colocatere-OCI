@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for account.move.line -->
+    <record id="colocatere_studio_inherit_view_move_line_tree" model="ir.ui.view">
+        <field name="name">account.move.line.tree.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="etiquettes_ids" widget="many2many_tags"/>
+                <field name="projet_id"/>
+            </xpath>
+            <xpath expr="//field[@name='matching_number']" position="after">
+                <field name="external_reconcile" groups="colocatere_studio.group_move"/>
+            </xpath>
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="marque_finvest_immo" optional="hide"/>
+                <field name="in_deficit" optional="hide"/>
+            </xpath>
+            <xpath expr="//field[@name='date']" position="before">
+                <field name="external_identifier"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing filter view for account.move.line -->
+    <record id="colocatere_studio_inherit_view_account_move_line_filter" model="ir.ui.view">
+        <field name="name">account.move.line.filter.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_account_move_line_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search[1]/separator[7]" position="after">
+                <filter domain="[('in_deficit', '=', True)]" name="filter_iC7hk"
+                        string="En déficit"/>
+                <separator name="separator_J9yiA"/>
+                <filter domain="[('marque_finvest_immo', '=', True)]" name="filter_5FDNW"
+                        string="Marque FINVEST IMMO"/>
+            </xpath>
+            <xpath expr="//filter[@name='groupby_date']" position="after">
+                <filter context="{'group_by': 'in_deficit'}" name="in_deficit" string="En déficit"/>
+                <filter context="{'group_by': 'projet_id'}" name="projet_id" string="Projet"/>
+            </xpath>
+            <xpath expr="//field[@name='reconcile_model_id']" position="after">
+                <field name="projet_id"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing Tree view for account.move.line -->
+    <record id="colocatere_studio_inherit_view_move_line_tree_grouped_general" model="ir.ui.view">
+        <field name="name">account.move.line.tree.group.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree_grouped_general"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_state']" position="after">
+                <field name="marque_finvest_immo" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

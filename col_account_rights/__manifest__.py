@@ -1,0 +1,46 @@
+# -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
+{
+    "name": "Compta Colocatère - Droits d'accès",
+    "version": "1.0",
+    "summary": "Compta Colocatère - Droits d'accès",
+    "sequence": 10,
+    "description": """
+Compta Colocatère - Droits d'accès
+    """,
+    "author": "Aktiv software",
+    "website": "https://www.oci.fr",
+    "maintainer": "Romaric PINSET LEPRETRE",
+    "category": "Accounting/Accounting",
+    "depends": [
+        "account_accountant",
+        "account_asset",
+        "account_auto_transfer",
+        # 'account_online_sync',
+        "account_reports",
+        "account_sepa",
+        "account_sepa_direct_debit",
+        "analytic_enterprise",
+        "col_expense_report_import",
+        "col_payment_import",
+        # 'invoice_sdd_mandate',
+        "invoice_timeline_custom_start_date",
+        "invoice_timeline_purchase",
+        "invoice_timeline_sale",
+        "product",
+        "project",
+        "purchase",
+        "sms",
+        "snailmail_account_followup",
+        "l10n_fr",
+        "l10n_be",
+    ],
+    "data": [
+        "security/account_security.xml",
+        "security/ir.model.access.csv",
+    ],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+    "license": "LGPL-3",
+}

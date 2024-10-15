@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for sale.order -->
+    <record id="colocatere_studio_inherit_view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_information']//field[@name='invoice_status']" position="after">
+                <field name="sourceur_id"/>
+                <field name="vendeur_id"/>
+                <field name="cgp_id"/>
+            </xpath>
+            <xpath expr="//page[@name='other_information']//group[4]" position="after">
+                <group name="group_hPRDb">
+                    <group name="group_hPRDb_left" string="Edition PDF">
+                        <field name="marque_finvest_immo" string="Marque FINVEST IMMO"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing tree view for sale.order -->
+    <record id="colocatere_studio_inherit_view_quotation_tree_with_onboarding" model="ir.ui.view">
+        <field name="name">sale.order.view.tree.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="is_projet_active" string="Is Projet active" widget="boolean_toggle" optional="show"/>
+                <field name="is_signature_relle" widget="boolean_toggle" optional="hide"/>
+                <field name="signature_date" optional="hide"/>
+                <field name="vendeur_id"/>
+                <field name="cgp_id" optional="hide"/>
+                <field name="sourceur_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing search view for sale.order -->
+    <record id="colocatere_studio_inherit_sale_order_view_search_inherit_quotation" model='ir.ui.view'>
+        <field name='name'>sale.order.search.inherit</field>
+        <field name='model'>sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+        <field name='arch' type='xml'>
+            <xpath expr="//filter[@name='order_month']" position="after">
+                <filter context="{'group_by': 'vendeur_id'}" name="vendeur_id"/>
+                <filter string="CGP" name="cgp_id" context="{'group_by':'cgp_id'}"/>
+                <filter string="Sourceur" name="sourceur_id" context="{'group_by': 'sourceur_id'}"/>
+            </xpath>
+            <xpath expr="//field[@name='campaign_id']" position="after">
+                <field name="cgp_id"/>
+                <field name="sourceur_id"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="replace">
+                <field name="vendeur_id"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="sale.action_quotations_with_onboarding" model="ir.actions.act_window">
+        <field name="name">Devis</field>
+        <field name="res_model">sale.order</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créez un nouveau devis, la première étape d'une vente!
+            </p>
+            <p>
+                Une fois le devis confirmé par le client, il devient une commande de vente.<br/>Vous pourrez créer une
+                facture et collecter le paiement.
+            </p>
+        </field>
+    </record>
+
+</odoo>

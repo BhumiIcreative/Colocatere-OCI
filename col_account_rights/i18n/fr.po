@@ -1,0 +1,26 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* col_account_rights
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-17 09:53+0000\n"
+"PO-Revision-Date: 2024-09-17 09:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: col_account_rights
+#: model:res.groups,name:col_account_rights.group_col_account_invoice_expense
+msgid "2 Facturation avec NdF (mais pas 42)"
+msgstr "2 Facturation avec NdF (mais pas 42)"
+
+#. module: col_account_rights
+#: model:res.groups,name:col_account_rights.group_col_account_partner
+msgid "3 Compta sans compte 42"
+msgstr "3 Compte sans compte 42"

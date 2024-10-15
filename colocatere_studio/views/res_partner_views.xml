@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for res.partner -->
+    <record id="colocatere_studio_inherit_view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="page_6Zqit" string="Colocatère">
+                    <group name="group_6Zqit">
+                        <field name="proprietaire_projet_ids" string="Proprietaire / Projet" force_save="True"
+                               readonly="1"/>
+                        <field name="adresse_de_bien_ids" string="Adresse de bien" force_save="True" readonly="1"/>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='website']" position="after">
+                <field name="is_delegation_cgp" string="Délégation CGP ?" widget="boolean" force_save="True"
+                       readonly="1" help="La délégation CGP est géré sur l'admin."/>
+            </xpath>
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="readonly">is_delegation_cgp == True</attribute>
+                <attribute name="required">user_ids != []</attribute>
+                <attribute name="help">Si délégation CGP : en lecture seule. Faire les modifications sur l'admin.
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+    <record id="contacts.action_contacts" model="ir.actions.act_window">
+        <field name="name">Contacts</field>
+        <field name="res_model">res.partner</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créez un contact dans votre carnet d'adresse
+            </p>
+            <p>
+                Odoo vous aide à facilement suivre toutes les activités liées à un vendeur.
+            </p>
+        </field>
+    </record>
+</odoo>

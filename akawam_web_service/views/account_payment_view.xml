@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherited Account Payment form view and added new buttons-->
+        <record id="payment_move_form" model="ir.ui.view">
+            <field name="name">payment.move.form</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_form"/>
+            <field name="arch" type="xml">
+                <button name="action_draft" position="after">
+                    <button name="sync_to_akawam" class="btn-primary" string="Sync to Akawam" type="object"
+                            groups="base.group_no_one"
+                            context="{'force_akawam_sync': True}"/>
+                </button>
+                <!-- Adding History Invoice button -->
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_open_history_invoice_ids" type="object"
+                            class="oe_stat_button" icon="fa-linux"
+                            groups="base.group_no_one">
+                        <div class="o_form_field o_stat_info">
+                            <span class="o_stat_text">
+                                <field name="history_invoice_count"/>
+                                <span> History Invoice</span>
+                            </span>
+                        </div>
+                    </button>
+                </div>
+            </field>
+        </record>
+
+        <!-- Server action to sync payment to Akawam -->
+        <record model="ir.actions.server" id="payment_sync_to_akawam_action">
+            <field name="name">Sync to akawam</field>
+            <field name="model_id" ref="account.model_account_payment"/>
+            <field name="state">code</field>
+            <field name="code">
+                <!-- Loop through selected payment records and sync them to Akawam -->
+                for item in records:
+                item.with_context(force_akawam_sync=True).sync_to_akawam()
+            </field>
+            <field name="binding_model_id" ref="account.model_account_payment"/>
+            <field name="binding_type">action</field>
+        </record>
+    </data>
+</odoo>

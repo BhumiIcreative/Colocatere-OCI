@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for purchase.order -->
+    <record id="colocatere_studio_inherit_purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='purchase_delivery_invoice']//group[2]" position="after">
+                <group name="studio_group_lcKcl">
+                    <group name="studio_group_lcKcl_left" string="Edition PDF">
+                        <field name="marque_finvest_immo" string="Marque FINVEST IMMO"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing tree view for purchase.order -->
+    <record id="colocatere_studio_inherit_purchase_order_kpis_tree" model="ir.ui.view">
+        <field name="name">purchase.order.view.tree.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_kpis_tree"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="is_projet_active" string="Is Projet active" widget="boolean_toggle" optional="show"/>
+            </field>
+            <field name="date_approve" position="after">
+                <field name="tag_ids" widget="many2many_tags"/>
+            </field>
+        </field>
+    </record>
+    <!-- Inheriting the existing filter view for purchase.order -->
+    <record id="colocatere_studio_inherit_view_purchase_order_filter" model="ir.ui.view">
+        <field name="name">purchase.order.view.filter.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='activities_exception']" position="after">
+                <separator name="separator_AmmVD"/>
+                <filter domain="[('tag_ids.name', '=' ,'CGP')]"
+                        name="filter_Cfn3i" string="CGP"/>
+                <filter domain="[('tag_ids.name', '=' , 'Sous-traitant')]"
+                        name="filter_lWC3E" string="Sous-traitant"/>
+                <filter domain="[('tag_ids.name', '=' ,'Commercial')]"
+                        name="filter_iGwwu" string="Commercial"/>
+                <filter domain="[('tag_ids.name','=','Décorateur')]"
+                        name="filter_Oq4hU" string="Decorateur"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

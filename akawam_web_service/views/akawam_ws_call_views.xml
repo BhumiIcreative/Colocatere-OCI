@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form view for the Akawam WS Call model and add fields.-->
+    <record model="ir.ui.view" id="akawam_ws_call_form">
+        <field name="name">Akawam WS Call form</field>
+        <field name="model">akawam.ws.call</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="name"/>
+                            <field name="method"/>
+                        </group>
+                        <group>
+                            <field name="model_name"/>
+                            <field name="odoo_id"/>
+                            <field name="akawam_id"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="datas"/>
+                        </group>
+                        <group>
+                            <field name="time"/>
+                            <field name="response_code"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="response"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree view for the Akawam WS Call model -->
+    <record model="ir.ui.view" id="akawam_ws_call_tree">
+        <field name="name">Akawam WS Call tree</field>
+        <field name="model">akawam.ws.call</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="name"/>
+                <field name="method"/>
+                <field name="model_name"/>
+                <field name="odoo_id"/>
+                <field name="akawam_id"/>
+                <field name="time"/>
+                <field name="response_code"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action definition to open the Akawam WS Call views -->
+    <record model="ir.actions.act_window" id="akawam_ws_call_action">
+        <field name="name">Akawam WS Call</field>
+        <field name="res_model">akawam.ws.call</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu item to access the Akawam WS Call model from the property menu -->
+    <menuitem id="akawam_ws_call_menu"
+              action="akawam_ws_call_action"
+              name="Akawam WS Call"
+              parent="col_property.property_menu"/>
+</odoo>

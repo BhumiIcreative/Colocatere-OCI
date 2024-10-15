@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="logging_model_custom_graph_view" model="ir.ui.view">
+        <field name="name">Default graph view for ir.logging</field>
+        <field name="model">ir.logging</field>
+        <field name="arch" type="xml">
+            <graph string="Logging">
+                <field name="name" required="True"/>
+            </graph>
+        </field>
+    </record>
+    <record id="base.ir_logging_all_act" model="ir.actions.act_window">
+        <field name="name">Historisation</field>
+        <field name="res_model">ir.logging</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+</odoo>

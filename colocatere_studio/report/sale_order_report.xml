@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="description_saleorder_document_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@class='page']/div[@id='informations']/div[5]" position="replace">
+            <div t-if="doc.user_id.name" class="col-auto col-3 mw-100 mb-2">
+                <strong>Salesperson:</strong>
+                <br/>
+                <span class="m-0" t-field="doc.vendeur_id"/>
+            </div>
+        </xpath>
+        <xpath expr="//div[@class='page']" position="before">
+            <div class="col-12">
+                <div class="col-6">
+                    <b>Projet :</b>
+                    <div t-field="doc.purchase_contract_id.property_id.partner_address_id" t-options-widget="'contact'"
+                         t-options-fields="['address']"/>
+                </div>
+                <div class="col-6">
+                    <t t-foreach="doc.purchase_contract_id.owner_ids" t-as="table_line">
+                        <p t-field="table_line.display_name" style="margin:0;font-weight: bold;"/>
+                    </t>
+                    <div t-field="doc.partner_id" t-options-widget="'contact'" t-options-fields="['address']"/>
+                </div>
+            </div>
+        </xpath>
+        <!--Filter category (Travuax etc..)-->
+    </template>
+</odoo>

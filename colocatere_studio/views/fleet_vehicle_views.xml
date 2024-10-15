@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for fleet.vehicle -->
+    <record id="colocatere_studio_inherit_fleet_vehicle_view_form" model="ir.ui.view">
+        <field name="name">fleet.vehicle.inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='seats']" position="after">
+                <field name="fleet_critair"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

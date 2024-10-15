@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for account.move -->
+    <record id="colocatere_studio_inherit_view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='anomaly']" position="after">
+                <field name="anomaly_description" groups="base.group_no_one"
+                       force_save="True" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='lease_id']" position="after">
+                <field name="debut_de_bail_le" string="Debut de bail le"
+                       invisible="project_id == False or company_id != 2 or journal_id != 34"/>
+                <field name="etiquettes_ids" widget="many2many_tags"/>
+                <field name="fin_de_bail_le" invisible="project_id == False or company_id != 2 or journal_id != 34"/>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[2]/field[@name='line_ids']/tree[1]/field[@name='partner_id']"
+                   position="after">
+                <field name="qualit_partenaire_ids" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//label[@for='partner_id']" position="before">
+                <field name="etiquette_ids" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='other_info']/group[1]" position="after">
+                <group name="group_RUT4u">
+                    <group name="group_RUT4u_left" string="Edition PDF">
+                        <field name="marque_finvest_immo" string="Marque FINVEST IMMO"/>
+                    </group>
+                </group>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page name="page_h40GX" string="Colocatère">
+                    <group name="group_h40GX">
+                        <group name="group_h40GX_left">
+                            <field name="sourceur_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="vendeur_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group name="group_h40GX_right">
+                            <field name="type_akawam" force_save="True" readonly="1"/>
+                            <field name="is_balance_invoice"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing search view for account.move -->
+    <record id="colocatere_studio_inherit_view_account_invoice_filter" model="ir.ui.view">
+        <field name="name">account.move.search.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='duedate']" position="after">
+                <filter string="CGP" name="cgp_id" context="{'group_by': 'cgp_id'}"/>
+                <filter string="Vendeur" name="vendeur_id" context="{'group_by': 'vendeur_id'}"/>
+                <filter string="Sourceur" name="sourceur_id" context="{'group_by': 'sourceur_id'}"/>
+                <filter string="Type Akawam" name="type_akawam"
+                        context="{'group_by': 'type_akawam'}"/>
+                <filter string="Anomaly Description" name="anomaly_description"
+                        context="{'group_by':'anomaly_description'}"/>
+                <filter context="{'group_by': 'fin_de_bail_le'}" name="fin_de_bail_le"
+                        string="Fin de bail le"/>
+            </xpath>
+            <xpath expr="//search[1]/field[@name='date']" position="after">
+                <field name="cgp_id"/>
+                <field name="vendeur_id"/>
+                <field name="sourceur_id"/>
+            </xpath>
+            <xpath expr="//filter[@name='in_deficit']" position="after">
+                <filter domain="[('marque_finvest_immo', '=', True)]" name="filter_SUXx1"
+                        string="Marque FINVEST IMMO"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing Invoice Tree view for account.move -->
+    <record id="colocatere_studio_inherit_view_invoice_tree" model="ir.ui.view">
+        <field name="name">account.move.tree.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='invoice_partner_display_name']" position="before">
+                <field name="etiquette_ids" widget="many2many_tags"/>
+                <field name="project_active" widget="boolean_toggle" optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='amount_total_signed']" position="after">
+                <field name="in_deficit" optional="hide"/>
+                <field name="gestion_particuliere" optional="hide"/>
+            </xpath>
+            <xpath expr="//field[@name='amount_residual_signed']" position="after">
+                <field name="project_id_akawam_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing move tree view for account.move -->
+    <record id="colocatere_studio_inherit_view_move_tree" model="ir.ui.view">
+        <field name="name">account.move.tree.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="etiquettes_ids" optional="hide" widget="many2many_tags"/>
+            </xpath>
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="project_id_akawam_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing filter view for account.move -->
+    <record id="colocatere_studio_inherit_view_account_move_filter" model="ir.ui.view">
+        <field name="name">account.move.filter.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_move_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search[1]/separator[3]" position="after">
+                <filter domain="[('marque_finvest_immo', '=', True)]" name="filter_l7VSW"
+                        string="Marque FINVEST IMMO"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Defining a custom filter for account.move -->
+    <record id="filter_account_move_rvrst" model="ir.filters">
+        <field name="name">Rvrst 31-Octobre comptabilisé le 04/11 (to draft)</field>
+        <field name="model_id">account.move</field>
+        <field name="domain">[('journal_id.id', '=', 33), ('id','in',["245035","245200","245445",
+            "245487","245489","245496","245499","245505","245512","245515","245517","245520",
+            "245524","245528","245559","245575","245592","245615","245634","245696","245699",
+            "245709","245717","245720","245722","245727","245750","245752","245754","245759",
+            "245765","245767","245775","245779","245789","245792","245808","245811","245814",
+            "245816","245820","245823","245828","245834","245839","245842","245843","245845",
+            "245846","245848","245851","245855","245879","245939","245952","246009","246020",
+            "246025","246031","246062","246064","246068","246071","246076","246081","246091",
+            "246099","246105","246110","246113","246116","246119","246122","246124","246135",
+            "246137","246194","246206","246280","246283","246287","246428","246429"])]
+        </field>
+        <field name="is_default" eval="False"/>
+        <field name="context">{'default_journal_id':33}</field>
+    </record>
+
+    <record id="account.action_move_in_invoice_type" model="ir.actions.act_window">
+        <field name="name">Factures</field>
+        <field name="res_model">account.move</field>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+        <field name="view_id" ref="account.view_invoice_tree"/>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer une facture fournisseur
+            </p>
+            <p>
+                Créez des factures, enregistrez des paiements et suivez les discussions avec vos fournisseurs.
+            </p>
+        </field>
+    </record>
+    <record id="action_bills_and_refunds" model="ir.actions.act_window">
+        <field name="name">Factures + Avoirs</field>
+        <field name="res_model">account.move</field>
+        <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+        <field name="view_id" ref="account.view_invoice_tree"/>
+        <field name="view_mode">tree,kanban,form,pivot</field>
+        <field name="domain">[('move_type', 'in', ('in_refund','in_invoice'))]</field>
+        <field name="context">{'default_type': 'in_invoice'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer une note de crédit vendeur
+            </p>
+            <p>
+                Notez que la façon la plus simple de créer un avoir fournisseur est de le faire directement à partir de
+                la facture fournisseur.
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_bill_and_refunds" action="action_bills_and_refunds" parent="account.menu_finance_payables" sequence="3"/>
+
+
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for property.property -->
+    <record id="colocatere_studio_inherit_view_property_form" model="ir.ui.view">
+        <field name="name">property.property.form.inherit</field>
+        <field name="model">property.property</field>
+        <field name="inherit_id" ref="col_property.view_property_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='lease_manager_id']" position="after">
+                <field name="nom_colocation"/>
+                <field name="marque_finvest_immo"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing tree view for property.property -->
+    <record id="colocatere_studio_inherit_view_property_tree" model="ir.ui.view">
+        <field name="name">property.property.tree.inherit</field>
+        <field name="model">property.property</field>
+        <field name="inherit_id" ref="col_property.view_property_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='purchase_contract_count']" position="after">
+                <field name="nom_colocation"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- custom search view for property.property -->
+    <record id="colocatere_studio_custom_search_view" model="ir.ui.view">
+        <field name="name">property.property.search.custom</field>
+        <field name="model">property.property</field>
+        <field name="arch" type="xml">
+            <search string="property property">
+                <field name="name" position="after">
+                    <field name="nom_colocation"/>
+                </field>
+            </search>
+        </field>
+    </record>
+</odoo>

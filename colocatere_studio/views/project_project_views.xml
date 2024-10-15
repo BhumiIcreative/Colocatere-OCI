@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inheriting the existing form view for project.project -->
+    <record id="colocatere_studio_inherit_edit_project" model="ir.ui.view">
+        <field name="name">project.project.form.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='settings']/group[1]" position="after">
+                <group name="group_3VX0W">
+                    <group name="group_3VX0W_left" string="Indemnisation / Geste Commercial">
+                        <field name="gestion_particuliere" widget="boolean_toggle"/>
+                        <field name="gestion_particuliere_description"/>
+                    </group>
+                    <group name="group_3VX0W_right" string=" "/>
+                </group>
+            </xpath>
+            <xpath expr="//group/field[@name='company_id']" position="after">
+                <field name="marque_finvest_immo"/>
+            </xpath>
+            <xpath expr="//field[@name='active']" position="before">
+                <field name="property_id" options="{'no_create': True}"/>
+            </xpath>
+        </field>
+    </record>
+    <!-- Inheriting the existing Tree view for project.project -->
+    <record id="colocatere_studio_inherit_view_project" model="ir.ui.view">
+        <field name="name">project.project.tree.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.view_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="property_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="project.open_view_project_all" model="ir.actions.act_window">
+        <field name="name">Projets</field>
+        <field name="res_model">project.project</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer un nouveau projet
+            </p>
+            <p>
+                Ou <a type="action" name="434" tabindex="-1">activer le projet de démonstration</a> pour jouer avec.
+            </p>
+        </field>
+    </record>
+    <record id="project_project_model_custom_pivot_view" model="ir.ui.view">
+        <field name="name">Default pivot view for project.project</field>
+        <field name="model">project.project</field>
+        <field name="arch" type="xml">
+            <pivot string="Projet"/>
+        </field>
+    </record>
+    
+    <record id="project.open_view_project_all_config" model="ir.actions.act_window">
+        <field name="name">Projets</field>
+        <field name="res_model">project.project</field>
+        <field name="view_mode">tree,kanban,form,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Créer un nouveau projet
+            </p>
+            <p>
+                Organisez vos activités (planifier les tâches, suivre les incidents, facturer les feuilles de temps)
+                pour les projets internes, personnels ou clients.
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="mail_message_model_custom_graph_view" model="ir.ui.view">
+        <field name="name">Default graph view for mail.message</field>
+        <field name="model">mail.message</field>
+        <field name="arch" type="xml">
+            <graph string="Message">
+                <field name="date"/>
+            </graph>
+        </field>
+    </record>
+    <record id="mail_message_model_custom_pivot_view" model="ir.ui.view">
+        <field name="name">Default pivot view for mail.message</field>
+        <field name="model">mail.message</field>
+        <field name="arch" type="xml">
+            <pivot string="Message"/>
+        </field>
+    </record>
+    <record id="mail.action_view_mail_message" model="ir.actions.act_window">
+        <field name="name">Messages</field>
+        <field name="res_model">mail.message</field>
+        <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+</odoo>

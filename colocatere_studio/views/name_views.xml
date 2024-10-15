@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_name_view_form" model="ir.ui.view">
+        <field name="name">name.form.view</field>
+        <field name="model">name</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet string="Name">
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="external_identifier" required="1"/>
+                            <field name="date"/>
+                            <field name="account_id" required="1"/>
+                            <field name="partner_id"/>
+                            <field name="ref" required="1"/>
+                            <field name="date_maturity" required="1"/>
+                            <field name="name"/>
+                            <field name="debit" required="credit == False"/>
+                            <field name="credit" required="debit == False"/>
+                        </group>
+                        <group>
+                            <field name="result"/>
+                            <field name="field_account_id"
+                                   domain="['|','|','|','|','|','|',('account_id', '=', account_id),('partner_id', '=', partner_id),('ref' ,'=', ref),('date_maturity' ,'=', date_maturity),('name' ,'=', name),('debit' ,'=', debit),('credit' ,'=', credit)]"
+                                   options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="x_name_view_tree" model="ir.ui.view">
+        <field name="name">name.tree.view</field>
+        <field name="model">name</field>
+        <field name="arch" type="xml">
+            <tree string="nom">
+                <field name="name"/>
+                <field name="external_identifier"/>
+                <field name="date"/>
+                <field name="account_id"/>
+                <field name="partner_id"/>
+                <field name="ref"/>
+                <field name="date_maturity"/>
+                <field name="name"/>
+                <field name="debit"/>
+                <field name="credit"/>
+                <field name="result"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_x_name" model="ir.actions.act_window">
+        <field name="name">name</field>
+        <field name="res_model">name</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                This is your new action ; by default, it contains a list view and a form view.
+
+            </p>
+            <p>
+                You can start customizing these screens by clicking on the Studio icon on the
+                top right corner (you can also customize this help message there).
+            </p>
+        </field>
+    </record>
+    <menuitem id="account_tmp_reconcile_menu" name="tmp-reconcile" groups="base.group_no_one"
+              parent="account_accountant.menu_accounting" sequence="9999">
+        <menuitem id="menu_name" name="name" action="action_name" sequence="1"/>
+    </menuitem>
+</odoo>
