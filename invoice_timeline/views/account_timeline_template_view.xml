@@ -35,10 +35,6 @@
                             <field name="product_categ_id"/>
                         </tree>
                     </field>
-                    <br/>
-                    <h3>CGV</h3>
-                    <br/>
-                    <field colspan="4" name="oci_note_cgv" nolabel="1"/>
                 </sheet>
             </form>
         </field>

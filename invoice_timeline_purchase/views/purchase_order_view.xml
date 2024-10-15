@@ -16,15 +16,13 @@
 
             <!-- Modify the first 'action_create_invoice' button attributes -->
             <xpath expr="//button[@name='action_create_invoice'][1]" position="attributes">
-                <attribute name="invisible">state not in ('purchase', 'done') or invoice_status in ('no', 'invoiced') or
-                    invoice_timeline_template_id
+                <attribute name="invisible">state not in ('purchase', 'done') or invoice_status in ('no', 'invoiced') or invoice_timeline_template_id
                 </attribute>
             </xpath>
 
             <!-- Modify the second 'action_create_invoice' button attributes -->
             <xpath expr="//button[@name='action_create_invoice'][2]" position="attributes">
-                <attribute name="invisible">state not in ('purchase', 'done') or invoice_status not in ('no','invoiced')
-                    or not order_line or invoice_timeline_template_id
+                <attribute name="invisible">state not in ('purchase', 'done') or invoice_status not in ('no','invoiced') or not order_line or invoice_timeline_template_id
                 </attribute>
             </xpath>
 

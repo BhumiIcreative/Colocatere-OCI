@@ -49,7 +49,6 @@ class AccountTimelineTemplate(models.Model):
     line_ids = fields.One2many(
         "account.timeline.template.line", "template_id", string="Lines", copy=True
     )
-    oci_note_cgv = fields.Html("Terms of sales")
 
     def action_view_invoices(self):
         """
