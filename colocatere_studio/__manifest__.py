@@ -44,7 +44,7 @@
         'views/ir_logging_views.xml',
         'views/maiL_message_views.xml',
         'views/hr_employee_view.xml',
-        # 'report/sale_order_report.xml',
+        'report/sale_order_report.xml',
         'report/account_move_report.xml',
 
     ],
