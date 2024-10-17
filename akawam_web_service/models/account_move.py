@@ -234,6 +234,10 @@ class AccountMove(models.Model):
         print("\n\n\n\n1111111111111111sssssssssssssssss",JOURNAUX.get("QUITTANCE"))
         log("---------- sync_to_akawam invoice")
         # Determine the type of journal (location, standard, or maintenance)
+        print("journal------------",self.journal_id.id in (
+            JOURNAUX.get("REVERSEMENT"),
+            JOURNAUX.get("QUITTANCE"),
+        ))
         is_location_journal = self.journal_id.id in (
             JOURNAUX.get("REVERSEMENT"),
             JOURNAUX.get("QUITTANCE"),
@@ -257,6 +261,7 @@ class AccountMove(models.Model):
             print("\n\n\n\niffffffffffffffffffff")
             self._timeline_sync_to_akawam()
         elif is_location_journal and self.company_id.id == COMPANY.get("SARL_COLOCATERE"):
+            print("\n\n\nelifffffffffffffffffffffffffffffffff")
             self._location_sync_to_akawam()
         elif is_maintenance_invoice:
             print("\n\n\nmaintence::::::::::;;")

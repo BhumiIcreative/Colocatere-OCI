@@ -19,7 +19,6 @@
         "security/ir.model.access.csv",
         "views/account_move_view.xml",
         "views/account_timeline_template_view.xml",
-        "views/sale_order_views.xml",
         "wizard/account_move_date_update_view.xml",
     ],
 }
