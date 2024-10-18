@@ -2,6 +2,8 @@
 
 from odoo import models
 
+# from v12.enterprise.pos_blackbox_be.models.pos_blackbox_be import product_template
+
 
 class AccountTimelineTemplateLine(models.Model):
     _inherit = "account.timeline.template.line"
@@ -12,6 +14,7 @@ class AccountTimelineTemplateLine(models.Model):
         intervals defined in the timeline template.
         """
         if self != self.template_id.line_ids[0]:
+
             return super()._get_date(date_start)
 
         Script = self.env["script.tools"]
@@ -24,12 +27,8 @@ class AccountTimelineTemplateLine(models.Model):
         date_start = Script.date_delta(
             date_start, month_delta, delta_type="months"
         ).replace(day=1)
-        next_lines = (
-            self.template_id.line_ids[1:]
-            .filtered(lambda x: x.sequence > self.sequence)
-            .sorted("sequence")
-        )
 
+        next_lines = self.template_id.line_ids[1:].sorted('sequence')
         if next_lines:
             res += next_lines[0]._get_date(date_start)
 

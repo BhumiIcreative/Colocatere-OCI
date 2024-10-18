@@ -8,6 +8,7 @@ class ProjectProject(models.Model):
     _name = "project.project"
     _inherit = ["project.project", "akawam.connector"]
 
+    room_count = fields.Integer(string=_("Room count"), compute="_cpt_count_room", store=True)
     lease_count = fields.Integer(
         string=_("Lease count"), compute="_cpt_count", store=True
     )
@@ -55,6 +56,29 @@ class ProjectProject(models.Model):
     )
 
     agency_col_id = fields.Many2one("res.partner", string=_("Agence"))
+
+    @api.depends(
+        "property_ids", "property_ids.room_ids"
+    )
+    def _cpt_count_room(self):
+        """Compute and set counts for rooms, properties, leases, and others."""
+        for project_id in self:
+            project_id.room_count = sum(len(property_id.room_ids) for property_id in project_id.property_ids)
+
+    def action_view_rooms(self):
+        """Open the room records related to the current project."""
+        self.ensure_one()
+        room_ids = self.mapped("property_ids.room_ids")
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Rooms'),
+            'view_mode': 'tree,form',
+            'res_model': 'property.room',
+            'domain': [('id', 'in', room_ids.ids)],
+            'context': {
+                'default_property_id': self.id,
+            },
+        }
 
     def _fix_project_id_to_project_ids(self):
         property_ids = self.env["property.property"].search(

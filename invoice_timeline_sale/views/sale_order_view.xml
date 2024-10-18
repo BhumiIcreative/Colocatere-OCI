@@ -13,7 +13,7 @@
             </field>
              <!-- Set the 'invisible' attribute based on the 'invoice_timeline_template_id' field -->
             <xpath expr="//button[@id='create_invoice']" position="attributes">
-                <attribute name="invisible">invoice_timeline_template_id</attribute>
+                <attribute name="invisible">invoice_timeline_template_id or invoice_status != 'no' or state != 'sale'</attribute>
             </xpath>
         </field>
     </record>

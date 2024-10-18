@@ -24,6 +24,12 @@
                             icon="fa-home">
                         <field name="property_count" widget="statinfo" string="Property"/>
                     </button>
+                     <button name="action_view_rooms"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-bed">
+                        <field name="room_count" widget="statinfo" string="Rooms"/>
+                    </button>
 
                     <button name="action_view_leases"
                             type="object"

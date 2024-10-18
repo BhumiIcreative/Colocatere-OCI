@@ -23,7 +23,7 @@ class PropertyProperty(models.Model):
         "res.partner", string=_("Lease manager"), required=True
     )
     partner_address_id = fields.Many2one(
-        "res.partner", string=_("Partner Adresse"), required=True
+        "res.partner", string=_("Partner Address"), required=True
     )
     project_id = fields.Many2one("project.project", string=_("Project"))
     room_ids = fields.One2many("property.room", "property_id", string=_("Rooms"))
@@ -36,6 +36,10 @@ class PropertyProperty(models.Model):
         relation="rel_project_project__property_property",
         string=_("Projects"),
     )
+
+
+
+
 
     @api.depends("room_ids", "lease_ids", "purchase_contract_ids")
     def _cpt_count(self):

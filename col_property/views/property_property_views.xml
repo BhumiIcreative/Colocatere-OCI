@@ -76,8 +76,14 @@
     <menuitem
             id="property_menu"
             name="Property"
-            action="property_property_action"
-            sequence="20"
             web_icon="col_property,static/description/icon.png"
+    />
+
+     <menuitem
+            id="property_menu_sab_1"
+            name="Property"
+            parent="property_menu"
+            action="property_property_action"
+            sequence="1"
     />
 </odoo>

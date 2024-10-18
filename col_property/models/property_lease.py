@@ -19,7 +19,7 @@ class PropertyLease(models.Model):
     property_id = fields.Many2one(
         "property.property", string=_("Property"), required=True
     )
-    room_id = fields.Many2one("property.room", string=_("Room"))
+    room_id = fields.Many2one("property.room", string=_("Room"), domain="[('property_id', '=', property_id), ('property_id.project_ids', 'in', project_ids)]")
 
     lessor_partner_ids = fields.Many2many(
         "res.partner", string=_("Lessor"), relation="rel_partner_lessor"
@@ -32,6 +32,7 @@ class PropertyLease(models.Model):
     tenant_partner_ids = fields.Many2many(
         "res.partner", string=_("Tenant"), relation="rel_partner_tenant"
     )
+
 
     @api.depends("property_id", "property_id.name", "start_date", "end_date")
     def _cpt_name(self):

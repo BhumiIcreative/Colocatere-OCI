@@ -18,7 +18,7 @@
                         <group>
                             <field name="start_date"/>
                             <field name="end_date"/>
-                            <field name="pricing_id"/>
+                            <field name="pricing_id" options="{'no_create': True}"/>
                         </group>
                     </group>
                     <separator string="Tenant" name="Tenant"/>
@@ -40,7 +40,7 @@
                 <field name="start_date"/>
                 <field name="end_date"/>
                 <field name="property_id"/>
-                <field name="room_id"/>
+                <field name="room_id" />
                 <field name="tenant_partner_ids" widget="many2many_tags"/>
                 <field name="lessor_partner_ids" widget="many2many_tags"/>
             </tree>

@@ -16,7 +16,7 @@ class SaleOrder(models.Model):
         "x_studio_marque_finvest_immo"
     )
     # FIXME la fonction est également définie dans cet autre module invoice_timeline_CGV/models/sale_invoice.py
-    @api.depends("project_id", "project_id.property_ids")
+    @api.depends("project_id", "project_id.property_ids","x_studio_marque_finvest_immo")
     def _cpt_invoice_timeline_template_id(self):
         account_timeline_obj = self.env["account.timeline.template"]
         for sale_id in self:
@@ -28,7 +28,7 @@ class SaleOrder(models.Model):
             if sale_id.invoice_status in ["invoiced"]:
                 continue
             # Check if the sale order is from company with ID 1
-            if sale_id.company_id.id == 1:
+            if sale_id.company_id.id == 1 and sale_id.project_id:
                 # Calculate the total number of rooms from the project's property records
                 room_count = sum(
                     sale_id.project_id.mapped("property_ids").mapped(

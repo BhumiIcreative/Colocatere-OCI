@@ -120,7 +120,9 @@ class AccountTimelineTemplate(models.Model):
         date_start = fields.Date.from_string(date_start)
         dates = self.line_ids[0]._get_date(date_start)
         current_sequence = self.line_ids[0].sequence
-        current_date = 0
+        current_interval = self.line_ids[0].interval
+        current_product = self.line_ids[0].product_categ_id.name
+        current_date = -1
         for line_id in self.line_ids.sorted("sequence"):
             if line_id.sequence != current_sequence:
                 current_sequence = line_id.sequence

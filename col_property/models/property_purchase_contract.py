@@ -11,7 +11,8 @@ class PurchaseContract(models.Model):
     @api.model
     def _get_default_currency(self):
         """Return the default currency for account moves"""
-        return self.env["account.move"]._compute_currency_id()
+        journal = self.env["account.move"]._search_default_journal()
+        return journal.currency_id or journal.company_id.currency_id
 
     amount = fields.Monetary(string=_("Property price (buying price)"))
     compromise_date = fields.Date(string=_("Compromise date"))

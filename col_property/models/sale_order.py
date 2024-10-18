@@ -23,6 +23,14 @@ class SaleOrder(models.Model):
         readonly=False,
     )
 
+    @api.onchange('project_id')
+    def project(self):
+        if not self.project_id:
+            self.purchase_contract_id = False
+        elif self.project_id and self.purchase_contract_id:
+            if self.project_id.id != self.purchase_contract_id.id:
+                self.purchase_contract_id = False
+
     @api.depends("project_id", "project_id.analytic_account_id")
     def _cpt_analytic_account_id(self):
         """set the analytic account from the project's analytic account."""

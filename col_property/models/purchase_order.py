@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, _
+from odoo import fields, models, _,api
 
 
 class PurchaseOrder(models.Model):
@@ -12,6 +12,14 @@ class PurchaseOrder(models.Model):
     purchase_contract_id = fields.Many2one(
         "property.purchase_contract", string=_("Purchase contract")
     )
+
+    @api.onchange('project_id')
+    def project(self):
+        if not self.project_id:
+            self.purchase_contract_id = False
+        elif self.project_id and self.purchase_contract_id:
+            if self.project_id.id != self.purchase_contract_id.id:
+                self.purchase_contract_id = False
 
     def _prepare_invoice(self):
         """Prepare invoice values including project

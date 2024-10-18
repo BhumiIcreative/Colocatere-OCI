@@ -8,22 +8,20 @@ from odoo.exceptions import UserError
 
 def increment_date(date, interval, interval_type):
     """Increments the given date by a specified interval based on the interval_type"""
-    if interval:
-        if interval_type == "day":
-            return date + relativedelta(days=interval)
-        elif interval_type == "month":
-            return date + relativedelta(months=interval)
-    return date  # Return the original date if interval is None or 0.
+    if interval and interval_type == 'day':
+        return date + relativedelta(days=interval)
+    elif interval and interval_type == 'month':
+        return date + relativedelta(months=interval)
+    return date
 
 
 def decrement_date(date, interval, interval_type):
     """Decrements the given date by a specified interval based on the interval_type"""
-    if interval:
-        if interval_type == "day":
-            return date - relativedelta(days=interval)
-        elif interval_type == "month":
-            return date - relativedelta(months=interval)
-    return date  # Return the original date if interval is None or 0.
+    if interval and interval_type == 'day':
+        return date - relativedelta(days=interval)
+    elif interval and interval_type == 'month':
+        return date - relativedelta(months=interval)
+    return date
 
 
 class AccountTimelineTemplateLine(models.Model):
@@ -84,22 +82,12 @@ class AccountTimelineTemplateLine(models.Model):
                 )
 
     def _get_date(self, date_start):
-        """
-        Compute a list of dates starting from `date_start`,
-        incrementing based on line intervals.
-
-        Returns: list
-        """
         real_date_start = decrement_date(date_start, self.interval, self.interval_type)
-        line_ids = self.template_id.line_ids.filtered(
-            lambda l: l.sequence >= self.sequence
-        )
-        line_ids = line_ids.sorted("sequence")
+        line_ids = self.template_id.line_ids.filtered(lambda l: l.sequence >= self.sequence and l != self)
+        line_ids = line_ids.sorted('sequence')
         dates = [date_start]
         for line_id in line_ids:
-            date = increment_date(
-                real_date_start, line_id.interval, line_id.interval_type
-            )
+            date = increment_date(real_date_start, line_id.interval, line_id.interval_type)
             if date not in dates:
                 dates.append(date)
         return dates

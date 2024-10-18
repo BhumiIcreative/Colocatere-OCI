@@ -40,6 +40,18 @@ class AccountMove(models.Model):
         readonly=True,
     )
 
+    @api.onchange('project_id')
+    def project(self):
+        if not self.project_id:
+            self.purchase_contract_id = False
+        elif self.project_id and self.purchase_contract_id:
+            if self.project_id.id != self.purchase_contract_id.id:
+                self.purchase_contract_id = False
+
+        if self.project_id and self.lease_id:
+            if self.project_id not in self.lease_id.project_ids.ids:
+                self.lease_id = False
+
     @api.depends("lease_id", "lease_id.lessor_partner_ids")
     def _cpt_lease_partner_ids(self):
         """Compute and set lease partner IDs based on the associated lease."""
@@ -80,7 +92,6 @@ class AccountMove(models.Model):
         script = self.env["script.tools"]
         date = date or fields.Date.today()
         month_range = script.get_date_month_start_stop(date)
-
         move_ids = self.search(
             [
                 ("state", "not in", ["posted", "cancel"]),
@@ -90,7 +101,6 @@ class AccountMove(models.Model):
                 ("line_ids", "!=", False),
             ]
         )
-
         try:
             negative_move_ids = move_ids.filtered(
                 lambda x: x.amount_total < 0 and "refund" not in x.type
