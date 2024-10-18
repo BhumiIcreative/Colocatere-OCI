@@ -54,6 +54,7 @@ class AkawamWsCall(models.Model):
     time = fields.Float(string=_("Call time"))
 
     def call(self, route, record_id, datas):
+        print("\n\n\nCall")
         self = self.sudo()
         script_obj = self.env["script.tools"]
         # Generate hash and compare with stored hash
@@ -112,6 +113,7 @@ class AkawamWsCall(models.Model):
                 "time": stop - start,
             }
         )
+        print("\n\n\ncall _id ::::::::::::", call_id)
         response = json.loads(response.text)
         # Error handling
         if "data" not in response and method == "POST":

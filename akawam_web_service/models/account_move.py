@@ -16,9 +16,8 @@ log = logging.getLogger().info
 class AccountMove(models.Model):
     _inherit = "account.move"
 
-    """Function to get Akawam-specific line items for invoices"""
-
     def get_akawam_lines(self):
+        """Function to get Akawam-specific line items for invoices"""
         lines = []
         for line_id in self.invoice_line_ids:
             lines.append(
@@ -29,9 +28,8 @@ class AccountMove(models.Model):
             )
         return lines
 
-    """Sync function for invoice data related to a timeline (specific to certain contracts)"""
-
     def _timeline_sync_to_akawam(self):
+        """Sync function for invoice data related to a timeline (specific to certain contracts)"""
         log("---------- _timeline_sync_to_akawam invoice")
         # Pour les entrée journal achat/vente de travaux lié à un contrat d'achat dans la SAS
         # run if """ is_standard_invoice and self.purchase_contract_id and self.company_id.id == COMPANY.get('SAS_GROUPE_COLOCATERE') """
@@ -75,9 +73,8 @@ class AccountMove(models.Model):
 
         return True
 
-    """Sync function for standard invoices to Akawam"""
-
     def _invoice_sync_to_akawam(self):
+        """Sync function for standard invoices to Akawam"""
         log("---------- _invoice_sync_to_akawam invoice")
         route = "/api/v1/model/invoice"
         # Determine invoice state based on its status
@@ -104,17 +101,12 @@ class AccountMove(models.Model):
 
         return True
 
-    """Sync function for invoices related to property locations (specific journals and company)"""
-
     def _location_sync_to_akawam(self):
+        """Sync function for invoices related to property locations (specific journals and company)"""
         log("---------- _location_sync_to_akawam invoice")
         # si facture de quittance et reversement
         # run if """ if is_location_journal and self.company_id.id == COMPANY.get('SARL_COLOCATERE'): """
         route = "/api/v1/model/period"
-        # FIXME le temps que Sylvain patch /api/v1/model/financial-report pour recevoir le même détail d'info
-        #       ajout des lignes 122 à 147 avec nouvelles données
-        #       indentation de l'ancien code lg 152 à 162 pour execution uniquement "facture quittance"
-        #  Après fix, il faudra mettre le nouveau code après le "si quittance" en dehors du IF
         states = {
             "draft": 0,
             "to_post": 0,
@@ -151,9 +143,8 @@ class AccountMove(models.Model):
         self.env["akawam.ws.call"].call(route, self, datas)
         return True
 
-    """Sync function for maintenance-related invoices (special handling for SARL)"""
-
     def _maintenance_sync_to_akawam(self):
+        """Sync function for maintenance-related invoices (special handling for SARL)"""
         log("---------- _maintenance_sync_to_akawam invoice")
         route = "/api/v1/model/invoicemaintenance"
         states = {
@@ -177,9 +168,8 @@ class AccountMove(models.Model):
         self.env["akawam.ws.call"].call(route, self, datas)
         return True
 
-    """Sync function for reversed invoices"""
-
     def sync_reversed_entry_to_akawam(self):
+        """Sync function for reversed invoices"""
         log("---------- _location_sync_to_akawam invoice")
         # run if "extourne/avoir de facture déjà synchro" pour envoyé comme s'il s'agissait d'un paiement de la facture
         # if is_standard_invoice and self.purchase_contract_id and self.company_id.id == COMPANY.get('SAS_GROUPE_COLOCATERE'):
@@ -236,8 +226,8 @@ class AccountMove(models.Model):
         self.env["akawam.ws.call"].call(route, self, datas)
         return True
 
-    # Main sync function for different types of invoices
     def sync_to_akawam(self):
+        # Main sync function for different types of invoices
         log("---------- sync_to_akawam invoice")
         # Determine the type of journal (location, standard, or maintenance)
         is_location_journal = self.journal_id.id in (
@@ -268,9 +258,8 @@ class AccountMove(models.Model):
             self.sync_reversed_entry_to_akawam()
         return True
 
-    """Override the write function to trigger sync upon updates"""
-
     def write(self, vals):
+        """Override the write function to trigger sync upon updates"""
         log("---------- write invoice")
         res = super().write(vals)
         # Sync to Akawam if the project is linked to Akawam
@@ -279,10 +268,9 @@ class AccountMove(models.Model):
                 move_id.sync_to_akawam()
         return res
 
-    """Override the create function to trigger sync upon creation"""
-
     @api.model_create_multi
     def create(self, vals_list):
+        """Override the create function to trigger sync upon creation"""
         move_ids = super().create(vals_list)
         # Sync to Akawam if the project is linked to Akawam
         for move_id in move_ids:

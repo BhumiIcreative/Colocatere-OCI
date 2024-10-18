@@ -26,10 +26,9 @@ class AccountPayment(models.Model):
         help="Store every related invoice, even no longer reconcilied.",
     )
 
-    """Compute function to update history_invoice_ids and count, based on reconciled invoices"""
-
     @api.depends("reconciled_invoice_ids")
     def _cpt_history_invoice_ids(self):
+        """Compute function to update history_invoice_ids and count, based on reconciled invoices"""
         for payment_id in self:
             # Get the current reconciled invoices
             current_invoice_ids = payment_id.reconciled_invoice_ids
@@ -46,9 +45,8 @@ class AccountPayment(models.Model):
     def action_open_history_invoice_ids(self):
         return self.env["script.tools"].open_records(self.history_invoice_ids)
 
-    """Function to sync tenant payments to the Akawam system"""
-
     def _tenant_sync_to_akawam(self):
+        """Function to sync tenant payments to the Akawam system"""
         route = "/api/v1/model/tenant-payment"
         # Prepare the data to send to the Akawam system
         datas = {
@@ -72,9 +70,8 @@ class AccountPayment(models.Model):
         self.akawam_route = route
         return True
 
-    """Main function to sync payments to Akawam based on the type of payment"""
-
     def sync_to_akawam(self):
+        """Main function to sync payments to Akawam based on the type of payment"""
         # Don't sync if payment is still in draft state
         if self.state == "draft":
             return False
@@ -82,16 +79,24 @@ class AccountPayment(models.Model):
         is_sarl = self.company_id.id == COMPANY.get("SARL_COLOCATERE")
         # Determine payment type based on related invoices
         for invoice_id in self.reconciled_invoice_ids:
-            if invoice_id.move_type in (
-                "out_invoice",
-                "out_refund",
-            ) and invoice_id.journal_id.id == JOURNAUX.get("QUITTANCE"):
+            if (
+                invoice_id.move_type
+                in (
+                    "out_invoice",
+                    "out_refund",
+                )
+                and invoice_id.journal_id.id == JOURNAUX.get("QUITTANCE")
+            ):
                 payment_type = "tenant"
                 break
-            if invoice_id.move_type in (
-                "in_invoice",
-                "in_refund",
-            ) and invoice_id.journal_id.id == JOURNAUX.get("REVERSEMENT"):
+            if (
+                invoice_id.move_type
+                in (
+                    "in_invoice",
+                    "in_refund",
+                )
+                and invoice_id.journal_id.id == JOURNAUX.get("REVERSEMENT")
+            ):
                 payment_type = "owner"
         # Sync tenant payments to Akawam if conditions are met
         if self.akawam_route == "/api/v1/model/tenant-payment" or (
@@ -103,9 +108,8 @@ class AccountPayment(models.Model):
             invoice_id.sync_to_akawam()
         return True
 
-    """Override write to ensure Akawam sync after modifications"""
-
     def write(self, vals):
+        """Override write to ensure Akawam sync after modifications"""
         res = super().write(vals)
         # If the Akawam route is not manually modified, trigger the sync
         if "akawam_route" not in vals:
@@ -113,17 +117,15 @@ class AccountPayment(models.Model):
                 payment_id.sync_to_akawam()
         return res
 
-    """Override create to sync newly created payments to Akawam"""
-
     @api.model
     def create(self, vals):
+        """Override create to sync newly created payments to Akawam"""
         payment_id = super().create(vals)
         payment_id.sync_to_akawam()
         return payment_id
 
-    """Override action_post to sync payments and their reconciled invoices to Akawam when posted"""
-
     def action_post(self):
+        """Override action_post to sync payments and their reconciled invoices to Akawam when posted"""
         res = super().action_post()
         for payment_id in self:
             payment_id.sync_to_akawam()
